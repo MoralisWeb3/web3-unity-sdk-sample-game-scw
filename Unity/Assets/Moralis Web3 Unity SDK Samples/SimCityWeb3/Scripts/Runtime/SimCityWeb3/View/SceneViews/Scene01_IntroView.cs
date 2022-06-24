@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
 using UnityEngine;
@@ -83,18 +83,26 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		// Event Handlers ---------------------------------
 		private void AuthenticateButton_OnClicked()
 		{
+			PlayAudioClipClick();
+			
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadAuthenticationScene();
 		}
 		
 		
-		private void SettingsButton_OnClicked()
+		private async void SettingsButton_OnClicked()
 		{
+
+			PlayAudioClipClick();
+		
+			
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadSettingsScene();
 		}
 		
 		
 		private void ViewMapButtonUIText_OnClicked()
 		{
+			PlayAudioClipClick();
+			
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadGameScene();
 		}
 		

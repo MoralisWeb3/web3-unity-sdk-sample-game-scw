@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using MoralisUnity.Platform.Objects;
 using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
 using MoralisUnity.Web3Api.Models;
 using UnityEngine;
@@ -29,18 +28,16 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 		// General Methods --------------------------------
 		public async UniTask<List<PropertyData>> LoadPropertyDatas()
 		{
-			
 			Debug.Log("LoadPropertyDatas()...");
 			
-			MoralisUser moralisUser = await Moralis.GetUserAsync();
-			
-			NftOwnerCollection nftOwnerCollection1 = await Moralis.Web3Api.Account.GetNFTs(
-				moralisUser.ethAddress, ChainList.mumbai);
-
-			foreach (NftOwner nftOwner in nftOwnerCollection1.Result)
+			bool hasMoralisUser = await SimCityWeb3Singleton.Instance.HasMoralisUserAsync();
+			if (!hasMoralisUser)
 			{
-				Debug.Log("NFTOwner1: " + nftOwner.TokenAddress);
+				Debug.LogError(SimCityWeb3Constants.ErrorMoralisUserRequired);
+				return null;
 			}
+			
+			List<PropertyData> propertyDatas = new List<PropertyData>();
 			
 			NftOwnerCollection nftOwnerCollection2 = await Moralis.Web3Api.Token.GetNFTOwners(
 				_propertyContract.Address,
@@ -48,26 +45,40 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 			
 			foreach (NftOwner nftOwner in nftOwnerCollection2.Result)
 			{
-				Debug.Log("NFTOwner2: " + nftOwner.TokenAddress);
+				string owner = nftOwner.OwnerOf;
+				string metadata = nftOwner.TokenUri;
+				propertyDatas.Add(PropertyData.CreateNewPropertyDataFromMetadata(owner, metadata));
 			}
 			
-			//WIP - return empty list
-			List<PropertyData> propertyDatas = new List<PropertyData>();
+		
 			return propertyDatas;
 		}
 
-		public async UniTask SavePropertyDatas(List<PropertyData> propertyDatas)
+		public async UniTask SavePropertyData(PropertyData propertyData)
+		{
+			string result = await _propertyContract.MintPropertyNft(propertyData);
+		}
+
+		public async UniTask SavePropertyData(List<PropertyData> propertyDatas)
 		{
 			foreach (PropertyData propertyData in propertyDatas)
 			{
 				string result = await _propertyContract.MintPropertyNft(propertyData);
-				Debug.Log($"Result={result}");
 			}
 		}
 
-		public UniTask DeleteAllPropertyDatas()
+		public async UniTask DeletePropertyData(PropertyData propertyData)
 		{
-			throw new System.NotImplementedException();
+			string result = await _propertyContract.BurnPropertyNft(propertyData);
+		}
+
+		public async UniTask DeleteAllPropertyDatas(List<PropertyData> propertyDatas)
+		{
+			foreach (PropertyData propertyData in propertyDatas)
+			{
+				string result = await _propertyContract.BurnPropertyNft(propertyData);
+				Debug.Log($"Result={result}");
+			}
 		}
 
 		// Event Handlers ---------------------------------

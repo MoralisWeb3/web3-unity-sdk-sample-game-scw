@@ -36,4 +36,13 @@ contract Property is ERC721URIStorage {
         _tokenIds.increment();
         return newItemId;
     }
+    
+    // Called from the game to delete ("burn") an existing property
+    function burnPropertyNft(uint256 tokenId) public 
+    {
+        // DISCLAIMER -- NOT A PRODUCTION READY CONTRACT
+        // require(msg.sender == owner);
+
+        _burn (tokenId);
+    }
 }

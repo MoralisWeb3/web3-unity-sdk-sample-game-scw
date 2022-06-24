@@ -40,6 +40,18 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 			string result = await ExecuteContractFunction("mintPropertyNft", args);
 			return result;
 		}
+		
+		public async UniTask<string> BurnPropertyNft (PropertyData propertyData)
+		{
+			string metadata = propertyData.GetMetadata();
+			Debug.Log("metadata: " + metadata);
+			object[] args =
+			{
+				metadata
+			};
+			string result = await ExecuteContractFunction("burnPropertyNft", args);
+			return result;
+		}
 
 		// Event Handlers ---------------------------------
 	

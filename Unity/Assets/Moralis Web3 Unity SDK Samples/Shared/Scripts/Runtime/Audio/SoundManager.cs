@@ -43,7 +43,6 @@ namespace MoralisUnity.Samples.Shared.Audio
 				if (!audioSource.isPlaying)
 				{
 					audioSource.clip = audioClip;
-					//Debug.Log("PlayAudioClip() name = " + audioSource.clip.name);
 					audioSource.Play();
 					return;
 				}

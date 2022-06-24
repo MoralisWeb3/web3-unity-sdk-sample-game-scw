@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
@@ -37,30 +38,28 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 			return propertyDatas;
 		}
 
-		public async UniTask SavePropertyDatas(List<PropertyData> propertyDatas)
+		
+		public async UniTask SavePropertyData(PropertyData propertyData)
 		{
-			// TODO: Replace this delete-then-add with a more robust add-only-if-new
-			
-			// Delete
-			await Moralis_DeleteAll();
-
-			// Add
-			foreach (PropertyData propertyData in propertyDatas)
-			{
-				await Moralis_Create(propertyData);
-			}
+			await Moralis_Create(propertyData);
 		}
 
-		public async UniTask DeleteAllPropertyDatas()
+		
+		public async UniTask DeletePropertyData(PropertyData propertyDatas)
+		{
+			await Moralis_DeleteOne(propertyDatas);
+		}
+
+		
+		public async UniTask DeleteAllPropertyDatas(List<PropertyData> propertyDatas)
 		{
 			await Moralis_DeleteAll();
 		}
 
-
+		
 		// Static Methods ---------------------------------
 		private static async UniTask Moralis_Create(PropertyData propertyData)
 		{
-			
 			///////////////////////////////////////////
 			// Execute: Create
 			///////////////////////////////////////////
@@ -70,6 +69,28 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 
 		}
 
+		public static async UniTask<PropertyDataMoralisObject> Moralis_QueryOne(PropertyData propertyData)
+		{
+			List<PropertyDataMoralisObject> results = await Moralis_Query();
+			List<PropertyDataMoralisObject> matchingResults = new List<PropertyDataMoralisObject>();
+			foreach (PropertyDataMoralisObject result in results)
+			{
+				if (result.PropertyData.Latitude.Equals(propertyData.Latitude) &&
+				    result.PropertyData.Longitude.Equals(propertyData.Longitude) &&
+				    result.PropertyData.OwnerAddress.Equals(propertyData.OwnerAddress) 
+				   )
+				{
+					matchingResults.Add(result);
+				}
+			}
+
+			if (matchingResults.Count == 1)
+			{
+				return matchingResults[0];
+			}
+			throw new Exception($"Moralis_DeleteOne() failed. matchingResults.Count must be 1. ");
+		}
+		
 		public static async UniTask<List<PropertyDataMoralisObject>> Moralis_Query()
 		{
 			///////////////////////////////////////////
@@ -81,29 +102,27 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 			return results;
 		}
 
-		private static async UniTask<PropertyDataMoralisObject> Moralis_Delete(
-			PropertyDataMoralisObject moralisObjectToDelete)
+		private static async UniTask Moralis_DeleteOne(PropertyData propertyData)
 		{
-			///////////////////////////////////////////
-			// Execute: DeleteAsync
-			///////////////////////////////////////////
-			await Moralis.GetClient().DeleteAsync<PropertyDataMoralisObject>(moralisObjectToDelete);
-			
-			return moralisObjectToDelete;
+			PropertyDataMoralisObject propertyDataMoralisObject = await Moralis_QueryOne(propertyData);
+			await Moralis.GetClient().DeleteAsync<PropertyDataMoralisObject>(propertyDataMoralisObject);
 		}
+		
 		
 		private static async UniTask Moralis_DeleteAll()
 		{
-			///////////////////////////////////////////
-			// Execute: DeleteAsync
-			///////////////////////////////////////////
 			List<PropertyDataMoralisObject> results = await Moralis_Query();
 
 			foreach (PropertyDataMoralisObject result in results)
 			{
+				///////////////////////////////////////////
+				// Execute: DeleteAsync
+				///////////////////////////////////////////
 				await Moralis.GetClient().DeleteAsync<PropertyDataMoralisObject>(result);
 			}
 		}
+		
+
 		
 		// Event Handlers ---------------------------------
 

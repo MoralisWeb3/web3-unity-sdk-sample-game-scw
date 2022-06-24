@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Microsoft.Geospatial;
+using Microsoft.Maps.Unity;
 using MoralisUnity.Platform.Objects;
 using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
 using MoralisUnity.Sdk.Exceptions;
@@ -167,7 +168,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 			_sellButton.interactable = GameMode == GameMode.Selecting;
 			
 			// Map
-			_mapUI.IsInteractable = _backButton.interactable;
+			_mapUI.IsInteractable = GameMode == GameMode.Default || GameMode == GameMode.Selecting || GameMode == GameMode.Buying;
 			
 			// Secondary Buttons
 			_acceptButton.interactable = GameMode == GameMode.Buying || GameMode == GameMode.Selling;
@@ -227,24 +228,23 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 			mapPropertyUI.OnClicked.AddListener(MapPropertyUI_OnClicked);
 		}
 		
-		private async void AcceptToSellPropertyUI(MapPropertyUI mapPropertyUI)
+		
+		private async UniTask AcceptToSellPropertyUI()
 		{
-			PlayAudioClipClick();
+			// Save to the service
+			Debug.Log("START DeletePropertyData() ");
+			await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.DeletePropertyData(_pendingSellingMapPropertyUI.PropertyData);
+			Debug.Log("END DeletePropertyData() ");
 			
 			// Update the data model
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.RemovePropertyData(_pendingSellingMapPropertyUI.PropertyData);
-					
-			// Save to the data model
-			await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.SavePropertyDatas();
-
+			
 			// Remove from scrolling-with-map 
-			_mapPropertyUIs.Remove(mapPropertyUI);
-			_mapUI.PropertyMapPinLayer.MapPins.Remove(mapPropertyUI.MapPin);
-			mapPropertyUI.OnClicked.RemoveListener(MapPropertyUI_OnClicked);
-			Destroy(mapPropertyUI.gameObject);
+			_mapPropertyUIs.Remove(_pendingSellingMapPropertyUI);
+			_mapUI.PropertyMapPinLayer.MapPins.Remove(_pendingSellingMapPropertyUI.MapPin);
+			_pendingSellingMapPropertyUI.OnClicked.RemoveListener(MapPropertyUI_OnClicked);
+			Destroy(_pendingSellingMapPropertyUI.gameObject);
 		}
-
-
 
 
 		// Event Handlers ---------------------------------
@@ -318,8 +318,8 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 						// Update the data model
 						SimCityWeb3Singleton.Instance.SimCityWeb3Controller.AddPropertyData(_pendingCreationMapPropertyUI.PropertyData);
 					
-						// Save to the data model
-						await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.SavePropertyDatas();
+						// Save to the service
+						await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.SavePropertyData(_pendingCreationMapPropertyUI.PropertyData);
 			
 						// Clear pending
 						_pendingCreationMapPropertyUI = null;
@@ -337,7 +337,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 						PlayAudioClipClick();
 						
 						// Update the data model
-						AcceptToSellPropertyUI(_pendingSellingMapPropertyUI);
+						await AcceptToSellPropertyUI();
 		
 						// Clear pending
 						_pendingSellingMapPropertyUI = null;

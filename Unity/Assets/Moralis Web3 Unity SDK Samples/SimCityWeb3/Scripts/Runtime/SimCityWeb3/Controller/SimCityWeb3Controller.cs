@@ -46,18 +46,21 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 		}
 
 		
-		public async UniTask SavePropertyDatas()
+		public async UniTask SavePropertyData (PropertyData propertyData)
 		{
-			List<PropertyData> propertyDatas = _simCityWeb3Model.PropertyDatas;
-
-			await _simCityWeb3Service.SavePropertyDatas(propertyDatas);
-			Debug.Log($"SavePropertyDatas() Count = {propertyDatas.Count}");
-			
+			await _simCityWeb3Service.SavePropertyData(propertyData);
+			Debug.Log($"SavePropertyDatas() propertyData = {propertyData}");
+		}
+		
+		public async UniTask DeletePropertyData(PropertyData propertyData)
+		{
+			await _simCityWeb3Service.DeletePropertyData(propertyData);
 		}
 		
 		public async UniTask DeleteAllPropertyDatas()
 		{
-			await _simCityWeb3Service.DeleteAllPropertyDatas();
+			List<PropertyData> propertyDatas = _simCityWeb3Model.PropertyDatas;
+			await _simCityWeb3Service.DeleteAllPropertyDatas(propertyDatas);
 		}
 		
 		public void AddPropertyData(PropertyData propertyData)
@@ -83,36 +86,51 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 
 
 		// Event Handlers ---------------------------------
-		public void LoadIntroScene()
+		public async void LoadIntroScene()
 		{
+			// Wait, So click sound is audible
+			await UniTask.Delay(100);
+
 			string sceneName = _simCityWeb3View.SimCityWeb3Configuration.IntroSceneData.SceneName;
 			_simCityWeb3View.SceneManagerComponent.LoadScene(sceneName);
 		}
 		
 		
-		public void LoadAuthenticationScene()
+		public async void LoadAuthenticationScene()
 		{
+			// Wait, So click sound is audible
+			await UniTask.Delay(100);
+
 			string sceneName = _simCityWeb3View.SimCityWeb3Configuration.AuthenticationSceneData.SceneName;
 			_simCityWeb3View.SceneManagerComponent.LoadScene(sceneName);
 		}
 		
 		
-		public void LoadSettingsScene()
+		public async void LoadSettingsScene()
 		{
+			// Wait, So click sound is audible
+			await UniTask.Delay(100);
+			
 			string sceneName = _simCityWeb3View.SimCityWeb3Configuration.SettingsSceneData.SceneName;
 			_simCityWeb3View.SceneManagerComponent.LoadScene(sceneName);
 		}
 
 		
-		public void LoadGameScene()
+		public async void LoadGameScene()
 		{
+			// Wait, So click sound is audible
+			await UniTask.Delay(100);
+
 			string sceneName = _simCityWeb3View.SimCityWeb3Configuration.GameSceneData.SceneName;
 			_simCityWeb3View.SceneManagerComponent.LoadScene(sceneName);
 		}
 
 		
-		public void LoadPreviousScene()
+		public async void LoadPreviousScene()
 		{
+			// Wait, So click sound is audible
+			await UniTask.Delay(100);
+
 			_simCityWeb3View.SceneManagerComponent.LoadScenePrevious();
 		}
 

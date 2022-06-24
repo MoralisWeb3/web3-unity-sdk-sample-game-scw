@@ -1,6 +1,4 @@
 using Cysharp.Threading.Tasks;
-using MoralisUnity.Kits.AuthenticationKit;
-using MoralisUnity.Samples.Shared.Components;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -67,6 +65,8 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		// Event Handlers ---------------------------------
 		private async void ResetButtonUI_OnClicked()
 		{
+			PlayAudioClipClick();
+			
 			await SimCityWeb3Singleton.Instance.ResetAllData();
 			
 			RefreshUI();
@@ -74,6 +74,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		
 		private void BackButtonUI_OnClicked()
 		{
+			PlayAudioClipClick();
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadIntroScene();
 		}
 	}
