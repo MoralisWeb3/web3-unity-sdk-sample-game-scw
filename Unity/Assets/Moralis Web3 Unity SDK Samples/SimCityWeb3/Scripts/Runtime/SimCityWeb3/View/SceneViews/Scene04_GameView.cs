@@ -67,9 +67,12 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		private LatLon _mapUICenterOnStart = new LatLon();
 		private float _mapUIZoomLevelOnStart = 0;
 		
+		/// <summary>
+		/// Determines the current UI state and the allowable
+		/// user gestures
+		/// </summary>
 		// The "___" means, do not reference this directly. Use property
 		private GameMode ___gameMode = GameMode.Null;
-		
 
 
 		// Unity Methods ----------------------------------
@@ -82,6 +85,9 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		protected override async void Start()
 		{
 			base.Start();
+			
+			// MAP
+			_mapUI.IsInteractable = false;
 	
 			// UI
 			RefreshUI();
@@ -108,6 +114,9 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 			Debug.Log("Start Loading Map");
 			await _mapUI.MapRenderer.WaitForLoad();
 			Debug.Log("Done Loading Map");
+			_mapUI.IsInteractable = true;
+			
+			// Pins
 			RenderPropertyDatas();
 			
 			GameMode = GameMode.Default;
@@ -152,13 +161,18 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		
 		private async void RefreshUI()
 		{
-			_backButton.interactable = GameMode == GameMode.Default;
+			// Main Buttons
+			_backButton.interactable = GameMode == GameMode.Default || GameMode == GameMode.Selecting;
 			_centerButton.interactable = _backButton.interactable;
 			_zoomInButton.interactable = _backButton.interactable;
 			_zoomOutButton.interactable = _backButton.interactable;
-			_buyButton.interactable = _backButton.interactable;
+			_buyButton.interactable = GameMode == GameMode.Default;
 			_sellButton.interactable = GameMode == GameMode.Selecting;
-			//
+			
+			// Map
+			_mapUI.IsInteractable = _backButton.interactable;
+			
+			// Secondary Buttons
 			_acceptButton.interactable = GameMode == GameMode.Buying || GameMode == GameMode.Selling;
 			_cancelButton.interactable = _acceptButton.interactable;
 			SimCityWeb3Helper.SetButtonVisibility(_acceptButton, _acceptButton.interactable);
@@ -235,14 +249,15 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		// Event Handlers ---------------------------------
 		private void MapPropertyUI_OnClicked(MapPropertyUI mapPropertyUI)
 		{
-			_pendingSellingMapPropertyUI = mapPropertyUI;
-			Debug.Log("MapPropertyUI_OnClicked() =" + _pendingSellingMapPropertyUI.PropertyData.Latitude);
+			if ( GameMode == GameMode.Default || GameMode == GameMode.Selecting)
+			{
+				_pendingSellingMapPropertyUI = mapPropertyUI;
 
-			// Select one, deselect all others
-			SelectMapPropertyUI(_pendingSellingMapPropertyUI);
+				// Select one, deselect all others
+				SelectMapPropertyUI(_pendingSellingMapPropertyUI);
 
-			GameMode = GameMode.Selecting;
-
+				GameMode = GameMode.Selecting;
+			}
 		}
 
 

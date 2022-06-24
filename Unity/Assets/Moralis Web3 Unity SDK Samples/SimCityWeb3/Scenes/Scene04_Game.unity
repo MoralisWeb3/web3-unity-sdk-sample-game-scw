@@ -479,10 +479,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.06542274
       objectReference: {fileID: 0}
-    - target: {fileID: 488395113764785024, guid: c2bbf2838f00a7745a2914d77fc938b8, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1113461413442890325, guid: c2bbf2838f00a7745a2914d77fc938b8, type: 3}
       propertyPath: m_Name
       value: MapUI

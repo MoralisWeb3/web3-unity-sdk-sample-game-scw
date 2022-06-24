@@ -71,7 +71,6 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 
 		protected void OnMouseDown()
 		{
-			Debug.Log($"Click on {this}");
 			OnClicked.Invoke(this);
 		}
 

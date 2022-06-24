@@ -11,6 +11,19 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		// Properties -------------------------------------
 		
 		public MapPinLayer PropertyMapPinLayer { get { return _propertyMapPinLayer; }}
+
+		public bool IsInteractable
+		{
+			get
+			{
+				return _isInteractable;
+			}
+			set
+			{
+				_isInteractable = value;
+				_mapMouseInteractionHandler.enabled = _isInteractable;
+			}
+		}
 		
 		public MapPropertyUISpawnPoint MapPropertyUISpawnPoint { get { return _mapPropertyUISpawnPoint; }}
 		
@@ -22,6 +35,9 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		private MapRenderer _mapRenderer = null;
 
 		[SerializeField]
+		private MapMouseInteractionHandler _mapMouseInteractionHandler = null;
+
+		[SerializeField]
 		private MapPinLayer _propertyMapPinLayer = null;
 		
 		[SerializeField]
@@ -29,6 +45,8 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 
 		[SerializeField]
 		private ZoomButtonHandler _zoomButtonHandler = null;
+
+		private bool _isInteractable = true;
 		
 		// Unity Methods ----------------------------------
 		protected void Start()

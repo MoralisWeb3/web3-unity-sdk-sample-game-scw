@@ -632,6 +632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mapRenderer: {fileID: 1113461413839682656}
+  _mapMouseInteractionHandler: {fileID: 1113461413839682658}
   _propertyMapPinLayer: {fileID: 3181465004559857379}
   _mapPropertyUISpawnPoint: {fileID: 1830558416206257428}
   _zoomButtonHandler: {fileID: 1113461413839682671}
