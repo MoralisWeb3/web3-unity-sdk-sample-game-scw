@@ -42,7 +42,6 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
             //TODO: Refactor this parent class to be general
             //and put this child path in the child class
             T instance = Resources.Load<T>("SimCityWeb3Configuration");
-            Debug.Log("x: " + instance);
             return instance;
         }
     }
