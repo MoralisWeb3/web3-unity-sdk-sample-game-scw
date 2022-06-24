@@ -1,4 +1,4 @@
-using MoralisUnity.Samples.SimCityWeb3.Model.Data;
+using MoralisUnity.Samples.Shared.Audio;
 using UnityEngine;
 
 namespace MoralisUnity.Samples.SimCityWeb3.View.UI
@@ -11,7 +11,6 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		// Properties -------------------------------------
 	
 		// Fields -----------------------------------------
-
 		
 		// Unity Methods ----------------------------------
 		protected virtual void Awake ()
@@ -24,7 +23,13 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 
 		}
 		
+		
 		// General Methods --------------------------------
+		protected void PlayAudioClipClick()
+		{
+			SoundManager.Instance.PlayAudioClip(0);
+		}
+		
 		
 		// Event Handlers ---------------------------------
 	}

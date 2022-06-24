@@ -31,7 +31,6 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 			set { ___gameMode = value; RefreshUI();}
 		}
 
-
 		// Fields -----------------------------------------
 		[Header ("References (Scene)")]
 		[SerializeField] 
@@ -122,9 +121,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 			GameMode = GameMode.Default;
 		}
 
-
-
-
+		
 		// General Methods --------------------------------
 		private async UniTask SetupMoralis()
 		{
@@ -232,6 +229,8 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		
 		private async void AcceptToSellPropertyUI(MapPropertyUI mapPropertyUI)
 		{
+			PlayAudioClipClick();
+			
 			// Update the data model
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.RemovePropertyData(_pendingSellingMapPropertyUI.PropertyData);
 					
@@ -246,11 +245,15 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		}
 
 
+
+
 		// Event Handlers ---------------------------------
 		private void MapPropertyUI_OnClicked(MapPropertyUI mapPropertyUI)
 		{
 			if ( GameMode == GameMode.Default || GameMode == GameMode.Selecting)
 			{
+				PlayAudioClipClick();
+				
 				_pendingSellingMapPropertyUI = mapPropertyUI;
 
 				// Select one, deselect all others
@@ -269,6 +272,8 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 				Debug.LogError(SimCityWeb3Constants.ErrorMoralisUserRequired);
 			}
 			
+			PlayAudioClipClick();
+			
 			GameMode = GameMode.Buying;
 
 			MoralisUser moralisUser = await SimCityWeb3Singleton.Instance.GetMoralisUserAsync();
@@ -285,6 +290,8 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		
 		private void SellButton_OnClicked()
 		{
+			PlayAudioClipClick();
+			
 			GameMode = GameMode.Selling;
 		}
 		
@@ -302,6 +309,9 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 					}
 					else
 					{
+						
+						PlayAudioClipClick();
+						
 						// Activate scrolling-with-map
 						AcceptToBuyPropertyUI(_pendingCreationMapPropertyUI, true);
 			
@@ -324,6 +334,8 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 					}
 					else
 					{
+						PlayAudioClipClick();
+						
 						// Update the data model
 						AcceptToSellPropertyUI(_pendingSellingMapPropertyUI);
 		
@@ -352,6 +364,8 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 					}
 					else
 					{
+						PlayAudioClipClick();
+						
 						Destroy(_pendingCreationMapPropertyUI.gameObject);
 					}
 					break;
@@ -364,6 +378,8 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 					}
 					else
 					{
+						PlayAudioClipClick();
+						
 						// Deselect all 
 						SelectMapPropertyUI(null);
 					}
@@ -380,11 +396,15 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		
 		private void BackButton_OnClicked()
 		{
+			PlayAudioClipClick();
+			
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadIntroScene();
 		}
 		
 		private void CenterButton_OnClicked()
 		{
+			PlayAudioClipClick();
+			
 			// Set camera
 			_mapUI.MapRenderer.Center = _mapUICenterOnStart;
 			_mapUI.MapRenderer.ZoomLevel = _mapUIZoomLevelOnStart;
@@ -393,12 +413,16 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		
 		private void ZoomInButton_OnClicked()
 		{
+			PlayAudioClipClick();
+			
 			_mapUI.ZoomIn();
 		}
 		
 		
 		private void ZoomOutButton_OnClicked()
 		{
+			PlayAudioClipClick();
+			
 			_mapUI.ZoomOut();
 		}
 	
