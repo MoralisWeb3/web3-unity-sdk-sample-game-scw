@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Moralis Web3 Unity SDK Samples/SimCityWeb3/Scenes/Scene01_Intro.unity
+    guid: e86d776073058a543aa040dcc9919139
+  - enabled: 1
+    path: Assets/Moralis Web3 Unity SDK Samples/SimCityWeb3/Scenes/Scene02_Authentication.unity
+    guid: bfcf4e4a881d36243a55545c96f338a8
+  - enabled: 1
+    path: Assets/Moralis Web3 Unity SDK Samples/SimCityWeb3/Scenes/Scene03_Settings.unity
+    guid: 366332204cab6ed448ea3ea0f64f4a6a
+  - enabled: 1
+    path: Assets/Moralis Web3 Unity SDK Samples/SimCityWeb3/Scenes/Scene04_Game.unity
+    guid: b03088c9c302191468a3741f5521210c
+  m_configObjects: {}

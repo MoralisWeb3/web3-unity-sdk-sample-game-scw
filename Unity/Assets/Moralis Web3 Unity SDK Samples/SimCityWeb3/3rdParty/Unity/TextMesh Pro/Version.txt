@@ -1,0 +1,6 @@
+Source Url: 
+* https://github.com/microsoft/MapsSDK-Unity
+
+Changelog: 
+* Some unneeded files may have been removed
+* Moved to \Assets\...\3rdParty

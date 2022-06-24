@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1a99b9a9bc47da8c2bc37da397e4cf, type: 3}
+  m_Name: SimCityWeb3Configuration
+  m_EditorClassIdentifier: 
+  _simCityWeb3ViewPrefab: {fileID: 2445102409565368505, guid: a083700a9e0a9f542a485c8a5bd4747d, type: 3}
+  _mapPropertyUIPrefab: {fileID: 1720784973983898717, guid: 65b580b5c5556fd4fa9306f85617e110, type: 3}
+  _introSceneData:
+    _scene: {fileID: 102900000, guid: e86d776073058a543aa040dcc9919139, type: 3}
+  _authenticationSceneData:
+    _scene: {fileID: 102900000, guid: bfcf4e4a881d36243a55545c96f338a8, type: 3}
+  _settingsSceneData:
+    _scene: {fileID: 102900000, guid: 366332204cab6ed448ea3ea0f64f4a6a, type: 3}
+  _gameSceneData:
+    _scene: {fileID: 102900000, guid: b03088c9c302191468a3741f5521210c, type: 3}
+  _simCityWeb3ServiceType: 1
+  _mapZoomOverall: {x: 3, y: 10}
+  _mapZoomForProperty: {x: 3, y: 10}

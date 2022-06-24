@@ -1,0 +1,6 @@
+Source Url: 
+* https://www.kenney.nl/assets/ui-pack
+
+Changelog: 
+* Some unneeded files may have been removed
+* Moved to \Assets\...\3rdParty

@@ -1,0 +1,6 @@
+Source Url: 
+* https://assetstore.unity.com/packages/2d/gui/icons/2d-casual-ui-hd-82080
+
+Changelog: 
+* Some unneeded files may have been removed
+* Moved to \Assets\...\3rdParty
