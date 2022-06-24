@@ -128,7 +128,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 		
 		public async void LoadPreviousScene()
 		{
-			// Wait, So click sound is audible
+			// Wait, So click sound is audible before scene changes
 			await UniTask.Delay(100);
 
 			_simCityWeb3View.SceneManagerComponent.LoadScenePrevious();
