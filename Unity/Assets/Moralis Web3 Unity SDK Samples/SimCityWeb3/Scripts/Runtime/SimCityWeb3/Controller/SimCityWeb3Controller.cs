@@ -134,6 +134,15 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 			_simCityWeb3View.SceneManagerComponent.LoadScenePrevious();
 		}
 
+		public bool HasDeletionMessage()
+		{
+			return _simCityWeb3Service.HasDeletionMessage();
+		}
+		
+		public string GetDeletionMessage()
+		{
+			return _simCityWeb3Service.GetDeletionMessage();
+		}
 	}
 
 }

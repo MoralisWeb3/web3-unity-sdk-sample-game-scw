@@ -122,7 +122,15 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 			}
 		}
 		
-
+		public string GetDeletionMessage()
+		{
+			return "Deleting Object From Database";
+		}
+		
+		public bool HasDeletionMessage()
+		{
+			return true;
+		}
 		
 		// Event Handlers ---------------------------------
 

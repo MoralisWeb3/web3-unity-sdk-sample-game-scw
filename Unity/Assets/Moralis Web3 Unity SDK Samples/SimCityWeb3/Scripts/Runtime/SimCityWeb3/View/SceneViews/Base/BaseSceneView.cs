@@ -9,8 +9,13 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 	public class BaseSceneView : MonoBehaviour
 	{
 		// Properties -------------------------------------
-	
+		public ScreenCoverUI ScreenCoverUI { get { return _screenCoverUI;}}
+		
+		
 		// Fields -----------------------------------------
+		[Header("Base References")]
+		[SerializeField] 
+		private ScreenCoverUI _screenCoverUI = null;
 		
 		// Unity Methods ----------------------------------
 		protected virtual void Awake ()

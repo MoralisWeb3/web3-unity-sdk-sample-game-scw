@@ -81,6 +81,16 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 			}
 		}
 
+		public string GetDeletionMessage()
+		{
+			return "Please confirm transaction in your wallet";
+		}
+		
+		public bool HasDeletionMessage()
+		{
+			return true;
+		}
+
 		// Event Handlers ---------------------------------
 
 	}

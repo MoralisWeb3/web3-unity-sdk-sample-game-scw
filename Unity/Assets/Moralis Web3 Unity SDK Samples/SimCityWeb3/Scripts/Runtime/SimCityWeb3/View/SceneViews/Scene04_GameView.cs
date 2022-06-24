@@ -233,7 +233,10 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		{
 			// Save to the service
 			Debug.Log("START DeletePropertyData() ");
+			ScreenCoverUI.IsVisible = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.HasDeletionMessage();;
+			ScreenCoverUI.MessageText.text = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.GetDeletionMessage();
 			await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.DeletePropertyData(_pendingSellingMapPropertyUI.PropertyData);
+			ScreenCoverUI.IsVisible = false;
 			Debug.Log("END DeletePropertyData() ");
 			
 			// Update the data model
