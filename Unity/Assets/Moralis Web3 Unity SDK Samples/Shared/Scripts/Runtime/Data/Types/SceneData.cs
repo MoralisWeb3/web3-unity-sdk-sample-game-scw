@@ -1,11 +1,10 @@
 using System;
-using MoralisUnity.Samples.Shared.Attributes;
 using UnityEngine;
 
 namespace MoralisUnity.Samples.Shared.Data.Types
 {
 	/// <summary>
-	/// Replace with comments...
+	/// Stores info about Scenes
 	/// </summary>
 	[Serializable]
 	public class SceneData

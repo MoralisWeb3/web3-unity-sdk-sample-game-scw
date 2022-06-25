@@ -3,12 +3,10 @@ using UnityEditor;
 using MoralisUnity.Sdk.Constants;
 using MoralisUnity.Sdk.UI.ReadMe;
 using UnityEngine;
-using System.IO;
 using MoralisUnity.Samples.Shared.Data.Storage;
 using MoralisUnity.Samples.Shared.Utilities;
-using MoralisUnity.Samples.SimCityWeb3;
 
-namespace MoralisUnity.Examples.Sdk.Shared
+namespace MoralisUnity.Samples.SimCityWeb3.Shared
 {
 	/// <summary>
 	/// The MenuItem attribute allows you to add menu items to the main menu and inspector context menus.

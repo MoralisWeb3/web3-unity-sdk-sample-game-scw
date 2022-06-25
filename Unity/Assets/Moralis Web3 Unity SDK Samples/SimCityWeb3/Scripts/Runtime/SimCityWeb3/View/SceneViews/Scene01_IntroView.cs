@@ -1,7 +1,4 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
-using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +6,7 @@ using UnityEngine.UI;
 namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 {
 	/// <summary>
-	/// Replace with comments...
+	/// Main Entry Point For: Scene01_Intro
 	/// </summary>
 	public class Scene01_IntroView : BaseSceneView
 	{

@@ -6,7 +6,8 @@ using UnityEngine;
 namespace MoralisUnity.Samples.SimCityWeb3.Model
 {
 	/// <summary>
-	/// Replace with comments...
+	/// Handles the UI for the game
+	///		* See <see cref="SimCityWeb3Singleton"/>
 	/// </summary>
 	public class SimCityWeb3View : MonoBehaviour
 	{

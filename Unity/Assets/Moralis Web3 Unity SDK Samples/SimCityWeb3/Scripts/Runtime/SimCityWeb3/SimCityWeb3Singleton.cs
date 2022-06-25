@@ -1,18 +1,24 @@
 using Cysharp.Threading.Tasks;
 using MoralisUnity.Platform.Objects;
-using MoralisUnity.Samples.SimCityWeb3.Model.Data;
-using MoralisUnity.Samples.Shared.DesignPatterns.Creational.Singleton.SingletonMonobehaviour;
 using MoralisUnity.Samples.SimCityWeb3.Controller;
 using MoralisUnity.Samples.SimCityWeb3.Model;
 using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
 using MoralisUnity.Samples.SimCityWeb3.Service;
+using MoralisUnity.Sdk.DesignPatterns.Creational.Singleton.SingletonMonobehaviour;
 
 namespace MoralisUnity.Samples.SimCityWeb3
 {
 	/// <summary>
-	/// Replace with comments...
+	/// The main entry point for the whole game
+	///
+	/// This is a 'light' implementation of MVCS.
+	///		* M <see cref="SimCityWeb3Model"/> - Stores data for the game
+	///		* V <see cref="SimCityWeb3View"/>  - Handles the UI for the game
+	///		* C <see cref="SimCityWeb3Controller"/> - Handles the core functionality of the game
+	///		* S <see cref="SimCityWeb3Service"/> - Handles communication with external sources (e.g. database/servers/contracts)
+	/// 
 	/// </summary>
-	public class SimCityWeb3Singleton : BaseGameSingletonMonobehaviour<SimCityWeb3Singleton>
+	public class SimCityWeb3Singleton : SingletonMonobehaviour<SimCityWeb3Singleton>
 	{
 		// Properties -------------------------------------
 		private SimCityWeb3Model SimCityWeb3Model  { get { return _simCityWeb3Model; }}

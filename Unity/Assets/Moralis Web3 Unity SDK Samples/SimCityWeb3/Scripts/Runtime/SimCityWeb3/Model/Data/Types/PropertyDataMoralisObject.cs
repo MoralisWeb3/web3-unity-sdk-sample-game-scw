@@ -4,7 +4,7 @@ using UnityEngine;
 namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 {
 	/// <summary>
-	/// Replace with comments...
+	/// Wrapper for <see cref="PropertyData"/> for use in the Moralis database.
 	/// </summary>
 	public class PropertyDataMoralisObject : MoralisObject
 	{

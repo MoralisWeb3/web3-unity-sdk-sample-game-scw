@@ -8,10 +8,9 @@ MVCS
 
 
 CLEANUP
-* add class comments
+* add class comments (There are still a few more to do)
 * update any flowerboxing
 * 2 lines between code methods
-* Namespace check
 * Assets - remove unneeded 3rd party stuff
 * Name every 'async' method with "BLah{Async}"? Yes. SOunds like a good practice
 

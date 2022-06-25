@@ -9,7 +9,8 @@ using UnityEngine;
 namespace MoralisUnity.Samples.SimCityWeb3.Controller
 {
 	/// <summary>
-	/// Replace with comments...
+	/// Stores data for the game
+	///		* See <see cref="SimCityWeb3Singleton"/> - Handles the core functionality of the game
 	/// </summary>
 	public class SimCityWeb3Controller
 	{

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 {
 	/// <summary>
-	/// Replace with comments...
+	/// Main Entry Point For: Scene02_Authentication
 	/// </summary>
 	public class Scene02_AuthenticationView : BaseSceneView
 	{

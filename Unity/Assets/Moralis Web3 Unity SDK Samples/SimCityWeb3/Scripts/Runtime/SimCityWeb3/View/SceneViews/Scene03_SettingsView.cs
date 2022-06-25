@@ -7,7 +7,7 @@ using UnityEngine.UI;
 namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 {
 	/// <summary>
-	/// Replace with comments...
+	/// Main Entry Point For: Scene03_Settings
 	/// </summary>
 	public class Scene03_SettingsView : BaseSceneView
 	{

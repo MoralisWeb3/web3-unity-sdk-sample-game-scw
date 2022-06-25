@@ -2,7 +2,7 @@ using MoralisUnity.Samples.Shared.Data.Types;
 using UnityEditor;
 using UnityEngine;
 
-namespace MoralisUnity.Samples.PropertyDrawers
+namespace MoralisUnity.Samples.Shared.PropertyDrawers
 {
 	/// <summary>
 	/// Renders the <see cref="SceneData"/> nicely inside

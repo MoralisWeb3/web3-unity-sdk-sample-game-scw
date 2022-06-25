@@ -1,5 +1,6 @@
 using GD.MinMaxSlider;
 using MoralisUnity.Samples.Shared.Data.Types;
+using MoralisUnity.Samples.Shared.DesignPatterns.Creational.Singleton.SingletonScriptableObject2;
 using MoralisUnity.Samples.SimCityWeb3.View.UI;
 using UnityEngine;
 
@@ -7,47 +8,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 {
     
     /// <summary>
-    /// TODO: Move this to another file after updating its implementation per innner comments
-    /// </summary>
-    public class SingletonScriptableObject2<T> :ScriptableObject  where T : ScriptableObject
-    {
-        private static T _Instance = null;
-        
-        public static bool IsInstantiated
-        {
-            get
-            {
-                return _Instance != null;
-            }
-        }
-
-        public static T Instance
-        {
-            get
-            {
-                if (!IsInstantiated)
-                {
-                    _Instance = Instantiate();
-                }
-                return _Instance;
-            }
-            set
-            {
-                _Instance = value;
-            }
-        }
-
-        private static T Instantiate()
-        {
-            //TODO: Refactor this parent class to be general
-            //and put this child path in the child class
-            T instance = Resources.Load<T>("SimCityWeb3Configuration");
-            return instance;
-        }
-    }
-    
-    /// <summary>
-    /// Replace with comments...
+    /// Main configuration for the game. Click the instance of this class in the project to view/edit
     /// </summary>
     [CreateAssetMenu( menuName = SimCityWeb3Constants.PathCreateAssetMenu + "/" + Title,  fileName = Title)]
     public class SimCityWeb3Configuration : SingletonScriptableObject2<SimCityWeb3Configuration>

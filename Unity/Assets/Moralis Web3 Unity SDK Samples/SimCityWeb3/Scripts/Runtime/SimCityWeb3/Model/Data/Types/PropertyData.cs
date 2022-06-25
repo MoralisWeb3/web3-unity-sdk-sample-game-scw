@@ -4,7 +4,7 @@ using UnityEngine;
 namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 {
 	/// <summary>
-	/// Replace with comments...
+	/// Represents all data for one real-estate property in the game
 	/// </summary>
 	[Serializable]
 	public class PropertyData 

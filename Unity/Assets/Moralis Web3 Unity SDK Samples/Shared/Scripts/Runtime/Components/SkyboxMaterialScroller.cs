@@ -3,7 +3,7 @@ using UnityEngine;
 namespace MoralisUnity.Samples.Shared.Components
 {
 	/// <summary>
-	/// Replace with comments...
+	/// Repeatedly scrolls the camera background
 	/// </summary>
 	public class SkyboxMaterialScroller : MonoBehaviour
 	{

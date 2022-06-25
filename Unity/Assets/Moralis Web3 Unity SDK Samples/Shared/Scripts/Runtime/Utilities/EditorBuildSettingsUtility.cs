@@ -5,7 +5,7 @@ using UnityEditor;
 namespace MoralisUnity.Samples.Shared.Utilities
 {
     /// <summary>
-    /// Replace with comments...
+    /// Helpers for Unity Build settings
     /// </summary>
     public static class EditorBuildSettingsUtility  
     {

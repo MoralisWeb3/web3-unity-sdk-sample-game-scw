@@ -11,18 +11,8 @@ using UnityEngine.UI;
 #pragma warning disable CS1998
 namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 {
-	public enum GameMode
-	{
-		Null,
-		Default,
-		Buying,
-		Selecting,
-		Selling,
-		Accepting
-	}
-	
 	/// <summary>
-	/// Replace with comments...
+	/// Main Entry Point For: Scene04_Game
 	/// </summary>
 	public class Scene04_GameView : BaseSceneView
 	{

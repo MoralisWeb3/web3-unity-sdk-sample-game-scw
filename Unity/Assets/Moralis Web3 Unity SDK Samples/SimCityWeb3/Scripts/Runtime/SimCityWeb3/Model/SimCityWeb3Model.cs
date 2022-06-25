@@ -5,14 +5,11 @@ using UnityEngine;
 namespace MoralisUnity.Samples.SimCityWeb3.Model
 {
 	/// <summary>
-	/// Replace with comments...
+	/// Stores data for the game
+	///		* See <see cref="SimCityWeb3Singleton"/>
 	/// </summary>
 	public class SimCityWeb3Model 
 	{
-		// Events -----------------------------------------
-		public PropertyDatasUnityEvent PropertyDatasUnityEvent = new PropertyDatasUnityEvent();
-		
-		
 		// Properties -------------------------------------
 		public List<PropertyData> PropertyDatas { get { return _propertyDatas; } set { _propertyDatas = value; } }
 
@@ -37,20 +34,17 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model
 		public void ResetAllData()
 		{
 			_propertyDatas.Clear();
-			PropertyDatasUnityEvent.Invoke(_propertyDatas);
 		}
 		
 		
 		public void AddPropertyData(PropertyData propertyData)
 		{
 			PropertyDatas.Add(propertyData);
-			PropertyDatasUnityEvent.Invoke(_propertyDatas);
 		}
 		
 		public void RemovePropertyData(PropertyData propertyData)
 		{
 			PropertyDatas.Remove(propertyData);
-			PropertyDatasUnityEvent.Invoke(_propertyDatas);
 		}
 		
 		// Event Handlers ---------------------------------

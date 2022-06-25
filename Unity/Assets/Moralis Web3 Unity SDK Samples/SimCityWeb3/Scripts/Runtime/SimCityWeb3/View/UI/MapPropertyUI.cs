@@ -6,13 +6,13 @@ using UnityEngine.Events;
 
 namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 {
-	public class MapPropertyUIUnityEvent : UnityEvent<MapPropertyUI>
-	{
-		
-	}
+	/// <summary>
+	/// Fired when MapPropertyUI is clicked 
+	/// </summary>
+	public class MapPropertyUIUnityEvent : UnityEvent<MapPropertyUI> {}
 	
 	/// <summary>
-	/// Replace with comments...
+	/// The UI representation of one real-estate property in the game
 	/// </summary>
 	public class MapPropertyUI : MonoBehaviour
 	{
