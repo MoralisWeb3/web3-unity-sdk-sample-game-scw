@@ -103,9 +103,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
         [MinMaxSlider(3, 10)] 
         private Vector2 _mapZoomForProperty = new Vector2(3,10);
 
-
-        
-        private const string Title = "SimCityWeb3Configuration";
+        private const string Title = SimCityWeb3Constants.ProjectName + " Configuration";
 
         // Unity Methods ----------------------------------
         protected void OnValidate()
