@@ -163,10 +163,10 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 			{
 				mapPropertyUI.IsSelected = true;
 					
-				// Set camera
-				_mapUI.MapRenderer.Center = new LatLon(
-					mapPropertyUI.PropertyData.Latitude,
-					mapPropertyUI.PropertyData.Longitude);
+				// Center Camera On mapPropertyUI? Its an ok option, but no.
+				// _mapUI.MapRenderer.Center = new LatLon(
+				// 	mapPropertyUI.PropertyData.Latitude,
+				// 	mapPropertyUI.PropertyData.Longitude);
 				
 				GameMode = GameMode.Selecting;
 			}

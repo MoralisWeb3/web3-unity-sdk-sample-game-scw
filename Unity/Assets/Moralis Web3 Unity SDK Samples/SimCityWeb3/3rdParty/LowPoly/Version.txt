@@ -1,0 +1,6 @@
+Source Url: 
+* https://assetstore.unity.com/packages/3d/environments/building-apartment-80004#description
+
+Changelog: 
+* Some unneeded files may have been removed
+* Moved to \Assets\...\3rdParty
