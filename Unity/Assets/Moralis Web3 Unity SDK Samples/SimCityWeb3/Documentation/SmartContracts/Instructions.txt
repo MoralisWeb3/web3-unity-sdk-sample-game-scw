@@ -1,3 +1,16 @@
+///////////////////////////////////////////////////////////////////////////////////////
+// Instructions.txt
+//
+// The complete Unity Game is included in this repo. However, the Unity game depends on 
+// each Moralis Customer to create and deploy contract(s) on the blockchain
+//      * Follow the full, numbered instructions below to create everything needed from scratch.
+//      * If you have questions, compare your results to these complete files at
+//              "./Unity/Assets/Moralis Web3 Unity SDK Samples/SimCityWeb3/Documentation/SmartContracts/HardHat/"
+//      * When complete, paste the {YourContractAddress} and {YourABI} within Unity at
+//              "./Unity/Assets/Moralis Web3 Unity SDK Samples/SimCityWeb3/Scripts/Runtime/SimCityWeb3/Model/Data/Types/PropertyContract.cs"
+//
+///////////////////////////////////////////////////////////////////////////////////////
+
 // 1. INSTALL NODEJS
 
     https://nodejs.org/en/download/
@@ -69,13 +82,23 @@
 // 13. COMPILE SMART CONTRACT via COMMAND LINE
 
     npx hardhat clean
+    
     npx hardhat compile
 
 
 // 14. RUN "./scripts/deploy{YourContractName}.js" TO DEPLOY SMART CONTRACT via COMMAND LINE
 
-        npx hardhat run scripts/deployProperty.js --network mumbai
+    npx hardhat run scripts/deployProperty.js --network mumbai
+        
+        
+// 15. UPON SUCCESS SEE OUTPUT via COMMAND LINE WHICH RESEMBLES "deployed to: {YourContractAddress}"
 
+    Visit "https://mumbai.polygonscan.com/address/{YourContractAddress}#code" in the browser to find {YourContractAddress} and {YourABI}.
+     
+    Reread the instructions atop this page to use {YourContractAddress} and the {YourABI} in Unity.
+    
+    Congratulations, you are done!
+ 
 
-************* CONTRACT DEPLOYED AND VERIFIED *************
+///////////////////////////////////////////////////////////////////////////////////////
 

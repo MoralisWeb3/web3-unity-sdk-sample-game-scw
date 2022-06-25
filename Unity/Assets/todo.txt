@@ -11,6 +11,7 @@ CLEANUP
 * add class comments
 * update any flowerboxing
 * 2 lines between code methods
+* Namespace check
 * Assets - remove unneeded 3rd party stuff
 * Name every 'async' method with "BLah{Async}"? Yes. SOunds like a good practice
 

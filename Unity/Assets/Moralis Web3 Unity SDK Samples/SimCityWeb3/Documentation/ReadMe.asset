@@ -34,7 +34,7 @@ MonoBehaviour:
   - heading: Getting Started
     subheading: 1. Get the Configuration
     text: Setup the server and copy the config
-    linkText: admin.moralis.io/
+    linkText: admin.moralis.io
     url: https://admin.moralis.io/
   - heading: 
     subheading: 2. Set the Configuration
@@ -44,11 +44,18 @@ MonoBehaviour:
     openMenuName: Web3 Setup Window
     openMenuNameId: Window/Moralis/Web3 Unity SDK/Open Web3 Setup
   - heading: 
-    subheading: 3. Open Any Example Scene
+    subheading: 3. Set Up Web3 Contract(s)
+    text: Follow these instructions
+    linkText: 
+    url: 
+    pingObjectName: Instructions.txt
+    pingObjectGuid: abd75514b51fcf349b7a396e5ae75a51
+  - heading: 
+    subheading: 4. Open Any Example Scene
     text: Play this scene or choose your own
     linkText: 
     url: 
-    pingObjectName: Scene01_Intro
+    pingObjectName: Scene01_Intro.unity
     pingObjectGuid: e86d776073058a543aa040dcc9919139
   - heading: Need Help?
     subheading: 
