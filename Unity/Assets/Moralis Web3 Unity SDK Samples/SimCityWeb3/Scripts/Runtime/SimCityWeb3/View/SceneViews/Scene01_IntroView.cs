@@ -27,8 +27,6 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		private Button _viewMapButtonUIText = null;
 		
 		private bool _hasMoralisUserAtMoralisSetup = false;
-		private List<PropertyData> _propertydatasAtStart = new List<PropertyData>();
-		
 		
 		// Unity Methods ----------------------------------
 		protected override void Awake ()
@@ -47,9 +45,6 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 			_settingsButton.onClick.AddListener(SettingsButton_OnClicked);
 			_viewMapButtonUIText.onClick.AddListener(ViewMapButtonUIText_OnClicked);
 
-			_propertydatasAtStart = 
-				await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadPropertyDatas();
-			
 			RefreshUI();
 		}
 		
@@ -65,8 +60,6 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		
 		private async void RefreshUI()
 		{
-			bool hasPropertyDatas = _propertydatasAtStart.Count > 0;
-
 			//
 			_authenticateButton.interactable = true;
 			_settingsButton.interactable = _hasMoralisUserAtMoralisSetup;
@@ -94,7 +87,6 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 
 			PlayAudioClipClick();
 		
-			
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadSettingsScene();
 		}
 		

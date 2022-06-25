@@ -45,9 +45,10 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 			
 			foreach (NftOwner nftOwner in nftOwnerCollection2.Result)
 			{
-				string owner = nftOwner.OwnerOf;
+				string ownerAddress = nftOwner.OwnerOf;
+				string tokenAddress = nftOwner.TokenAddress;
 				string metadata = nftOwner.TokenUri;
-				propertyDatas.Add(PropertyData.CreateNewPropertyDataFromMetadata(owner, metadata));
+				propertyDatas.Add(PropertyData.CreateNewPropertyDataFromMetadata(ownerAddress, tokenAddress, metadata));
 			}
 			
 		
@@ -81,12 +82,22 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 			}
 		}
 
-		public string GetDeletionMessage()
+		public string GetMessageForDeletePropertyData()
 		{
 			return "Please confirm transaction in your wallet";
 		}
 		
-		public bool HasDeletionMessage()
+		public bool HasMessageForDeletePropertyData()
+		{
+			return true;
+		}
+		
+		public string GetMessageSavePropertyData ()
+		{
+			return "Please confirm transaction in your wallet";
+		}
+		
+		public bool HasMessageForSavePropertyData()
 		{
 			return true;
 		}

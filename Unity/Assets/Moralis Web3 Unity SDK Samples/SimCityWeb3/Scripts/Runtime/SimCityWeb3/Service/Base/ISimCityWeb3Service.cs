@@ -17,7 +17,9 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 		UniTask SavePropertyData(PropertyData propertyData);
 		UniTask DeletePropertyData(PropertyData propertyData);
 		UniTask DeleteAllPropertyDatas(List<PropertyData> propertyDatas);
-		string GetDeletionMessage();
-		bool HasDeletionMessage();
+		string GetMessageForDeletePropertyData();
+		bool HasMessageForDeletePropertyData();
+		string GetMessageSavePropertyData();
+		bool HasMessageForSavePropertyData();
 	}
 }

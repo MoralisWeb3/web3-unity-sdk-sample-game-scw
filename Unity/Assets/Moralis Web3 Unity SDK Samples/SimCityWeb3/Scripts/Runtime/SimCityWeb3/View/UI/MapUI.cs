@@ -26,6 +26,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		}
 		
 		public MapPropertyUISpawnPoint MapPropertyUISpawnPoint { get { return _mapPropertyUISpawnPoint; }}
+		public MapInteractionController MapInteractionController { get { return _mapMouseInteractionHandler.MapInteractionController; }}
 		
 		public MapRenderer MapRenderer { get { return _mapRenderer; }}
 

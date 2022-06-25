@@ -17,7 +17,7 @@ namespace MoralisUnity.Samples.SimCityWeb3
         public const string Logout = "Logout";
         
         // Errors
-        public static string ErrorMoralisUserRequired = "MoralisUser is required.";
+        public static string ErrorMoralisUserRequired = "MoralisUser is required for this Scene. Stop this Scene. Choose another Scene.";
         
     }
 }

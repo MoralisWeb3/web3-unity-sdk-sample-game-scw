@@ -1,7 +1,7 @@
+using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Microsoft.Geospatial;
-using Microsoft.Maps.Unity;
 using MoralisUnity.Platform.Objects;
 using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
 using MoralisUnity.Sdk.Exceptions;
@@ -17,7 +17,8 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		Default,
 		Buying,
 		Selecting,
-		Selling
+		Selling,
+		Accepting
 	}
 	
 	/// <summary>
@@ -88,6 +89,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 			
 			// MAP
 			_mapUI.IsInteractable = false;
+			_mapUI.MapInteractionController.OnInteractionStarted.AddListener(MapInteractionController_OnInteractionStarted);
 	
 			// UI
 			RefreshUI();
@@ -111,18 +113,30 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 			_mapUIZoomLevelOnStart = _mapUI.MapRenderer.ZoomLevel;
 			
 			// Map
-			Debug.Log("Start Loading Map");
-			await _mapUI.MapRenderer.WaitForLoad();
-			Debug.Log("Done Loading Map");
-			_mapUI.IsInteractable = true;
+			await ShowLoadingDuringMethodAsync(
+				true,
+				false,
+				"Loading Map...", 
+				async delegate()
+				{
+					await _mapUI.MapRenderer.WaitForLoad();
+				});
 			
 			// Pins
-			RenderPropertyDatas();
-			
+			await ShowLoadingDuringMethodAsync(
+				true,
+				false,
+				"Loading Properties...", 
+				async delegate( )
+				{
+					await RenderPropertyDatas();
+					_mapUI.IsInteractable = true;
+				});
+				
 			GameMode = GameMode.Default;
 		}
-
 		
+
 		// General Methods --------------------------------
 		private async UniTask SetupMoralis()
 		{
@@ -131,7 +145,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 			bool hasMoralisUser = await SimCityWeb3Singleton.Instance.HasMoralisUserAsync();
 			if (!hasMoralisUser)
 			{
-				Debug.LogError(SimCityWeb3Constants.ErrorMoralisUserRequired);
+				throw new Exception(SimCityWeb3Constants.ErrorMoralisUserRequired);
 			}
 		}
 		
@@ -144,7 +158,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 				nextMapPropertyUI.IsSelected = false;
 			}
 
-			// Maybe, select just one
+			// Select Just one
 			if (mapPropertyUI != null)
 			{
 				mapPropertyUI.IsSelected = true;
@@ -153,6 +167,13 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 				_mapUI.MapRenderer.Center = new LatLon(
 					mapPropertyUI.PropertyData.Latitude,
 					mapPropertyUI.PropertyData.Longitude);
+				
+				GameMode = GameMode.Selecting;
+			}
+			// Select None
+			else
+			{
+				GameMode = GameMode.Default;
 			}
 		}
 
@@ -160,25 +181,28 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		private async void RefreshUI()
 		{
 			// Main Buttons
-			_backButton.interactable = GameMode == GameMode.Default || GameMode == GameMode.Selecting;
-			_centerButton.interactable = _backButton.interactable;
-			_zoomInButton.interactable = _backButton.interactable;
-			_zoomOutButton.interactable = _backButton.interactable;
+			_backButton.interactable = GameMode == GameMode.Default || GameMode == GameMode.Selecting || GameMode == GameMode.Accepting;
+			_centerButton.interactable = GameMode == GameMode.Default || GameMode == GameMode.Selecting;
+			//
+			_zoomInButton.interactable = _centerButton.interactable;
+			_zoomOutButton.interactable = _centerButton.interactable;
+			//
 			_buyButton.interactable = GameMode == GameMode.Default;
 			_sellButton.interactable = GameMode == GameMode.Selecting;
-			
-			// Map
-			_mapUI.IsInteractable = GameMode == GameMode.Default || GameMode == GameMode.Selecting || GameMode == GameMode.Buying;
-			
+	
 			// Secondary Buttons
 			_acceptButton.interactable = GameMode == GameMode.Buying || GameMode == GameMode.Selling;
 			_cancelButton.interactable = _acceptButton.interactable;
 			SimCityWeb3Helper.SetButtonVisibility(_acceptButton, _acceptButton.interactable);
 			SimCityWeb3Helper.SetButtonVisibility(_cancelButton, _cancelButton.interactable);
+			
+			// Map
+			_mapUI.IsInteractable = GameMode == GameMode.Default || GameMode == GameMode.Selecting || GameMode == GameMode.Buying;
+
 		}
 		
 		
-		private async void RenderPropertyDatas()
+		private async UniTask RenderPropertyDatas()
 		{
 			await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadPropertyDatas();
 			
@@ -229,52 +253,42 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		}
 		
 		
-		private async UniTask AcceptToSellPropertyUI()
-		{
-			// Save to the service
-			Debug.Log("START DeletePropertyData() ");
-			ScreenCoverUI.IsVisible = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.HasDeletionMessage();;
-			ScreenCoverUI.MessageText.text = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.GetDeletionMessage();
-			await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.DeletePropertyData(_pendingSellingMapPropertyUI.PropertyData);
-			ScreenCoverUI.IsVisible = false;
-			Debug.Log("END DeletePropertyData() ");
-			
-			// Update the data model
-			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.RemovePropertyData(_pendingSellingMapPropertyUI.PropertyData);
-			
-			// Remove from scrolling-with-map 
-			_mapPropertyUIs.Remove(_pendingSellingMapPropertyUI);
-			_mapUI.PropertyMapPinLayer.MapPins.Remove(_pendingSellingMapPropertyUI.MapPin);
-			_pendingSellingMapPropertyUI.OnClicked.RemoveListener(MapPropertyUI_OnClicked);
-			Destroy(_pendingSellingMapPropertyUI.gameObject);
-		}
-
-
 		// Event Handlers ---------------------------------
+		private void MapInteractionController_OnInteractionStarted()
+		{
+			if (GameMode == GameMode.Selecting)
+			{
+				// Deselect selected property when scrolling the map
+				SelectMapPropertyUI(null);
+			}
+		}
+		
+		
 		private void MapPropertyUI_OnClicked(MapPropertyUI mapPropertyUI)
 		{
 			if ( GameMode == GameMode.Default || GameMode == GameMode.Selecting)
 			{
-				PlayAudioClipClick();
+				if (!mapPropertyUI.IsSelected)
+				{
+					PlayAudioClipClick();
 				
-				_pendingSellingMapPropertyUI = mapPropertyUI;
+					_pendingSellingMapPropertyUI = mapPropertyUI;
 
-				// Select one, deselect all others
-				SelectMapPropertyUI(_pendingSellingMapPropertyUI);
-
-				GameMode = GameMode.Selecting;
+					// Select one, deselect all others
+					SelectMapPropertyUI(_pendingSellingMapPropertyUI);
+				}
+				else
+				{
+					Debug.Log($"MapPropertyUI_OnClicked() failed. mapPropertyUI.IsSelected is already true.");
+				}
+		
 			}
 		}
 
 
 		private async void BuyButton_OnClicked()
 		{
-			bool hasMoralisUser = await SimCityWeb3Singleton.Instance.HasMoralisUserAsync();
-			if (!hasMoralisUser)
-			{
-				Debug.LogError(SimCityWeb3Constants.ErrorMoralisUserRequired);
-			}
-			
+		
 			PlayAudioClipClick();
 			
 			GameMode = GameMode.Buying;
@@ -315,6 +329,8 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 						
 						PlayAudioClipClick();
 						
+						GameMode = GameMode.Accepting;
+						
 						// Activate scrolling-with-map
 						AcceptToBuyPropertyUI(_pendingCreationMapPropertyUI, true);
 			
@@ -322,8 +338,17 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 						SimCityWeb3Singleton.Instance.SimCityWeb3Controller.AddPropertyData(_pendingCreationMapPropertyUI.PropertyData);
 					
 						// Save to the service
-						await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.SavePropertyData(_pendingCreationMapPropertyUI.PropertyData);
-			
+						bool isVisibleInitial = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.HasMessageForSavePropertyData();
+						string message = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.GetMessageSavePropertyData();
+						await ShowLoadingDuringMethodAsync(
+							isVisibleInitial,
+							false,
+							message, 
+							async delegate( )
+							{
+								await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.SavePropertyData(_pendingCreationMapPropertyUI.PropertyData);
+							});
+						
 						// Clear pending
 						_pendingCreationMapPropertyUI = null;
 					}
@@ -339,8 +364,28 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 					{
 						PlayAudioClipClick();
 						
+						GameMode = GameMode.Accepting;
+						
+						// Update to the service
+						bool isVisibleInitial = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.HasMessageForDeletePropertyData();
+						string message = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.GetMessageForDeletePropertyData();
+						await ShowLoadingDuringMethodAsync(
+							isVisibleInitial,
+							false,
+							message, 
+							async delegate( )
+							{
+								await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.DeletePropertyData(_pendingSellingMapPropertyUI.PropertyData);
+							});
+			
 						// Update the data model
-						await AcceptToSellPropertyUI();
+						SimCityWeb3Singleton.Instance.SimCityWeb3Controller.RemovePropertyData(_pendingSellingMapPropertyUI.PropertyData);
+			
+						// Remove from scrolling-with-map 
+						_mapPropertyUIs.Remove(_pendingSellingMapPropertyUI);
+						_mapUI.PropertyMapPinLayer.MapPins.Remove(_pendingSellingMapPropertyUI.MapPin);
+						_pendingSellingMapPropertyUI.OnClicked.RemoveListener(MapPropertyUI_OnClicked);
+						Destroy(_pendingSellingMapPropertyUI.gameObject);
 		
 						// Clear pending
 						_pendingSellingMapPropertyUI = null;

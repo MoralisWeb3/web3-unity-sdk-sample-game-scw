@@ -122,12 +122,22 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 			}
 		}
 		
-		public string GetDeletionMessage()
+		public string GetMessageForDeletePropertyData()
 		{
-			return "Deleting Object From Database";
+			return "Deleting Object From The Database";
 		}
 		
-		public bool HasDeletionMessage()
+		public bool HasMessageForDeletePropertyData()
+		{
+			return true;
+		}
+		
+		public string GetMessageSavePropertyData ()
+		{
+			return "Saving Object To The Database";
+		}
+		
+		public bool HasMessageForSavePropertyData()
 		{
 			return true;
 		}

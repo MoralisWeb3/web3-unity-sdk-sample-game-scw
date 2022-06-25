@@ -39,7 +39,7 @@ namespace MoralisUnity.Samples.Shared.Data.Types
 
 
 		// General Methods --------------------------------
-		protected async UniTask<string> ExecuteContractFunction(string functionName, object[] args)
+		protected async UniTask<string> ExecuteContractFunction(string functionName, object[] args, bool isLogging)
 		{
 			if (WalletConnect.Instance == null)
 			{
@@ -49,32 +49,39 @@ namespace MoralisUnity.Samples.Shared.Data.Types
 					$"Add the WalletConnect.prefab to your scene.");
 			}
 
+			await Moralis.SetupWeb3();
+			
 			// Estimate the gas
 			HexBigInteger value = new HexBigInteger(0);
 			HexBigInteger gas = new HexBigInteger(0);
 			HexBigInteger gasPrice = new HexBigInteger(0);
 
-			StringBuilder stringBuilder = new StringBuilder();
-			stringBuilder.AppendLine($"\t_address = {_address}");
-			stringBuilder.AppendLine($"\t_abi.Length = {_abi.Length}");
-			stringBuilder.AppendLine($"\tfunctionName = {functionName}");
-			stringBuilder.AppendLine($"\tvalue = {value}");
-			stringBuilder.AppendLine($"\tgas = {gas}");
-			stringBuilder.AppendLine($"\tgasPrice = {gasPrice}");
-			Debug.Log($"Contract.ExecuteContractFunction()...\n\n{stringBuilder.ToString()}");
+			if (isLogging)
+			{
+				StringBuilder stringBuilder = new StringBuilder();
+				stringBuilder.AppendLine($"Contract.ExecuteContractFunction()...");
+				stringBuilder.AppendLine($"");
+				stringBuilder.AppendLine($"\taddress		= {_address}");
+				stringBuilder.AppendLine($"\tabi.Length		= {_abi.Length}");
+				stringBuilder.AppendLine($"\tfunctionName	= {functionName}");
+				stringBuilder.AppendLine($"\targs		= {args}");
+				stringBuilder.AppendLine($"\tvalue		= {value}");
+				stringBuilder.AppendLine($"\tgas		= {gas}");
+				stringBuilder.AppendLine($"\tgasPrice	= {gasPrice}");
+				Debug.Log($"{stringBuilder.ToString()}");
+				
+				Debug.Log($"Moralis.ExecuteContractFunction() START");
+			}
+			
+			// Related Documentation
+			// Call Method (Read/Write) - https://docs.moralis.io/moralis-dapp/web3/blockchain-interactions-unity
+			// Call Method (Read Only) - https://docs.moralis.io/moralis-dapp/web3-api/native#runcontractfunction
+			string result = await Moralis.ExecuteContractFunction(_address, _abi, functionName, args, value, gas, gasPrice);
 
-			Debug.Log($"Before... Moralis.SetupWeb3()");
-			await Moralis.SetupWeb3();
-			Debug.Log($"After... Moralis.SetupWeb3()");
-
-			Debug.Log($"Before... Moralis.ExecuteContractFunction");
-
-			//runcontract = read methods
-
-			//execute = changes state
-			string result =
-				await Moralis.ExecuteContractFunction(_address, _abi, functionName, args, value, gas, gasPrice);
-			Debug.Log($"After... Moralis.ExecuteContractFunction");
+			if (isLogging)
+			{
+				Debug.Log($"Moralis.ExecuteContractFunction() FINISH. result={result}");
+			}
 
 			return result;
 		}

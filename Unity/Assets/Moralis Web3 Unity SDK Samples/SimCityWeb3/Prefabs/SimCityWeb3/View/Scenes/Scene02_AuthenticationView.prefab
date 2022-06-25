@@ -97,6 +97,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67d850e661d1707489283d2d56dade0b, type: 3}
+--- !u!114 &2089917727663222439 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3258556821692445393, guid: 67d850e661d1707489283d2d56dade0b, type: 3}
+  m_PrefabInstance: {fileID: 3474625190683417718}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae3e24dd4c70254da7c81e4ac1bbe66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5890355345854840020 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7027559119516016802, guid: 67d850e661d1707489283d2d56dade0b, type: 3}
@@ -114,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a71ddc4a902ae44f9fd44e54d76ff4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _screenCoverUI: {fileID: 2089917727663222439}
   _authenticationKit: {fileID: 0}
   _authenticationKitRectTransform: {fileID: 0}
   _cancelButtonUI: {fileID: 2079719431187987244}

@@ -1,3 +1,4 @@
+using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
@@ -44,6 +45,12 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		private async UniTask SetupMoralis()
 		{
 			Moralis.Start();
+			
+			bool hasMoralisUser = await SimCityWeb3Singleton.Instance.HasMoralisUserAsync();
+			if (!hasMoralisUser)
+			{
+				throw new Exception(SimCityWeb3Constants.ErrorMoralisUserRequired);
+			}
 		}
 
 		private async void RefreshUI()
@@ -67,7 +74,19 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		{
 			PlayAudioClipClick();
 			
-			await SimCityWeb3Singleton.Instance.ResetAllData();
+			// Update to the service
+			bool isVisibleInitial = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.HasMessageForDeletePropertyData();
+			string message = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.GetMessageForDeletePropertyData();
+			await ShowLoadingDuringMethodAsync(
+				isVisibleInitial,
+				false,
+				message, 
+				async delegate( )
+				{
+					_resetButtonUI.interactable = false;
+					_backButtonUI.interactable = true;
+					await SimCityWeb3Singleton.Instance.ResetAllData();
+				});
 			
 			RefreshUI();
 		}

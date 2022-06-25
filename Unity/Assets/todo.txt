@@ -12,6 +12,7 @@ CLEANUP
 * update any flowerboxing
 * 2 lines between code methods
 * Assets - remove unneeded 3rd party stuff
+* Name every 'async' method with "BLah{Async}"? Yes. SOunds like a good practice
 
 NAMING
 * Decide "Button" vs "ButtonUI" in classes and gameobjects

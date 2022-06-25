@@ -1,13 +1,21 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
+// Imports
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-// Each ERC721 instance here represents a globally unique 
-// Real-estate property for the "Sim City Web3" game 
-contract Property is ERC721URIStorage {
+// Related Documentation
+// Standard Nft - https://docs.openzeppelin.com/contracts/4.x/api/token/erc721#ERC721URIStorage
+// Burnable Nft - https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/extensions/ERC721Burnable.sol
 
+// Class Purpose
+//      Each ERC721 instance here represents a globally unique 
+//      Real-estate property for the "Sim City Web3" game
+// Class Deployment
+//      TODO: Replace with contract address ...
+contract Property is ERC721URIStorage 
+{
     // Auto generates tokenIds
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
@@ -23,7 +31,7 @@ contract Property is ERC721URIStorage {
     } 
 
     // Called from the game to mint a new property
-    // The tokenURI contains property metadata (latitude, longitude)
+    // The tokenURI string contains property metadata (latitude, longitude)
     function mintPropertyNft(string memory tokenURI) public returns (uint256)
     {
         // DISCLAIMER -- NOT A PRODUCTION READY CONTRACT
@@ -38,11 +46,11 @@ contract Property is ERC721URIStorage {
     }
     
     // Called from the game to delete ("burn") an existing property
-    function burnPropertyNft(uint256 tokenId) public 
+    function burnPropertyNft(uint256 tokenId) public virtual 
     {
         // DISCLAIMER -- NOT A PRODUCTION READY CONTRACT
         // require(msg.sender == owner);
-
-        _burn (tokenId);
+        
+        _burn(tokenId);
     }
 }

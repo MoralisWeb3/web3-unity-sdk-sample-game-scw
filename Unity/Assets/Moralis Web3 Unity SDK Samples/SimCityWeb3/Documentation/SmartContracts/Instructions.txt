@@ -74,7 +74,7 @@
 
 // 14. RUN "./scripts/deploy{YourContractName}.js" TO DEPLOY SMART CONTRACT via COMMAND LINE
 
-    npx hardhat run scripts/deploy{YourContractName}.js --network mumbai
+        npx hardhat run scripts/deployProperty.js --network mumbai
 
 
 ************* CONTRACT DEPLOYED AND VERIFIED *************
