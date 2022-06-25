@@ -46,16 +46,17 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 		}
 
 		
-		public async UniTask SavePropertyData (PropertyData propertyData)
+		public async UniTask<PropertyData> SavePropertyData (PropertyData propertyData)
 		{
-			await _simCityWeb3Service.SavePropertyData(propertyData);
-			Debug.Log($"SavePropertyDatas() propertyData = {propertyData}");
+			return await _simCityWeb3Service.SavePropertyData(propertyData);
 		}
+		
 		
 		public async UniTask DeletePropertyData(PropertyData propertyData)
 		{
 			await _simCityWeb3Service.DeletePropertyData(propertyData);
 		}
+		
 		
 		public async UniTask DeleteAllPropertyDatas()
 		{

@@ -54,7 +54,6 @@ namespace MoralisUnity.Samples.SimCityWeb3
                 canvasGroup.alpha = 0;
             }
         }
+        
     }
-    
-
 }

@@ -62,7 +62,7 @@ namespace MoralisUnity.Samples.Shared.Data.Types
 				stringBuilder.AppendLine($"Contract.ExecuteContractFunction()...");
 				stringBuilder.AppendLine($"");
 				stringBuilder.AppendLine($"\taddress		= {_address}");
-				stringBuilder.AppendLine($"\tabi.Length		= {_abi.Length}");
+				stringBuilder.AppendLine($"\tabi.Length	= {_abi.Length}");
 				stringBuilder.AppendLine($"\tfunctionName	= {functionName}");
 				stringBuilder.AppendLine($"\targs		= {args}");
 				stringBuilder.AppendLine($"\tvalue		= {value}");

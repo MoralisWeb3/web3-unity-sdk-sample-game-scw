@@ -346,7 +346,10 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 							message, 
 							async delegate( )
 							{
-								await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.SavePropertyData(_pendingCreationMapPropertyUI.PropertyData);
+								// When in DB mode, the returned object is the same
+								// When in Contract mode, the returned object is the same, **PLUS** the tokenId is inserted
+								_pendingCreationMapPropertyUI.PropertyData = 
+									await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.SavePropertyData(_pendingCreationMapPropertyUI.PropertyData);
 							});
 						
 						// Clear pending

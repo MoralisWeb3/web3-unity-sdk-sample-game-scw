@@ -39,9 +39,13 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 		}
 
 		
-		public async UniTask SavePropertyData(PropertyData propertyData)
+		public async UniTask<PropertyData> SavePropertyData(PropertyData propertyData)
 		{
 			await Moralis_Create(propertyData);
+
+			// Return the original, untouched
+			// The method signature is more helpful for the ContractService which adds the token address
+			return propertyData;
 		}
 
 		

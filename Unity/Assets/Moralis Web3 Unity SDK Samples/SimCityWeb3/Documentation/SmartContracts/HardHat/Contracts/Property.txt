@@ -13,7 +13,7 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 //      Each ERC721 instance here represents a globally unique 
 //      Real-estate property for the "Sim City Web3" game
 // Class Deployment
-//      TODO: Replace with contract address ...
+//      0xA551c1a00e2f8Ae61D9c7081763dD7C9CB7e10c7 TODO: REMOVE THIS
 contract Property is ERC721URIStorage 
 {
     // Auto generates tokenIds
@@ -41,16 +41,21 @@ contract Property is ERC721URIStorage
         _mint(msg.sender, newItemId);
         _setTokenURI(newItemId, tokenURI);
 
+        //TODO: This *may* be needed for "_burn" to work
+        //setApprovalForAll(contractAddress, true);
+
         _tokenIds.increment();
         return newItemId;
     }
     
     // Called from the game to delete ("burn") an existing property
-    function burnPropertyNft(uint256 tokenId) public virtual 
+    function burnPropertyNft(uint256 tokenId) public returns (string) 
     {
         // DISCLAIMER -- NOT A PRODUCTION READY CONTRACT
         // require(msg.sender == owner);
         
         _burn(tokenId);
+        
+        return "Success!";
     }
 }

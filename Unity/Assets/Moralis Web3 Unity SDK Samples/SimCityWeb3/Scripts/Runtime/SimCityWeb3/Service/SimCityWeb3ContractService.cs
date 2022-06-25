@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using MoralisUnity.Samples.Shared.Utilities;
 using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
+using MoralisUnity.Sdk.Utilities;
 using MoralisUnity.Web3Api.Models;
 using UnityEngine;
 
@@ -28,8 +30,6 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 		// General Methods --------------------------------
 		public async UniTask<List<PropertyData>> LoadPropertyDatas()
 		{
-			Debug.Log("LoadPropertyDatas()...");
-			
 			bool hasMoralisUser = await SimCityWeb3Singleton.Instance.HasMoralisUserAsync();
 			if (!hasMoralisUser)
 			{
@@ -55,17 +55,20 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 			return propertyDatas;
 		}
 
-		public async UniTask SavePropertyData(PropertyData propertyData)
+		public async UniTask<PropertyData> SavePropertyData(PropertyData propertyData)
 		{
-			string result = await _propertyContract.MintPropertyNft(propertyData);
-		}
+			string newTokenAddress = await _propertyContract.MintPropertyNft(propertyData);
 
-		public async UniTask SavePropertyData(List<PropertyData> propertyDatas)
-		{
-			foreach (PropertyData propertyData in propertyDatas)
+			if (SharedValidators.IsValidWeb3TokenAddressFormat(newTokenAddress))
 			{
-				string result = await _propertyContract.MintPropertyNft(propertyData);
+				propertyData = PropertyData.CreateNewPropertyDataFromMetadata(propertyData.OwnerAddress, newTokenAddress, propertyData.GetMetadata());
 			}
+			else
+			{
+				Debug.LogError("SavePropertyData() worked, but return value may be malformatted. newTokenAddress = {newTokenAddress}");
+			}
+
+			return propertyData;
 		}
 
 		public async UniTask DeletePropertyData(PropertyData propertyData)
