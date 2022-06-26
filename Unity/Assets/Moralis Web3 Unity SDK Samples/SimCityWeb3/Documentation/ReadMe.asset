@@ -44,14 +44,28 @@ MonoBehaviour:
     openMenuName: Web3 Setup Window
     openMenuNameId: Window/Moralis/Web3 Unity SDK/Open Web3 Setup
   - heading: 
-    subheading: 3. Set Up Web3 Contract(s)
-    text: Follow these instructions
+    subheading: 3. Update the Build Settings
+    text: Prepare project for use
+    linkText: 
+    url: 
+    openMenuName: Add Example Scenes To Build Settings
+    openMenuNameId: Window/Moralis/Web3 Unity SDK/Samples/Sim City Web3/Add Example Scenes To Build Settings
+  - heading: 
+    subheading: 4. Update Unity Layout & Aspect Ratio
+    text: Use our default layout or choose your own
+    linkText: 
+    url: 
+    openMenuName: Load Example Layout (16x10)
+    openMenuNameId: Window/Moralis/Web3 Unity SDK/Samples/Sim City Web3/Load Example Layout (16x10)
+  - heading: 
+    subheading: 5. Set Up Web3 Contract(s)
+    text: Follow additional instructions
     linkText: 
     url: 
     pingObjectName: Instructions.txt
     pingObjectGuid: abd75514b51fcf349b7a396e5ae75a51
   - heading: 
-    subheading: 4. Open Any Example Scene
+    subheading: 6. Open Any Example Scene
     text: Play this scene or choose your own
     linkText: 
     url: 
