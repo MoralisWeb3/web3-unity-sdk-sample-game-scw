@@ -35,6 +35,9 @@ namespace MoralisUnity.Samples.SimCityWeb3
 		// Initialization Methods -------------------------
 		public override void InstantiateCompleted()
 		{
+			// Name it
+			gameObject.name = GetType().Name;
+			
 			// Model
 			_simCityWeb3Model = new SimCityWeb3Model();
 			
