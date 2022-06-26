@@ -1,28 +1,31 @@
 
 
-CODING
+CHECKLIST - DEVELOPMENT 
+- [ X ] Finish all runtime features
+- [ X ] Run/Test runtime in Unity Editor
+- [ X ] Build/Test runtime on Standalone Desktop
+- [ X ] Revisit every class name, namespace, folder
+- [ X ] Add class comments
+- [ X ] Remove unneeded /3rdParty/ contents
+- [ X ] Validate uncompressed file of repo, direct after download. < 100MB is ideal
+- [ X ] Update/Test ReadMe.asset
+- [ X ] Update/Test README.md
+- [ X ]  
+- [ X ]  
 
 
-MVCS
-* after all is working rethink the structure. E.e. should ONLY the controller be public and have the methods to do the other stuff?
-
+CHECKLIST - RELEASE 
+- [ X ] Remove from git: MoralisServerSettings.asset 
+- [ X ] Remove from git: SOME values within: MapSessionConfig.txt
+- [ X ] Remove from git: SOME values within: PropertyContract.cs
+- [ X ] Release repo as public
+- [ X ] Shoot video
+- [ X ] Release video as unlisted
 
 CLEANUP
-* add class comments (There are still a few more to do)
-* update any flowerboxing
-* 2 lines between code methods
-* Assets - remove unneeded 3rd party stuff
 * Name every 'async' method with "BLah{Async}"? Yes. SOunds like a good practice
 
-NAMING
-* Decide "Button" vs "ButtonUI" in classes and gameobjects
-
-
 RELEASING
-* Build to desktop to be sure it compiles and layout looks ok
-* hide my moralis config data
-* hide my maps config data
-* update readme so user can do the maps config
 * Repo - polish structure / readme
 * Repo - make it public!
 
