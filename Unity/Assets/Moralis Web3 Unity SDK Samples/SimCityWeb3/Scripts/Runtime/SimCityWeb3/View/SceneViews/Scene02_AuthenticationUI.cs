@@ -9,7 +9,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 	/// <summary>
 	/// Main Entry Point For: Scene02_Authentication
 	/// </summary>
-	public class Scene02_AuthenticationView : BaseSceneView
+	public class Scene02_AuthenticationUI : Scene_BaseUI
 	{
 		// Properties -------------------------------------
 		

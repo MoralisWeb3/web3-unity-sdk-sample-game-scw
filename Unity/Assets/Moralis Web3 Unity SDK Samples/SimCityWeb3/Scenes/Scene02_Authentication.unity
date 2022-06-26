@@ -354,7 +354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5890355345854840020, guid: a4335302edb740745b874d5650ccfded, type: 3}
       propertyPath: m_Name
-      value: Scene02_AuthenticationView
+      value: Scene02_AuthenticationUI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4335302edb740745b874d5650ccfded, type: 3}

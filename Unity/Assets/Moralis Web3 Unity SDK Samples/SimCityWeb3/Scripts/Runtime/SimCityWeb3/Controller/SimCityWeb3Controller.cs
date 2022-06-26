@@ -79,11 +79,11 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 		}
 
 		
-		public void RenderPropertyDatas(Scene04_GameView scene04GameView)
+		public void RenderPropertyDatas(Scene04_GameUI scene04GameUI)
 		{
 			foreach (PropertyData propertyDatas in _simCityWeb3Model.PropertyDatas)
 			{
-				scene04GameView.RenderPropertyData(propertyDatas, false);
+				scene04GameUI.RenderPropertyData(propertyDatas, false);
 			}
 		}
 		

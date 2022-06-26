@@ -6,7 +6,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 	/// <summary>
 	/// Replace with comments...
 	/// </summary>
-	public class BaseSceneView : MonoBehaviour
+	public class Scene_BaseUI : MonoBehaviour
 	{
 		// Properties -------------------------------------
 		

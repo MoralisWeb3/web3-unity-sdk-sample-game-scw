@@ -14,7 +14,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 	/// <summary>
 	/// Main Entry Point For: Scene04_Game
 	/// </summary>
-	public class Scene04_GameView : BaseSceneView
+	public class Scene04_GameUI : Scene_BaseUI
 	{
 		// Properties -------------------------------------
 		private GameMode GameMode
@@ -54,7 +54,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 
 		private MapPropertyUI _pendingCreationMapPropertyUI = null;
 		private MapPropertyUI _pendingSellingMapPropertyUI = null;
-		private List<MapPropertyUI> _mapPropertyUIs = new List<MapPropertyUI>();
+		private readonly List<MapPropertyUI> _mapPropertyUIs = new List<MapPropertyUI>();
 		private LatLon _mapUICenterOnStart = new LatLon();
 		private float _mapUIZoomLevelOnStart = 0;
 		

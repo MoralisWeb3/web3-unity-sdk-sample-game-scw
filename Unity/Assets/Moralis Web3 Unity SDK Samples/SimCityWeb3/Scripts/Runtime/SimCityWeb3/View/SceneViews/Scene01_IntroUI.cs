@@ -8,7 +8,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 	/// <summary>
 	/// Main Entry Point For: Scene01_Intro
 	/// </summary>
-	public class Scene01_IntroView : BaseSceneView
+	public class Scene01_IntroUI : Scene_BaseUI
 	{
 		// Properties -------------------------------------
 		

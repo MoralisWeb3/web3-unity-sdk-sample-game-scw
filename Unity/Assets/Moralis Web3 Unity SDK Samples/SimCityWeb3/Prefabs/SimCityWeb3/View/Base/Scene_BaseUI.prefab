@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 6868945759799103869}
   - component: {fileID: 8782916656863401793}
   m_Layer: 5
-  m_Name: Scene_BaseView
+  m_Name: Scene_BaseUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -425,7 +425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7128492931279650428, guid: d1ef34204006cb34bb7390279b0bdd8d, type: 3}
       propertyPath: m_Name
-      value: Scene01_IntroView
+      value: Scene01_IntroUI
       objectReference: {fileID: 0}
     - target: {fileID: 8086974036219571479, guid: d1ef34204006cb34bb7390279b0bdd8d, type: 3}
       propertyPath: m_AnchorMax.y
