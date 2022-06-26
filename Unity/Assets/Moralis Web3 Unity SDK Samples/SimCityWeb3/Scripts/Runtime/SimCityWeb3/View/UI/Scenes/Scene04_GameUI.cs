@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using Microsoft.Geospatial;
 using MoralisUnity.Platform.Objects;
+using MoralisUnity.Samples.Shared.Utilities;
 using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
 using MoralisUnity.Sdk.Exceptions;
 using UnityEngine;
@@ -57,6 +59,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		private readonly List<MapPropertyUI> _mapPropertyUIs = new List<MapPropertyUI>();
 		private LatLon _mapUICenterOnStart = new LatLon();
 		private float _mapUIZoomLevelOnStart = 0;
+		private const float TweenDuration = 0.5f;
 		
 		/// <summary>
 		/// Determines the current UI state and the allowable
@@ -216,6 +219,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 				Transform pendingTransform = _pendingCreationMapPropertyUI.transform;
 				pendingTransform.SetParent(_mapUI.MapPropertyUISpawnPoint.transform);
 				pendingTransform.localPosition = new Vector3(0, 0, 0);
+				TweenHelper.GameObjectSpawns(_pendingCreationMapPropertyUI.gameObject, TweenDuration);
 			}
 
 			if (!isPendingAndFloating)
@@ -381,14 +385,22 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 						// Update the data model
 						SimCityWeb3Singleton.Instance.SimCityWeb3Controller.RemovePropertyData(_pendingSellingMapPropertyUI.PropertyData);
 			
-						// Remove from scrolling-with-map 
-						_mapPropertyUIs.Remove(_pendingSellingMapPropertyUI);
-						_mapUI.PropertyMapPinLayer.MapPins.Remove(_pendingSellingMapPropertyUI.MapPin);
-						_pendingSellingMapPropertyUI.OnClicked.RemoveListener(MapPropertyUI_OnClicked);
-						Destroy(_pendingSellingMapPropertyUI.gameObject);
-		
-						// Clear pending
-						_pendingSellingMapPropertyUI = null;
+						// TODO: This dissapears (good) but does it instantly (bad). fix it so it animates
+						TweenHelper.GameObjectDespawns(_pendingSellingMapPropertyUI.gameObject, TweenDuration)
+							.OnComplete(
+								() =>
+								{
+									// Remove from scrolling-with-map 
+									_mapPropertyUIs.Remove(_pendingSellingMapPropertyUI);
+									_mapUI.PropertyMapPinLayer.MapPins.Remove(_pendingSellingMapPropertyUI.MapPin);
+									_pendingSellingMapPropertyUI.OnClicked.RemoveListener(MapPropertyUI_OnClicked);
+									
+									Destroy(_pendingSellingMapPropertyUI.gameObject);
+									
+									// Clear pending
+									_pendingSellingMapPropertyUI = null;
+
+								});
 					}
 					break;
 				default:

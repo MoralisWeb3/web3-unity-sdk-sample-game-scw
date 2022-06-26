@@ -114,24 +114,27 @@ namespace MoralisUnity.Samples.Shared.Utilities
             .SetDelay(delayStart);
       }
 
-      public static void GameObjectFallsIntoPosition(GameObject go, Vector3 initialPositionOffset, float duration)
+      public static TweenerCore<Vector3, Vector3, VectorOptions> GameObjectFallsIntoPosition(GameObject go, Vector3 initialPositionOffset, float duration)
       {
          Vector3 fromPosition = go.transform.position + initialPositionOffset;
-         TransformDOBlendableMoveBy(go, fromPosition, go.transform.position, duration, 0)
+         
+         return TransformDOBlendableMoveBy(go, fromPosition, go.transform.position, duration, 0)
             .SetEase(Ease.InSine);
       }
       
-      public static void GameObjectSpawns(GameObject go, float duration)
+      public static TweenerCore<Vector3, Vector3, VectorOptions> GameObjectSpawns(GameObject go, float duration)
       {
          Vector3 toScale = go.transform.lossyScale;
-         TransformDoScale(go, new Vector3(0,0,0), toScale, duration, 0)
+         
+         return TransformDoScale(go, new Vector3(0,0,0), toScale, duration, 0)
             .SetEase(Ease.OutBounce);
       }
       
-      public static void GameObjectDespawns(GameObject go, float duration)
+      public static TweenerCore<Vector3, Vector3, VectorOptions> GameObjectDespawns(GameObject go, float duration)
       {
          Vector3 fromScale = go.transform.lossyScale;
-         TransformDoScale(go, fromScale,new Vector3(0,0,0), duration, 0)
+         
+         return TransformDoScale(go, fromScale,new Vector3(0,0,0), duration, 0)
             .SetEase(Ease.OutBounce);
       }
    }
