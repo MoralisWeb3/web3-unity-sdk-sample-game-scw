@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using MoralisUnity.Samples.Shared.Data.Types;
 using MoralisUnity.Samples.Shared.Utilities;
 using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
-using MoralisUnity.Sdk.Utilities;
 using MoralisUnity.Web3Api.Models;
 using UnityEngine;
 
@@ -14,18 +14,20 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 	public class SimCityWeb3ContractService : ISimCityWeb3Service
 	{
 		// Properties -------------------------------------
-
+		public PendingMessage PendingMessageForDeletion { get { return _pendingMessageForDeletion; }}
+		public PendingMessage PendingMessageForSave { get { return _pendingMessageForSave; }}
 		
 		// Fields -----------------------------------------
+		private readonly PendingMessage _pendingMessageForDeletion = new PendingMessage("Please confirm transaction in your wallet", 0);
+		private readonly PendingMessage _pendingMessageForSave = new PendingMessage("Please confirm transaction in your wallet", 0);
 		private readonly PropertyContract _propertyContract = null;
-		
-		
+
+
 		// Initialization Methods -------------------------
 		public SimCityWeb3ContractService()
 		{
 			_propertyContract = new PropertyContract();
 		}
-
 		
 		// General Methods --------------------------------
 		public async UniTask<List<PropertyData>> LoadPropertyDatas()
@@ -85,25 +87,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 			}
 		}
 
-		public string GetMessageForDeletePropertyData()
-		{
-			return "Please confirm transaction in your wallet";
-		}
-		
-		public bool HasMessageForDeletePropertyData()
-		{
-			return true;
-		}
-		
-		public string GetMessageSavePropertyData ()
-		{
-			return "Please confirm transaction in your wallet";
-		}
-		
-		public bool HasMessageForSavePropertyData()
-		{
-			return true;
-		}
+
 
 		// Event Handlers ---------------------------------
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using MoralisUnity.Samples.Shared.Data.Types;
 using MoralisUnity.Samples.SimCityWeb3.Model;
 using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
 using MoralisUnity.Samples.SimCityWeb3.Service;
@@ -15,6 +16,8 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 	public class SimCityWeb3Controller
 	{
 		// Properties -------------------------------------
+		public PendingMessage PendingMessageForDeletion { get { return _simCityWeb3Service.PendingMessageForDeletion; }}
+		public PendingMessage PendingMessageForSave { get { return _simCityWeb3Service.PendingMessageForSave; }}
 
 
 		// Fields -----------------------------------------
@@ -152,29 +155,6 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 			await _simCityWeb3Service.DeleteAllPropertyDatas(propertyDatas);
 		}
 
-		
-		public bool HasMessageForSavePropertyData()
-		{
-			return _simCityWeb3Service.HasMessageForDeletePropertyData();
-		}
-		
-		
-		public string GetMessageSavePropertyData()
-		{
-			return _simCityWeb3Service.GetMessageForDeletePropertyData();
-		}
-		
-		
-		public bool HasMessageForDeletePropertyData()
-		{
-			return _simCityWeb3Service.HasMessageForDeletePropertyData();
-		}
-		
-		
-		public string GetMessageForDeletePropertyData()
-		{
-			return _simCityWeb3Service.GetMessageForDeletePropertyData();
-		}
 
 		// Event Handlers ---------------------------------
 	}

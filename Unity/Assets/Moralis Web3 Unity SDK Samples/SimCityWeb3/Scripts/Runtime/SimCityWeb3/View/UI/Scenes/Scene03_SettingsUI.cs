@@ -75,8 +75,9 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 			
 			// Update to the service
-			bool isVisibleInitial = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.HasMessageForDeletePropertyData();
-			string message = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.GetMessageForDeletePropertyData();
+			bool isVisibleInitial = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PendingMessageForDeletion.HasMessage;
+			int delayDuration = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PendingMessageForDeletion.DelayDuration;
+			string message = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PendingMessageForDeletion.Message;
 			await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.ShowLoadingDuringMethodAsync(
 				isVisibleInitial,
 				false,
@@ -86,6 +87,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 					_resetButtonUI.interactable = false;
 					_backButtonUI.interactable = true;
 					await SimCityWeb3Singleton.Instance.ResetAllData();
+					await UniTask.Delay(delayDuration);
 				});
 			
 			RefreshUI();

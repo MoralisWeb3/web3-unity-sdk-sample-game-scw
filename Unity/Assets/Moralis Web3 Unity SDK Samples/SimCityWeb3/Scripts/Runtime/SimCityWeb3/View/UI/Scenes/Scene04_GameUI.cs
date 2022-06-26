@@ -331,8 +331,9 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 						SimCityWeb3Singleton.Instance.SimCityWeb3Controller.AddPropertyData(_pendingCreationMapPropertyUI.PropertyData);
 					
 						// Save to the service
-						bool isVisibleInitial = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.HasMessageForSavePropertyData();
-						string message = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.GetMessageSavePropertyData();
+						bool isVisibleInitial = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PendingMessageForSave.HasMessage;
+						int delayDuration = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PendingMessageForDeletion.DelayDuration;
+						string message = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PendingMessageForSave.Message;
 						await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.ShowLoadingDuringMethodAsync(
 							isVisibleInitial,
 							false,
@@ -343,6 +344,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 								// When in Contract mode, the returned object is the same, **PLUS** the tokenId is inserted
 								_pendingCreationMapPropertyUI.PropertyData = 
 									await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.SavePropertyData(_pendingCreationMapPropertyUI.PropertyData);
+								await UniTask.Delay(delayDuration);
 							});
 						
 						// Clear pending
@@ -363,8 +365,9 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 						GameMode = GameMode.Accepting;
 						
 						// Update to the service
-						bool isVisibleInitial = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.HasMessageForDeletePropertyData();
-						string message = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.GetMessageForDeletePropertyData();
+						bool isVisibleInitial = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PendingMessageForDeletion.HasMessage;
+						int delayDuration = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PendingMessageForDeletion.DelayDuration;
+						string message = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PendingMessageForDeletion.Message;
 						await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.ShowLoadingDuringMethodAsync(
 							isVisibleInitial,
 							false,
@@ -372,6 +375,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 							async delegate( )
 							{
 								await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.DeletePropertyData(_pendingSellingMapPropertyUI.PropertyData);
+								await UniTask.Delay(delayDuration);
 							});
 			
 						// Update the data model

@@ -1,6 +1,7 @@
 
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using MoralisUnity.Samples.Shared.Data.Types;
 using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
 
 namespace MoralisUnity.Samples.SimCityWeb3.Service
@@ -12,15 +13,13 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 	public interface ISimCityWeb3Service 
 	{
 		// Properties -------------------------------------
-
+		PendingMessage PendingMessageForDeletion { get; }
+		PendingMessage PendingMessageForSave { get; }
+		
 		// General Methods --------------------------------
 		UniTask<List<PropertyData>> LoadPropertyDatas();
 		UniTask<PropertyData> SavePropertyData(PropertyData propertyData);
 		UniTask DeletePropertyData(PropertyData propertyData);
 		UniTask DeleteAllPropertyDatas(List<PropertyData> propertyDatas);
-		string GetMessageForDeletePropertyData();
-		bool HasMessageForDeletePropertyData();
-		string GetMessageSavePropertyData();
-		bool HasMessageForSavePropertyData();
 	}
 }

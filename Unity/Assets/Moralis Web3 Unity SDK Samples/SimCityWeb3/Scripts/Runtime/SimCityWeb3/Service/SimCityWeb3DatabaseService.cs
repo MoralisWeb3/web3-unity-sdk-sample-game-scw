@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
 using MoralisUnity.Platform.Queries;
+using MoralisUnity.Samples.Shared.Data.Types;
 using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
 
 namespace MoralisUnity.Samples.SimCityWeb3.Service
@@ -13,14 +14,19 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 	public class SimCityWeb3DatabaseService : ISimCityWeb3Service
 	{
 		// Properties -------------------------------------
-
+		public PendingMessage PendingMessageForDeletion { get { return _pendingMessageForDeletion; }}
+		public PendingMessage PendingMessageForSave { get { return _pendingMessageForSave; }}
+		
 		
 		// Fields -----------------------------------------
-
+		private readonly PendingMessage _pendingMessageForDeletion = new PendingMessage("Deleting Object From The Database", 100);
+		private readonly PendingMessage _pendingMessageForSave = new PendingMessage("Saving Object To The Database", 100);
+		
 		
 		// Initialization Methods -------------------------
 		public SimCityWeb3DatabaseService()
 		{
+			
 		}
 
 		
@@ -125,26 +131,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 				await Moralis.GetClient().DeleteAsync<PropertyDataMoralisObject>(result);
 			}
 		}
-		
-		public string GetMessageForDeletePropertyData()
-		{
-			return "Deleting Object From The Database";
-		}
-		
-		public bool HasMessageForDeletePropertyData()
-		{
-			return true;
-		}
-		
-		public string GetMessageSavePropertyData ()
-		{
-			return "Saving Object To The Database";
-		}
-		
-		public bool HasMessageForSavePropertyData()
-		{
-			return true;
-		}
+
 		
 		// Event Handlers ---------------------------------
 
