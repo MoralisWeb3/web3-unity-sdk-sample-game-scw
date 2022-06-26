@@ -1,0 +1,6 @@
+Source Url: 
+* https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676#description
+
+Changelog: 
+* Some unneeded files may have been removed
+* Moved to \Assets\...\3rdParty
