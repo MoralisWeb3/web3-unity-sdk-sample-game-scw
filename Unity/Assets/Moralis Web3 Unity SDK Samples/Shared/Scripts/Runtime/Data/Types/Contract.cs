@@ -39,7 +39,7 @@ namespace MoralisUnity.Samples.Shared.Data.Types
 
 
 		// General Methods --------------------------------
-		protected async UniTask<string> ExecuteContractFunction(string functionName, object[] args, bool isLogging)
+		protected async UniTask<string> ExecuteContractFunctionAsync(string functionName, object[] args, bool isLogging)
 		{
 			if (WalletConnect.Instance == null)
 			{

@@ -29,7 +29,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 		}
 		
 		// General Methods --------------------------------
-		public async UniTask<string> MintPropertyNft (PropertyData propertyData)
+		public async UniTask<string> MintPropertyNftAsync (PropertyData propertyData)
 		{
 			string metadata = propertyData.GetMetadata();
 			Debug.Log($"MintPropertyNft() metadata = {metadata}");
@@ -39,11 +39,11 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 			};
 			
 			const bool isLogging = true;
-			string result = await ExecuteContractFunction("mintPropertyNft", args, isLogging);
+			string result = await ExecuteContractFunctionAsync("mintPropertyNft", args, isLogging);
 			return result;
 		}
 		
-		public async UniTask<string> BurnPropertyNft (PropertyData propertyData)
+		public async UniTask<string> BurnPropertyNftAsync (PropertyData propertyData)
 		{
 			string tokenId = propertyData.TokenAddress;
 
@@ -60,7 +60,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 			};
 			
 			const bool isLogging = true;
-			string result = await ExecuteContractFunction("burnPropertyNft", args, isLogging);
+			string result = await ExecuteContractFunctionAsync("burnPropertyNft", args, isLogging);
 			return result;
 		}
 

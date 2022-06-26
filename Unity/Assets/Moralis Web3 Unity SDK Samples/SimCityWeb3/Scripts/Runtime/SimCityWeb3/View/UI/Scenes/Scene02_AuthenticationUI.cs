@@ -40,13 +40,13 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		{
 			base.Start();
 			
-			await SetupMoralis();
+			await SetupMoralisAsync();
 			
 			SimCityWeb3Singleton.Instantiate();
 		}
 		
 		// General Methods --------------------------------
-		private async UniTask SetupMoralis()
+		private async UniTask SetupMoralisAsync()
 		{
 			Moralis.Start();
 			
@@ -62,7 +62,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		{
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 			
-			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadPreviousScene();
+			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadPreviousSceneAsync();
 		}
 		
 		private void AuthenticationKit_OnStateChanged(AuthenticationKitState authenticationKitState)
@@ -82,14 +82,14 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 				{
 					// You went from NOT LOGGED to CONNECTED...
 					// Success! So go back to the previous scene
-					SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadPreviousScene();
+					SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadPreviousSceneAsync();
 				}
 				else if (_wasLoggedInAtSetupMoralis == true &&
 				         authenticationKitState == AuthenticationKitState.Disconnected)
 				{
 					// You went from LOGGED to DISCONNECTED...
 					// Success! So go back to the previous scene
-					SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadPreviousScene();
+					SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadPreviousSceneAsync();
 				}
 			}
 		}

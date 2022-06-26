@@ -36,18 +36,18 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		{
 			base.Start();
 			
-			await SetupMoralis();
+			await SetupMoralisAsync();
 			
 			_authenticateButton.onClick.AddListener(AuthenticateButton_OnClicked);
 			_settingsButton.onClick.AddListener(SettingsButton_OnClicked);
 			_viewMapButtonUIText.onClick.AddListener(ViewMapButtonUIText_OnClicked);
 
-			RefreshUI();
+			RefreshUIAsync();
 		}
 		
 		// General Methods --------------------------------
 
-		private async UniTask SetupMoralis()
+		private async UniTask SetupMoralisAsync()
 		{
 			Moralis.Start();
 			
@@ -55,7 +55,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 			_hasMoralisUserAtMoralisSetup = await SimCityWeb3Singleton.Instance.HasMoralisUserAsync();
 		}
 		
-		private async void RefreshUI()
+		private async void RefreshUIAsync()
 		{
 			//
 			_authenticateButton.interactable = true;
@@ -75,7 +75,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		{
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 			
-			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadAuthenticationScene();
+			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadAuthenticationSceneAsync();
 		}
 		
 		
@@ -84,7 +84,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 		
-			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadSettingsScene();
+			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadSettingsSceneAsync();
 		}
 		
 		
@@ -92,7 +92,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		{
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 			
-			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadGameScene();
+			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadGameSceneAsync();
 		}
 		
 	}

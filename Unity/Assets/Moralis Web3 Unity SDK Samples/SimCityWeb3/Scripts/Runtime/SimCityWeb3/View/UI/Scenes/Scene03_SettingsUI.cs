@@ -34,15 +34,15 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		{
 			base.Start();
 			
-			await SetupMoralis();
+			await SetupMoralisAsync();
 			
 			SimCityWeb3Singleton.Instantiate();
 
-			RefreshUI();
+			RefreshUIAsync();
 		}
 		
 		// General Methods --------------------------------
-		private async UniTask SetupMoralis()
+		private async UniTask SetupMoralisAsync()
 		{
 			Moralis.Start();
 			
@@ -53,13 +53,13 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 			}
 		}
 
-		private async void RefreshUI()
+		private async void RefreshUIAsync()
 		{
 			// Check the user
 			bool hasMoralisUser = await SimCityWeb3Singleton.Instance.HasMoralisUserAsync();
 			
 			// Populate the Model With Live Data
-			await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadPropertyDatas();
+			await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadPropertyDatasAsync();
 			
 			// Check the Model
 			bool hasAnyData = SimCityWeb3Singleton.Instance.HasAnyData();
@@ -86,17 +86,17 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 				{
 					_resetButtonUI.interactable = false;
 					_backButtonUI.interactable = true;
-					await SimCityWeb3Singleton.Instance.ResetAllData();
+					await SimCityWeb3Singleton.Instance.ResetAllDataAsync();
 					await UniTask.Delay(delayDuration);
 				});
 			
-			RefreshUI();
+			RefreshUIAsync();
 		}
 		
 		private void BackButtonUI_OnClicked()
 		{
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
-			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadIntroScene();
+			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadIntroSceneAsync();
 		}
 	}
 }

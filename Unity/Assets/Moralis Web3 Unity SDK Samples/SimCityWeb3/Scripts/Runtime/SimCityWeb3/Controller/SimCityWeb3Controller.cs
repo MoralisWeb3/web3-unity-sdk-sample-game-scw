@@ -64,7 +64,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 		}
 		
 		
-		public async void LoadIntroScene()
+		public async void LoadIntroSceneAsync()
 		{
 			// Wait, So click sound is audible
 			await UniTask.Delay(100);
@@ -74,7 +74,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 		}
 		
 		
-		public async void LoadAuthenticationScene()
+		public async void LoadAuthenticationSceneAsync()
 		{
 			// Wait, So click sound is audible
 			await UniTask.Delay(100);
@@ -84,7 +84,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 		}
 		
 		
-		public async void LoadSettingsScene()
+		public async void LoadSettingsSceneAsync()
 		{
 			// Wait, So click sound is audible
 			await UniTask.Delay(100);
@@ -94,7 +94,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 		}
 		
 		
-		public async void LoadGameScene()
+		public async void LoadGameSceneAsync()
 		{
 			// Wait, So click sound is audible
 			await UniTask.Delay(100);
@@ -104,7 +104,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 		}
 
 		
-		public async void LoadPreviousScene()
+		public async void LoadPreviousSceneAsync()
 		{
 			// Wait, So click sound is audible before scene changes
 			await UniTask.Delay(100);
@@ -126,9 +126,9 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 		///////////////////////////////////////////
 		// Related To: Service
 		///////////////////////////////////////////
-		public async UniTask<List<PropertyData>> LoadPropertyDatas()
+		public async UniTask<List<PropertyData>> LoadPropertyDatasAsync()
 		{
-			List<PropertyData> propertyDatas = await _simCityWeb3Service.LoadPropertyDatas();
+			List<PropertyData> propertyDatas = await _simCityWeb3Service.LoadPropertyDatasAsync();
 
 			Debug.Log($"LoadPropertyDatas() Count = {propertyDatas.Count}");
 			_simCityWeb3Model.PropertyDatas = propertyDatas;
@@ -137,22 +137,22 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 		}
 
 		
-		public async UniTask<PropertyData> SavePropertyData (PropertyData propertyData)
+		public async UniTask<PropertyData> SavePropertyDataAsync (PropertyData propertyData)
 		{
-			return await _simCityWeb3Service.SavePropertyData(propertyData);
+			return await _simCityWeb3Service.SavePropertyDataAsync(propertyData);
 		}
 		
 		
-		public async UniTask DeletePropertyData(PropertyData propertyData)
+		public async UniTask DeletePropertyDataAsync(PropertyData propertyData)
 		{
-			await _simCityWeb3Service.DeletePropertyData(propertyData);
+			await _simCityWeb3Service.DeletePropertyDataAsync(propertyData);
 		}
 		
 		
-		public async UniTask DeleteAllPropertyDatas()
+		public async UniTask DeleteAllPropertyDatasAsync()
 		{
 			List<PropertyData> propertyDatas = _simCityWeb3Model.PropertyDatas;
-			await _simCityWeb3Service.DeleteAllPropertyDatas(propertyDatas);
+			await _simCityWeb3Service.DeleteAllPropertyDatasAsync(propertyDatas);
 		}
 
 

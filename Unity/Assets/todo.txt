@@ -2,32 +2,26 @@
 
 CHECKLIST - DEVELOPMENT 
 - [ X ] Finish all runtime features
+- [ X ] Remove any unneeded "Log." calls. Ideally all
 - [ X ] Run/Test runtime in Unity Editor
 - [ X ] Build/Test runtime on Standalone Desktop
 - [ X ] Revisit every class name, namespace, folder
+- [ X ] Rename every "async" method as "MethodName{Async}"
 - [ X ] Add class comments
 - [ X ] Remove unneeded /3rdParty/ contents
-- [ X ] Validate uncompressed file of repo, direct after download. < 100MB is ideal
+- [ X ] Validate uncompressed file of repo, direct after download. Ideally < 100MB
 - [ X ] Update/Test ReadMe.asset
 - [ X ] Update/Test README.md
-- [ X ]  
-- [ X ]  
+
 
 
 CHECKLIST - RELEASE 
-- [ X ] Remove from git: MoralisServerSettings.asset 
-- [ X ] Remove from git: SOME values within: MapSessionConfig.txt
-- [ X ] Remove from git: SOME values within: PropertyContract.cs
-- [ X ] Release repo as public
-- [ X ] Shoot video
-- [ X ] Release video as unlisted
-
-CLEANUP
-* Name every 'async' method with "BLah{Async}"? Yes. SOunds like a good practice
-
-RELEASING
-* Repo - polish structure / readme
-* Repo - make it public!
+- [   ] Remove from git: MoralisServerSettings.asset 
+- [   ] Remove from git: SOME values within: MapSessionConfig.txt
+- [   ] Remove from git: SOME values within: PropertyContract.cs
+- [   ] Release repo as public
+- [   ] Shoot video
+- [   ] Release video as unlisted
 
 
 PRESENTATION

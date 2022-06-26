@@ -194,7 +194,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		
 		private async UniTask RenderPropertyDatas()
 		{
-			List<PropertyData> propertyDatas = await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadPropertyDatas();
+			List<PropertyData> propertyDatas = await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadPropertyDatasAsync();
 			
 			foreach (PropertyData propertyData in propertyDatas)
 			{
@@ -343,7 +343,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 								// When in DB mode, the returned object is the same
 								// When in Contract mode, the returned object is the same, **PLUS** the tokenId is inserted
 								_pendingCreationMapPropertyUI.PropertyData = 
-									await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.SavePropertyData(_pendingCreationMapPropertyUI.PropertyData);
+									await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.SavePropertyDataAsync(_pendingCreationMapPropertyUI.PropertyData);
 								await UniTask.Delay(delayDuration);
 							});
 						
@@ -374,7 +374,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 							message, 
 							async delegate( )
 							{
-								await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.DeletePropertyData(_pendingSellingMapPropertyUI.PropertyData);
+								await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.DeletePropertyDataAsync(_pendingSellingMapPropertyUI.PropertyData);
 								await UniTask.Delay(delayDuration);
 							});
 			
@@ -446,7 +446,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		{
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 			
-			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadIntroScene();
+			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadIntroSceneAsync();
 		}
 		
 		private void CenterButton_OnClicked()

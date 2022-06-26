@@ -20,8 +20,8 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 		
 		
 		// Fields -----------------------------------------
-		private readonly PendingMessage _pendingMessageForDeletion = new PendingMessage("Deleting Object From The Database", 100);
-		private readonly PendingMessage _pendingMessageForSave = new PendingMessage("Saving Object To The Database", 100);
+		private readonly PendingMessage _pendingMessageForDeletion = new PendingMessage("Deleting Object From The Database", 500);
+		private readonly PendingMessage _pendingMessageForSave = new PendingMessage("Saving Object To The Database", 500);
 		
 		
 		// Initialization Methods -------------------------
@@ -32,11 +32,11 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 
 		
 		// General Methods --------------------------------
-		public async UniTask<List<PropertyData>> LoadPropertyDatas()
+		public async UniTask<List<PropertyData>> LoadPropertyDatasAsync()
 		{
 			List<PropertyData> propertyDatas = new List<PropertyData>();
 			
-			List<PropertyDataMoralisObject> results = await Moralis_Query();
+			List<PropertyDataMoralisObject> results = await Moralis_QueryAsync();
 			foreach (PropertyDataMoralisObject result in results)
 			{
 				propertyDatas.Add(result.PropertyData);
@@ -46,9 +46,9 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 		}
 
 		
-		public async UniTask<PropertyData> SavePropertyData(PropertyData propertyData)
+		public async UniTask<PropertyData> SavePropertyDataAsync(PropertyData propertyData)
 		{
-			await Moralis_Create(propertyData);
+			await Moralis_CreateAsync(propertyData);
 
 			// Return the original, untouched
 			// The method signature is more helpful for the ContractService which adds the token address
@@ -56,20 +56,20 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 		}
 
 		
-		public async UniTask DeletePropertyData(PropertyData propertyDatas)
+		public async UniTask DeletePropertyDataAsync(PropertyData propertyDatas)
 		{
 			await Moralis_DeleteOne(propertyDatas);
 		}
 
 		
-		public async UniTask DeleteAllPropertyDatas(List<PropertyData> propertyDatas)
+		public async UniTask DeleteAllPropertyDatasAsync(List<PropertyData> propertyDatas)
 		{
-			await Moralis_DeleteAll();
+			await Moralis_DeleteAllAsync();
 		}
 
 		
 		// Static Methods ---------------------------------
-		private static async UniTask Moralis_Create(PropertyData propertyData)
+		private static async UniTask Moralis_CreateAsync(PropertyData propertyData)
 		{
 			///////////////////////////////////////////
 			// Execute: Create
@@ -80,9 +80,9 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 
 		}
 
-		public static async UniTask<PropertyDataMoralisObject> Moralis_QueryOne(PropertyData propertyData)
+		public static async UniTask<PropertyDataMoralisObject> Moralis_QueryOneAsync(PropertyData propertyData)
 		{
-			List<PropertyDataMoralisObject> results = await Moralis_Query();
+			List<PropertyDataMoralisObject> results = await Moralis_QueryAsync();
 			List<PropertyDataMoralisObject> matchingResults = new List<PropertyDataMoralisObject>();
 			foreach (PropertyDataMoralisObject result in results)
 			{
@@ -102,7 +102,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 			throw new Exception($"Moralis_DeleteOne() failed. matchingResults.Count must be 1. ");
 		}
 		
-		public static async UniTask<List<PropertyDataMoralisObject>> Moralis_Query()
+		public static async UniTask<List<PropertyDataMoralisObject>> Moralis_QueryAsync()
 		{
 			///////////////////////////////////////////
 			// Execute: Query
@@ -115,14 +115,14 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 
 		private static async UniTask Moralis_DeleteOne(PropertyData propertyData)
 		{
-			PropertyDataMoralisObject propertyDataMoralisObject = await Moralis_QueryOne(propertyData);
+			PropertyDataMoralisObject propertyDataMoralisObject = await Moralis_QueryOneAsync(propertyData);
 			await Moralis.GetClient().DeleteAsync<PropertyDataMoralisObject>(propertyDataMoralisObject);
 		}
 		
 		
-		private static async UniTask Moralis_DeleteAll()
+		private static async UniTask Moralis_DeleteAllAsync()
 		{
-			List<PropertyDataMoralisObject> results = await Moralis_Query();
+			List<PropertyDataMoralisObject> results = await Moralis_QueryAsync();
 
 			foreach (PropertyDataMoralisObject result in results)
 			{

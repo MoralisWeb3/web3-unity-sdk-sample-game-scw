@@ -31,7 +31,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 		}
 		
 		// General Methods --------------------------------
-		public async UniTask<List<PropertyData>> LoadPropertyDatas()
+		public async UniTask<List<PropertyData>> LoadPropertyDatasAsync()
 		{
 			bool hasMoralisUser = await SimCityWeb3Singleton.Instance.HasMoralisUserAsync();
 			if (!hasMoralisUser)
@@ -58,9 +58,9 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 			return propertyDatas;
 		}
 
-		public async UniTask<PropertyData> SavePropertyData(PropertyData propertyData)
+		public async UniTask<PropertyData> SavePropertyDataAsync(PropertyData propertyData)
 		{
-			string newTokenAddress = await _propertyContract.MintPropertyNft(propertyData);
+			string newTokenAddress = await _propertyContract.MintPropertyNftAsync(propertyData);
 
 			if (SharedValidators.IsValidWeb3TokenAddressFormat(newTokenAddress))
 			{
@@ -74,17 +74,18 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 			return propertyData;
 		}
 
-		public async UniTask DeletePropertyData(PropertyData propertyData)
+		public async UniTask DeletePropertyDataAsync(PropertyData propertyData)
 		{
-			string result = await _propertyContract.BurnPropertyNft(propertyData);
+			string result = await _propertyContract.BurnPropertyNftAsync(propertyData);
+			Debug.Log($"DeletePropertyDataAsync() Result = {result}");
 		}
 
-		public async UniTask DeleteAllPropertyDatas(List<PropertyData> propertyDatas)
+		public async UniTask DeleteAllPropertyDatasAsync(List<PropertyData> propertyDatas)
 		{
 			foreach (PropertyData propertyData in propertyDatas)
 			{
-				string result = await _propertyContract.BurnPropertyNft(propertyData);
-				Debug.Log($"Result={result}");
+				string result = await _propertyContract.BurnPropertyNftAsync(propertyData);
+				Debug.Log($"DeleteAllPropertyDatasAsync() result = {result}");
 			}
 		}
 

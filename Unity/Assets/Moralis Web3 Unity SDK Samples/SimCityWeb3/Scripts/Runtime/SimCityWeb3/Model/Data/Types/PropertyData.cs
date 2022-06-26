@@ -1,4 +1,5 @@
 using System;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
@@ -33,6 +34,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 		/// <summary>
 		/// Created from view by user gesture
 		/// </summary>
+		[JsonConstructor]
 		public PropertyData(string ownerAddress, double latitude, double longitude)
 		{
 			_ownerAddress = ownerAddress;

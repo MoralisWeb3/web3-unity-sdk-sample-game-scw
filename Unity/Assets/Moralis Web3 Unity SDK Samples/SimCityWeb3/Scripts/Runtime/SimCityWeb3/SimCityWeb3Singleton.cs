@@ -81,9 +81,9 @@ namespace MoralisUnity.Samples.SimCityWeb3
 			return _simCityWeb3Model.HasAnyData();
 		}
 		
-		public async UniTask ResetAllData()
+		public async UniTask ResetAllDataAsync()
 		{
-			await _simCityWeb3Controller.DeleteAllPropertyDatas();
+			await _simCityWeb3Controller.DeleteAllPropertyDatasAsync();
 			_simCityWeb3Model.ResetAllData();
 		}
 		

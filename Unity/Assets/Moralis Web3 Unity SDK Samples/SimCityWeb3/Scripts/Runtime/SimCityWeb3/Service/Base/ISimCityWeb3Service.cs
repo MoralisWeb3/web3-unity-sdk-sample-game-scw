@@ -17,9 +17,9 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 		PendingMessage PendingMessageForSave { get; }
 		
 		// General Methods --------------------------------
-		UniTask<List<PropertyData>> LoadPropertyDatas();
-		UniTask<PropertyData> SavePropertyData(PropertyData propertyData);
-		UniTask DeletePropertyData(PropertyData propertyData);
-		UniTask DeleteAllPropertyDatas(List<PropertyData> propertyDatas);
+		UniTask<List<PropertyData>> LoadPropertyDatasAsync();
+		UniTask<PropertyData> SavePropertyDataAsync(PropertyData propertyData);
+		UniTask DeletePropertyDataAsync(PropertyData propertyData);
+		UniTask DeleteAllPropertyDatasAsync(List<PropertyData> propertyDatas);
 	}
 }
