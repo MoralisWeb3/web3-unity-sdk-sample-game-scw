@@ -103,7 +103,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 			_mapUIZoomLevelOnStart = _mapUI.MapRenderer.ZoomLevel;
 			
 			// Map
-			await ShowLoadingDuringMethodAsync(
+			await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.ShowLoadingDuringMethodAsync(
 				true,
 				false,
 				"Loading Map...", 
@@ -113,7 +113,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 				});
 			
 			// Pins
-			await ShowLoadingDuringMethodAsync(
+			await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.ShowLoadingDuringMethodAsync(
 				true,
 				false,
 				"Loading Properties...", 
@@ -330,7 +330,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 						// Save to the service
 						bool isVisibleInitial = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.HasMessageForSavePropertyData();
 						string message = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.GetMessageSavePropertyData();
-						await ShowLoadingDuringMethodAsync(
+						await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.ShowLoadingDuringMethodAsync(
 							isVisibleInitial,
 							false,
 							message, 
@@ -362,7 +362,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 						// Update to the service
 						bool isVisibleInitial = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.HasMessageForDeletePropertyData();
 						string message = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.GetMessageForDeletePropertyData();
-						await ShowLoadingDuringMethodAsync(
+						await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.ShowLoadingDuringMethodAsync(
 							isVisibleInitial,
 							false,
 							message, 

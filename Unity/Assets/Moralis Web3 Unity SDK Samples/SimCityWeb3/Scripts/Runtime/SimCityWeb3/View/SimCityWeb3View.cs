@@ -1,6 +1,9 @@
+using System;
+using Cysharp.Threading.Tasks;
 using MoralisUnity.Samples.SimCityWeb3.Model.Data;
 using MoralisUnity.Samples.Shared.Components;
 using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
+using MoralisUnity.Samples.SimCityWeb3.View.UI;
 using UnityEngine;
 
 namespace MoralisUnity.Samples.SimCityWeb3.Model
@@ -13,40 +16,42 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model
 	{
 		// Properties -------------------------------------
 		public SimCityWeb3Configuration SimCityWeb3Configuration { get { return _simCityWeb3Configuration; } }
-
 		public SceneManagerComponent SceneManagerComponent { get { return _sceneManagerComponent;}}
-
+		public ScreenCoverUI ScreenCoverUI { get { return _screenCoverUI;}}
+		
 		
 		// Fields -----------------------------------------
 		[Header("References (Scene)")] 
 		[SerializeField] 
 		private SceneManagerComponent _sceneManagerComponent = null;
 		
+		[SerializeField] 
+		private ScreenCoverUI _screenCoverUI = null;
+
 		[Header("References (Project)")] 
 		[SerializeField]
 		private SimCityWeb3Configuration _simCityWeb3Configuration = null;
 	
-		
-		// Initialization Methods -------------------------
-		
-		public SimCityWeb3View()
-		{
-		}
-
-		
 		// General Methods --------------------------------
-		public string SamplePublicMethod(string message)
+		/// <summary>
+		/// Show a loading screen, during method execution
+		/// </summary>
+		public async UniTask ShowLoadingDuringMethodAsync(
+			bool isVisibleInitial, 
+			bool isVisibleFinal, 
+			string message, 
+			Func<UniTask> task)
 		{
-			return message;
+			//Debug.Log($"START {message} ");
+			ScreenCoverUI.IsVisible = isVisibleInitial;	
+			ScreenCoverUI.MessageText.text = message;
+			await task();
+			ScreenCoverUI.IsVisible = isVisibleFinal;
+			//Debug.Log($"END {message} ");
 		}
 
 		
 		// Event Handlers ---------------------------------
-		public void Target_OnCompleted(string message)
-		{
-
-		}
-
 
 	}
 }

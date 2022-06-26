@@ -77,7 +77,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 			// Update to the service
 			bool isVisibleInitial = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.HasMessageForDeletePropertyData();
 			string message = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.GetMessageForDeletePropertyData();
-			await ShowLoadingDuringMethodAsync(
+			await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.ShowLoadingDuringMethodAsync(
 				isVisibleInitial,
 				false,
 				message, 

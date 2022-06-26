@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using MoralisUnity.Samples.SimCityWeb3.Model;
@@ -65,6 +66,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 			await _simCityWeb3Service.DeleteAllPropertyDatas(propertyDatas);
 		}
 		
+		
 		public void AddPropertyData(PropertyData propertyData)
 		{
 			_simCityWeb3Model.AddPropertyData(propertyData);
@@ -84,10 +86,8 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 				scene04GameView.RenderPropertyData(propertyDatas, false);
 			}
 		}
-
-
-
-		// Event Handlers ---------------------------------
+		
+		
 		public async void LoadIntroScene()
 		{
 			// Wait, So click sound is audible
@@ -135,26 +135,43 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 
 			_simCityWeb3View.SceneManagerComponent.LoadScenePrevious();
 		}
+		
+		
+		public async UniTask ShowLoadingDuringMethodAsync(
+			bool isVisibleInitial, 
+			bool isVisibleFinal, 
+			string message, 
+			Func<UniTask> task)
+		{
+			await _simCityWeb3View.ShowLoadingDuringMethodAsync(isVisibleInitial, isVisibleFinal, message, task);
+		}
 
+		
 		public bool HasMessageForSavePropertyData()
 		{
 			return _simCityWeb3Service.HasMessageForDeletePropertyData();
 		}
+		
 		
 		public string GetMessageSavePropertyData()
 		{
 			return _simCityWeb3Service.GetMessageForDeletePropertyData();
 		}
 		
+		
 		public bool HasMessageForDeletePropertyData()
 		{
 			return _simCityWeb3Service.HasMessageForDeletePropertyData();
 		}
 		
+		
 		public string GetMessageForDeletePropertyData()
 		{
 			return _simCityWeb3Service.GetMessageForDeletePropertyData();
 		}
+
+
+		// Event Handlers ---------------------------------
 		
 	}
 

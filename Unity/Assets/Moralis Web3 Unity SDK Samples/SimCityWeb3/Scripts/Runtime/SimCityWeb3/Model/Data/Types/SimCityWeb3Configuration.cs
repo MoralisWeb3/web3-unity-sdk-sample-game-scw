@@ -25,7 +25,6 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 
 
         // Fields -----------------------------------------
-        
         [Header("References (Project)")]
         [SerializeField]
         private SimCityWeb3View _simCityWeb3ViewPrefab = null;
@@ -51,35 +50,12 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
         [SerializeField]
         public SimCityWeb3ServiceType _simCityWeb3ServiceType = SimCityWeb3ServiceType.Null;
 
-        
-        //TODO: Use this at runtime or remove it
-        [Tooltip("Defines the MapZoomLevel for map rendering")]
-        [SerializeField] 
-        [MinMaxSlider(3, 10)] 
-        private Vector2 _mapZoomOverall = new Vector2(3, 10);
-        
-        //TODO: Use this at runtime or remove it
-        [Tooltip("Defines the MapZoomLevel for property rendering")]
-        [SerializeField] 
-        [MinMaxSlider(3, 10)] 
-        private Vector2 _mapZoomForProperty = new Vector2(3,10);
-
         private const string Title = SimCityWeb3Constants.ProjectName + " Configuration";
 
+        
         // Unity Methods ----------------------------------
-        protected void OnValidate()
-        {
-            // Keep _mapZoomLevelRangeForProperty within _mapZoomLevelRange
-            float min = _mapZoomForProperty.x;
-            float max = _mapZoomForProperty.y;
 
-            min = Mathf.Clamp(min,_mapZoomOverall.x, _mapZoomOverall.y);
-            max = Mathf.Clamp(max,_mapZoomOverall.x, _mapZoomOverall.y);
-
-            _mapZoomForProperty = new Vector2(min, max);
-        }
-
-
+        
         // General Methods --------------------------------
         public string SamplePublicMethod(string message)
         {
