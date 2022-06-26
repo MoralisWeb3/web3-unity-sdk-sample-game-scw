@@ -73,7 +73,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		// Event Handlers ---------------------------------
 		private void AuthenticateButton_OnClicked()
 		{
-			PlayAudioClipClick();
+			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 			
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadAuthenticationScene();
 		}
@@ -82,7 +82,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		private async void SettingsButton_OnClicked()
 		{
 
-			PlayAudioClipClick();
+			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 		
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadSettingsScene();
 		}
@@ -90,7 +90,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		
 		private void ViewMapButtonUIText_OnClicked()
 		{
-			PlayAudioClipClick();
+			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 			
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadGameScene();
 		}

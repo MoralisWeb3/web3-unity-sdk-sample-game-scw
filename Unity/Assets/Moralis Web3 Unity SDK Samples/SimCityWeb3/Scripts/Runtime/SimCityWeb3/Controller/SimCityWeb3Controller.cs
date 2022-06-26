@@ -4,7 +4,6 @@ using Cysharp.Threading.Tasks;
 using MoralisUnity.Samples.SimCityWeb3.Model;
 using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
 using MoralisUnity.Samples.SimCityWeb3.Service;
-using MoralisUnity.Samples.SimCityWeb3.View.UI;
 using UnityEngine;
 
 namespace MoralisUnity.Samples.SimCityWeb3.Controller
@@ -19,9 +18,9 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 
 
 		// Fields -----------------------------------------
-		private SimCityWeb3Model _simCityWeb3Model;
-		private SimCityWeb3View _simCityWeb3View;
-		private ISimCityWeb3Service _simCityWeb3Service;
+		private readonly SimCityWeb3Model _simCityWeb3Model = null;
+		private readonly SimCityWeb3View _simCityWeb3View = null;
+		private readonly ISimCityWeb3Service _simCityWeb3Service = null;
 
 
 		// Initialization Methods -------------------------
@@ -37,41 +36,15 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 
 
 		// General Methods --------------------------------
-		public async UniTask<List<PropertyData>> LoadPropertyDatas()
-		{
-			List<PropertyData> propertyDatas = await _simCityWeb3Service.LoadPropertyDatas();
-
-			Debug.Log($"LoadPropertyDatas() Count = {propertyDatas.Count}");
-			_simCityWeb3Model.PropertyDatas = propertyDatas;
-
-			return _simCityWeb3Model.PropertyDatas;
-		}
-
 		
-		public async UniTask<PropertyData> SavePropertyData (PropertyData propertyData)
-		{
-			return await _simCityWeb3Service.SavePropertyData(propertyData);
-		}
-		
-		
-		public async UniTask DeletePropertyData(PropertyData propertyData)
-		{
-			await _simCityWeb3Service.DeletePropertyData(propertyData);
-		}
-		
-		
-		public async UniTask DeleteAllPropertyDatas()
-		{
-			List<PropertyData> propertyDatas = _simCityWeb3Model.PropertyDatas;
-			await _simCityWeb3Service.DeleteAllPropertyDatas(propertyDatas);
-		}
-		
-		
+		///////////////////////////////////////////
+		// Related To: Model
+		///////////////////////////////////////////
 		public void AddPropertyData(PropertyData propertyData)
 		{
 			_simCityWeb3Model.AddPropertyData(propertyData);
 		}
-
+		
 		
 		public void RemovePropertyData(PropertyData propertyData)
 		{
@@ -79,12 +52,12 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 		}
 
 		
-		public void RenderPropertyDatas(Scene04_GameUI scene04GameUI)
+		///////////////////////////////////////////
+		// Related To: View
+		///////////////////////////////////////////
+		public void PlayAudioClipClick()
 		{
-			foreach (PropertyData propertyDatas in _simCityWeb3Model.PropertyDatas)
-			{
-				scene04GameUI.RenderPropertyData(propertyDatas, false);
-			}
+			_simCityWeb3View.PlayAudioClipClick();
 		}
 		
 		
@@ -116,7 +89,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 			string sceneName = _simCityWeb3View.SimCityWeb3Configuration.SettingsSceneData.SceneName;
 			_simCityWeb3View.SceneManagerComponent.LoadScene(sceneName);
 		}
-
+		
 		
 		public async void LoadGameScene()
 		{
@@ -147,6 +120,39 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 		}
 
 		
+		///////////////////////////////////////////
+		// Related To: Service
+		///////////////////////////////////////////
+		public async UniTask<List<PropertyData>> LoadPropertyDatas()
+		{
+			List<PropertyData> propertyDatas = await _simCityWeb3Service.LoadPropertyDatas();
+
+			Debug.Log($"LoadPropertyDatas() Count = {propertyDatas.Count}");
+			_simCityWeb3Model.PropertyDatas = propertyDatas;
+
+			return _simCityWeb3Model.PropertyDatas;
+		}
+
+		
+		public async UniTask<PropertyData> SavePropertyData (PropertyData propertyData)
+		{
+			return await _simCityWeb3Service.SavePropertyData(propertyData);
+		}
+		
+		
+		public async UniTask DeletePropertyData(PropertyData propertyData)
+		{
+			await _simCityWeb3Service.DeletePropertyData(propertyData);
+		}
+		
+		
+		public async UniTask DeleteAllPropertyDatas()
+		{
+			List<PropertyData> propertyDatas = _simCityWeb3Model.PropertyDatas;
+			await _simCityWeb3Service.DeleteAllPropertyDatas(propertyDatas);
+		}
+
+		
 		public bool HasMessageForSavePropertyData()
 		{
 			return _simCityWeb3Service.HasMessageForDeletePropertyData();
@@ -170,9 +176,6 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 			return _simCityWeb3Service.GetMessageForDeletePropertyData();
 		}
 
-
 		// Event Handlers ---------------------------------
-		
 	}
-
 }

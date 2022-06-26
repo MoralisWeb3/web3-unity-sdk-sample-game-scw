@@ -72,7 +72,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		// Event Handlers ---------------------------------
 		private async void ResetButtonUI_OnClicked()
 		{
-			PlayAudioClipClick();
+			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 			
 			// Update to the service
 			bool isVisibleInitial = SimCityWeb3Singleton.Instance.SimCityWeb3Controller.HasMessageForDeletePropertyData();
@@ -93,7 +93,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		
 		private void BackButtonUI_OnClicked()
 		{
-			PlayAudioClipClick();
+			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadIntroScene();
 		}
 	}

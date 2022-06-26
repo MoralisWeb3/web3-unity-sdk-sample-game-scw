@@ -60,7 +60,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		// Event Handlers ---------------------------------
 		private void CancelButtonUI_OnClicked()
 		{
-			PlayAudioClipClick();
+			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 			
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadPreviousScene();
 		}

@@ -1,6 +1,6 @@
 using System;
 using Cysharp.Threading.Tasks;
-using MoralisUnity.Samples.SimCityWeb3.Model.Data;
+using MoralisUnity.Samples.Shared.Audio;
 using MoralisUnity.Samples.Shared.Components;
 using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
 using MoralisUnity.Samples.SimCityWeb3.View.UI;
@@ -50,6 +50,13 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model
 			//Debug.Log($"END {message} ");
 		}
 
+		/// <summary>
+		/// Play generic click sound
+		/// </summary>
+		public void PlayAudioClipClick()
+		{
+			SoundManager.Instance.PlayAudioClip(0);
+		}
 		
 		// Event Handlers ---------------------------------
 

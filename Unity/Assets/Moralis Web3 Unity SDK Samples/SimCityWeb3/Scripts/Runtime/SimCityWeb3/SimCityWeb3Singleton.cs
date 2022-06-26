@@ -10,13 +10,14 @@ namespace MoralisUnity.Samples.SimCityWeb3
 {
 	/// <summary>
 	/// The main entry point for the whole game
-	///
+	/// <para />
 	/// This is a 'light' implementation of MVCS.
-	///		* M <see cref="SimCityWeb3Model"/> - Stores data for the game
-	///		* V <see cref="SimCityWeb3View"/>  - Handles the UI for the game
-	///		* C <see cref="SimCityWeb3Controller"/> - Handles the core functionality of the game
-	///		* S <see cref="SimCityWeb3Service"/> - Handles communication with external sources (e.g. database/servers/contracts)
-	/// 
+	/// <list type="bullet">
+	///		<item>M - <see cref="SimCityWeb3Model"/> - Stores data for the game</item>
+	///		<item>V - <see cref="SimCityWeb3View"/>  - Handles the UI for the game</item>
+	///		<item>C - <see cref="SimCityWeb3Controller"/> - Handles the core functionality of the game</item>
+	///		<item>S - <see cref="SimCityWeb3Service"/> - Handles communication with external sources (e.g. database/servers/contracts)</item>
+	/// </list>
 	/// </summary>
 	public class SimCityWeb3Singleton : SingletonMonobehaviour<SimCityWeb3Singleton>
 	{

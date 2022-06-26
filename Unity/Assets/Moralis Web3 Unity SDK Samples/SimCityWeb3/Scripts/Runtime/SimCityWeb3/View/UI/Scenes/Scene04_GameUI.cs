@@ -194,9 +194,12 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		
 		private async UniTask RenderPropertyDatas()
 		{
-			await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadPropertyDatas();
+			List<PropertyData> propertyDatas = await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadPropertyDatas();
 			
-			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.RenderPropertyDatas(this);
+			foreach (PropertyData propertyData in propertyDatas)
+			{
+				RenderPropertyData(propertyData, false);
+			}
 		}
 		
 		
@@ -260,7 +263,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 			{
 				if (!mapPropertyUI.IsSelected)
 				{
-					PlayAudioClipClick();
+					SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 				
 					_pendingSellingMapPropertyUI = mapPropertyUI;
 
@@ -279,7 +282,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		private async void BuyButton_OnClicked()
 		{
 		
-			PlayAudioClipClick();
+			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 			
 			GameMode = GameMode.Buying;
 
@@ -297,7 +300,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		
 		private void SellButton_OnClicked()
 		{
-			PlayAudioClipClick();
+			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 			
 			GameMode = GameMode.Selling;
 		}
@@ -317,7 +320,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 					else
 					{
 						
-						PlayAudioClipClick();
+						SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 						
 						GameMode = GameMode.Accepting;
 						
@@ -355,7 +358,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 					}
 					else
 					{
-						PlayAudioClipClick();
+						SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 						
 						GameMode = GameMode.Accepting;
 						
@@ -405,7 +408,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 					}
 					else
 					{
-						PlayAudioClipClick();
+						SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 						
 						Destroy(_pendingCreationMapPropertyUI.gameObject);
 					}
@@ -419,7 +422,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 					}
 					else
 					{
-						PlayAudioClipClick();
+						SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 						
 						// Deselect all 
 						SelectMapPropertyUI(null);
@@ -437,14 +440,14 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		
 		private void BackButton_OnClicked()
 		{
-			PlayAudioClipClick();
+			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 			
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadIntroScene();
 		}
 		
 		private void CenterButton_OnClicked()
 		{
-			PlayAudioClipClick();
+			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 			
 			// Set camera
 			_mapUI.MapRenderer.Center = _mapUICenterOnStart;
@@ -454,7 +457,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		
 		private void ZoomInButton_OnClicked()
 		{
-			PlayAudioClipClick();
+			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 			
 			_mapUI.ZoomIn();
 		}
@@ -462,7 +465,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		
 		private void ZoomOutButton_OnClicked()
 		{
-			PlayAudioClipClick();
+			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 			
 			_mapUI.ZoomOut();
 		}
