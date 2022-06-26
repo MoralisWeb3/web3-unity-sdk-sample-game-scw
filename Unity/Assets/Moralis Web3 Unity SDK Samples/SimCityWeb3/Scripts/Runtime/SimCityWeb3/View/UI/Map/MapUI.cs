@@ -4,7 +4,7 @@ using UnityEngine;
 namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 {
 	/// <summary>
-	/// Replace with comments...
+	/// Wraps the 3rd-party 3d mapping rendering
 	/// </summary>
 	public class MapUI : MonoBehaviour
 	{

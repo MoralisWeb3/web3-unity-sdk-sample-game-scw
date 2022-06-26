@@ -9,7 +9,8 @@ using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
 namespace MoralisUnity.Samples.SimCityWeb3.Service
 {
 	/// <summary>
-	/// Replace with comments...
+	/// Depending on <see cref="SimCityWeb3ServiceType"/> this is enabled.
+	///		* Handles connection to external resource of Moralis Database
 	/// </summary>
 	public class SimCityWeb3DatabaseService : ISimCityWeb3Service
 	{

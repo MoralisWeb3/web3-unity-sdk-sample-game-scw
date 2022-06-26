@@ -7,7 +7,7 @@ using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
 namespace MoralisUnity.Samples.SimCityWeb3.Service
 {
 	/// <summary>
-	/// SHandles communication with external sources (e.g. database/servers/contracts)
+	/// Handles communication with external sources (e.g. database/servers/contracts)
 	///		* See <see cref="SimCityWeb3Singleton"/> 
 	/// </summary>
 	public interface ISimCityWeb3Service 

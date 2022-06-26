@@ -5,7 +5,8 @@ using UnityEngine;
 namespace MoralisUnity.Samples.SimCityWeb3.Service
 {
 	/// <summary>
-	/// Replace with comments...
+	/// Creates a concrete <see cref="ISimCityWeb3Service"/>
+	/// based on <see cref="SimCityWeb3ServiceType"/>
 	/// </summary>
 	public class SimCityWeb3ServiceFactory
 	{

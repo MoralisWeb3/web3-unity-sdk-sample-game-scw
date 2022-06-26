@@ -9,6 +9,6 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 	{
 		Null,
 		Database,
-		Contract
+		Contract // The tutorial is designed for this 
 	}
 }

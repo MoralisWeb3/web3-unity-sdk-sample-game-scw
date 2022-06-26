@@ -3,7 +3,7 @@ using UnityEngine;
 namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 {
 	/// <summary>
-	/// Replace with comments...
+	/// UI element for the 3D Map - New <see cref="MapPropertyUI"/> will spawn here
 	/// </summary>
 	public class MapPropertyUISpawnPoint : MonoBehaviour
 	{

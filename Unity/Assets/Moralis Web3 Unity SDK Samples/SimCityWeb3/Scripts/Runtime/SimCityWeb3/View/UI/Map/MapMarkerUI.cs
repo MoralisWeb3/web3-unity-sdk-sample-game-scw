@@ -3,7 +3,7 @@ using UnityEngine;
 namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 {
 	/// <summary>
-	/// Replace with comments...
+	/// UI element for the 3D Map - Shows the center-point of the map
 	/// </summary>
 	public class MapMarkerUI : MonoBehaviour
 	{

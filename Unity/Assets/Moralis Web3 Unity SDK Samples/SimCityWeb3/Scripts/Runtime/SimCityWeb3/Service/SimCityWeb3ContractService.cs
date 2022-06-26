@@ -9,7 +9,8 @@ using UnityEngine;
 namespace MoralisUnity.Samples.SimCityWeb3.Service
 {
 	/// <summary>
-	/// Replace with comments...
+	/// Handles communication with external sources (e.g. database/servers/contracts)
+	///		* See <see cref="SimCityWeb3Singleton"/> 
 	/// </summary>
 	public class SimCityWeb3ContractService : ISimCityWeb3Service
 	{

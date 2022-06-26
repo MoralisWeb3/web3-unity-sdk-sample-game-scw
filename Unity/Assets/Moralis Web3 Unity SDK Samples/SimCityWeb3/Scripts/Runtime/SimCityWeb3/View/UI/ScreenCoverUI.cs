@@ -4,7 +4,7 @@ using UnityEngine;
 namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 {
 	/// <summary>
-	/// Replace with comments...
+	/// UI element to cover the full game screen with a "Loading..." type message
 	/// </summary>
 	public class ScreenCoverUI : MonoBehaviour
 	{
@@ -13,7 +13,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		{
 			get
 			{
-				return _canvasGroup.alpha == 1;
+				return Mathf.Approximately(_canvasGroup.alpha, 1);
 			}
 			set
 			{
