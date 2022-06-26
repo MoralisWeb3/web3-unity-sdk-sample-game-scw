@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d1a99b9a9bc47da8c2bc37da397e4cf, type: 3}
   m_Name: SimCityWeb3Configuration
   m_EditorClassIdentifier: 
-  _simCityWeb3ViewPrefab: {fileID: 2445102409565368505, guid: a083700a9e0a9f542a485c8a5bd4747d, type: 3}
+  _simCityWeb3ViewPrefab: {fileID: 6530535641690032694, guid: 936394f19df929449af0756a3947b22c, type: 3}
   _mapPropertyUIPrefab: {fileID: 1720784973983898717, guid: 65b580b5c5556fd4fa9306f85617e110, type: 3}
   _introSceneData:
     _scene: {fileID: 102900000, guid: e86d776073058a543aa040dcc9919139, type: 3}
