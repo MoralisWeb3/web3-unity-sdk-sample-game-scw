@@ -20,7 +20,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		private GameMode GameMode
 		{
 			get { return ___gameMode; }
-			set { ___gameMode = value; RefreshUI();}
+			set { ___gameMode = value; RefreshUIAsync();}
 		}
 
 		// Fields -----------------------------------------
@@ -82,7 +82,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 			_mapUI.MapInteractionController.OnInteractionStarted.AddListener(MapInteractionController_OnInteractionStarted);
 	
 			// UI
-			RefreshUI();
+			RefreshUIAsync();
 			_backButton.onClick.AddListener(BackButton_OnClicked);
 			_centerButton.onClick.AddListener(CenterButton_OnClicked);
 			_zoomInButton.onClick.AddListener(ZoomInButton_OnClicked);
@@ -93,7 +93,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 			_cancelButton.onClick.AddListener(CancelButton_OnClicked);
 			
 			// Moralis
-			await SetupMoralis();
+			await SetupMoralisAsync();
 			
 			// BTW
 			SimCityWeb3Singleton.Instantiate();
@@ -119,7 +119,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 				"Loading Properties...", 
 				async delegate( )
 				{
-					await RenderPropertyDatas();
+					await RenderPropertyDatasAsync();
 					_mapUI.IsInteractable = true;
 				});
 				
@@ -128,7 +128,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		
 
 		// General Methods --------------------------------
-		private async UniTask SetupMoralis()
+		private async UniTask SetupMoralisAsync()
 		{
 			Moralis.Start();
 			
@@ -168,7 +168,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		}
 
 		
-		private async void RefreshUI()
+		private async void RefreshUIAsync()
 		{
 			// Main Buttons
 			_backButton.interactable = GameMode == GameMode.Default || GameMode == GameMode.Selecting || GameMode == GameMode.Accepting;
@@ -192,18 +192,18 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		}
 		
 		
-		private async UniTask RenderPropertyDatas()
+		private async UniTask RenderPropertyDatasAsync()
 		{
 			List<PropertyData> propertyDatas = await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadPropertyDatasAsync();
 			
 			foreach (PropertyData propertyData in propertyDatas)
 			{
-				RenderPropertyData(propertyData, false);
+				RenderPropertyDataAsync(propertyData, false);
 			}
 		}
 		
 		
-		public async void RenderPropertyData(PropertyData propertyData, bool isPendingAndFloating)
+		public async void RenderPropertyDataAsync(PropertyData propertyData, bool isPendingAndFloating)
 		{
 			MapPropertyUI mapPropertyUIPrefab = SimCityWeb3Configuration.Instance.MapPropertyUIPrefab;
 			_pendingCreationMapPropertyUI = Instantiate<MapPropertyUI>(mapPropertyUIPrefab);
@@ -293,7 +293,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 				latitude : _mapUI.MapRenderer.Center.LatitudeInDegrees,
 				longitude : _mapUI.MapRenderer.Center.LongitudeInDegrees
 			);
-			RenderPropertyData(propertyData, true);
+			RenderPropertyDataAsync(propertyData, true);
 
 		}
 		

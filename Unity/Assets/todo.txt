@@ -12,6 +12,7 @@ CHECKLIST - DEVELOPMENT
 - [ X ] Validate uncompressed file of repo, direct after download. Ideally < 100MB
 - [ X ] Update/Test ReadMe.asset
 - [ X ] Update/Test README.md
+- [ X ] Update/Test SimCityWeb3Configuration.asset
 
 
 
