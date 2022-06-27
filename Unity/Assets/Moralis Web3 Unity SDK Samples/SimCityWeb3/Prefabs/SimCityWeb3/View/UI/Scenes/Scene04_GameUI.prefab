@@ -684,7 +684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7027559119516016802, guid: 67d850e661d1707489283d2d56dade0b, type: 3}
       propertyPath: m_Name
-      value: Scene04_GameView
+      value: Scene04_GameUI
       objectReference: {fileID: 0}
     - target: {fileID: 7205544231503292206, guid: 67d850e661d1707489283d2d56dade0b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -751,6 +751,7 @@ MonoBehaviour:
   _sellButton: {fileID: 4980577241602654359}
   _acceptButton: {fileID: 382520520295186764}
   _cancelButton: {fileID: 175091217311926257}
+  _walletConnect: {fileID: 0}
 --- !u!1001 &2724657406010240247
 PrefabInstance:
   m_ObjectHideFlags: 0

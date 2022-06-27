@@ -51,7 +51,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 				string ownerAddress = nftOwner.OwnerOf;
 				string tokenIdString = nftOwner.TokenId;
 				string metadata = nftOwner.TokenUri;
-				Debug.Log($"nftOwner ownerAddress={ownerAddress} tokenIdString={tokenIdString} metadata={metadata}");
+				//Debug.Log($"nftOwner ownerAddress={ownerAddress} tokenIdString={tokenIdString} metadata={metadata}");
 				propertyDatas.Add(PropertyData.CreateNewPropertyDataFromMetadata(ownerAddress, tokenIdString, metadata));
 			}
 			
@@ -63,7 +63,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 		{
 			string newTokenIdString = await _propertyContract.MintPropertyNftAsync(propertyData);
 			
-			Debug.Log("newTokenIdString=" + newTokenIdString);
+			//Debug.Log("newTokenIdString=" + newTokenIdString);
 
 			propertyData = PropertyData.CreateNewPropertyDataFromMetadata(propertyData.OwnerAddress, newTokenIdString, propertyData.GetMetadata());
 

@@ -154,13 +154,13 @@
       }
     },
     "io.moralis.web3-unity-sdk": {
-      "version": "https://github.com/MoralisWeb3/web3-unity-sdk.git",
+      "version": "1.2.2",
       "depth": 0,
-      "source": "git",
+      "source": "registry",
       "dependencies": {
         "com.unity.nuget.newtonsoft-json": "3.0.2"
       },
-      "hash": "b8ea33ae60b93a88c6a076eb201dcf783a287abd"
+      "url": "https://registry.npmjs.org"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

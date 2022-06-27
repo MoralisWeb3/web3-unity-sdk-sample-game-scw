@@ -66,7 +66,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 				throw new Exception();
 			}
 			
-			Debug.Log($"PropertyData.Initialize() tokenId = {tokenId}");
+			//Debug.Log($"PropertyData.Initialize() tokenId = {tokenId}");
 		}
 		
 		// General Methods --------------------------------

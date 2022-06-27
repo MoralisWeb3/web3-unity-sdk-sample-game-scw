@@ -64,7 +64,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		{
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 			
-			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadPreviousSceneAsync();
+			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadIntroSceneAsync();
 		}
 		
 		private void AuthenticationKit_OnStateChanged(AuthenticationKitState authenticationKitState)
@@ -80,18 +80,18 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 				// Did you open ANOTHER scene in the Unity Editor and Press Play?
 				// If so, this scene is designed to handle Auth more completely...
 				if (_wasLoggedInAtSetupMoralis == false && 
-				    authenticationKitState == AuthenticationKitState.MoralisLoggedIn)
+				    authenticationKitState == AuthenticationKitState.WalletConnected)
 				{
 					// You went from NOT LOGGED to CONNECTED...
 					// Success! So go back to the previous scene
-					SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadPreviousSceneAsync();
+					SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadIntroSceneAsync();
 				}
 				else if (_wasLoggedInAtSetupMoralis == true &&
 				         authenticationKitState == AuthenticationKitState.Disconnected)
 				{
 					// You went from LOGGED to DISCONNECTED...
 					// Success! So go back to the previous scene
-					SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadPreviousSceneAsync();
+					SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadIntroSceneAsync();
 				}
 			}
 		}

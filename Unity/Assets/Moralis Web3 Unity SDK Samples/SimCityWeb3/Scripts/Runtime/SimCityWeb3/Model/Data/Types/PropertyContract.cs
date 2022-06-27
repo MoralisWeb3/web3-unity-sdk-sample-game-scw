@@ -55,7 +55,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 				Debug.Log("BurnPropertyNftAsync() failed. tokenId must be NOT null. Was this NFT just created. Leave and return to Scene so it gets loaded from online");
 				return "failed";
 			}
-			
+				
 			Debug.Log($"BurnPropertyNftAsync() tokenId = {tokenId}");
 			object[] args =
 			{
@@ -76,7 +76,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 			{
 				int tokenId = propertyDatas[i].TokenId;
 			
-				Debug.Log("BurnPropertyNftsAsync() tokenId: " + tokenId + " at i " + i);
+				//Debug.Log("BurnPropertyNftsAsync() tokenId: " + tokenId + " at i " + i);
 
 				if (tokenId == PropertyData.NullTokenAddress)
 				{

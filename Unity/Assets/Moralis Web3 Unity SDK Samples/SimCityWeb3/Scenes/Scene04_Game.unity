@@ -410,6 +410,10 @@ PrefabInstance:
       propertyPath: _mapUI
       value: 
       objectReference: {fileID: 768269559}
+    - target: {fileID: 7393535830856499871, guid: c87e8103da440804eb7cb2436fe83d86, type: 3}
+      propertyPath: _walletConnect
+      value: 
+      objectReference: {fileID: 1440595885}
     - target: {fileID: 8157604611572458386, guid: c87e8103da440804eb7cb2436fe83d86, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -732,11 +736,16 @@ Transform:
   - {fileID: 1710304816}
   - {fileID: 378399350}
   - {fileID: 540955947}
-  - {fileID: 1352680250}
+  - {fileID: 1304223105}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1352680249
+--- !u!4 &1304223105 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6601496189867890147, guid: 389b36441251e704cbf7ab5e27032715, type: 3}
+  m_PrefabInstance: {fileID: 1440595884}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1440595884
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -793,11 +802,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 389b36441251e704cbf7ab5e27032715, type: 3}
---- !u!4 &1352680250 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6601496189867890147, guid: 389b36441251e704cbf7ab5e27032715, type: 3}
-  m_PrefabInstance: {fileID: 1352680249}
+--- !u!114 &1440595885 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6601496189867890149, guid: 389b36441251e704cbf7ab5e27032715, type: 3}
+  m_PrefabInstance: {fileID: 1440595884}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 801bffbf4c62cc244b55ea230d19649d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1710304813
 GameObject:
   m_ObjectHideFlags: 0

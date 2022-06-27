@@ -9,6 +9,7 @@ using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
 using MoralisUnity.Sdk.Exceptions;
 using UnityEngine;
 using UnityEngine.UI;
+using WalletConnectSharp.Unity;
 
 #pragma warning disable CS1998
 namespace MoralisUnity.Samples.SimCityWeb3.View.UI
@@ -54,6 +55,11 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		[SerializeField] 
 		private Button _cancelButton = null;
 
+		[Header ("References (Moralis)")]
+		[SerializeField] 
+		private WalletConnect _walletConnect = null;
+
+		
 		private MapPropertyUI _pendingCreationMapPropertyUI = null;
 		private MapPropertyUI _pendingSellingMapPropertyUI = null;
 		private readonly List<MapPropertyUI> _mapPropertyUIs = new List<MapPropertyUI>();
@@ -83,8 +89,11 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 			// MAP
 			_mapUI.IsInteractable = false;
 			_mapUI.MapInteractionController.OnInteractionStarted.AddListener(MapInteractionController_OnInteractionStarted);
+			
+			// Logging
+			_walletConnect.ConnectedEvent.AddListener(() => Debug.Log("WalletConnect_ConnectedEvent()"));
+			_walletConnect.ConnectedEventSession.AddListener((connectedEventSession) => Debug.Log($"WalletConnect_ConnectedEventSession() chainId = {connectedEventSession.chainId}"));
 	
-			// UI
 			RefreshUIAsync();
 			_backButton.onClick.AddListener(BackButton_OnClicked);
 			_centerButton.onClick.AddListener(CenterButton_OnClicked);
@@ -114,6 +123,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 				{
 					await _mapUI.MapRenderer.WaitForLoad();
 				});
+			
 			
 			// Pins
 			await SimCityWeb3Singleton.Instance.SimCityWeb3Controller.ShowLoadingDuringMethodAsync(
@@ -468,6 +478,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 			// Set camera
 			_mapUI.MapRenderer.Center = _mapUICenterOnStart;
 			_mapUI.MapRenderer.ZoomLevel = _mapUIZoomLevelOnStart;
+			
 		}
 		
 		
