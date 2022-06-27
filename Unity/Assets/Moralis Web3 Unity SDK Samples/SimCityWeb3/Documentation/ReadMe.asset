@@ -42,7 +42,7 @@ MonoBehaviour:
     linkText: 
     url: 
     openMenuName: Web3 Setup Window
-    openMenuNameId: Window/Moralis/Web3 Unity SDK/Open Web3 Setup
+    openMenuNameId: Tools/Moralis Web3 Unity SDK/Open Web3 Setup
   - heading: 
     subheading: 3. View the Sim City Web3 Configuration
     text: Here are project-specific settings with ideal defaults
@@ -58,14 +58,14 @@ MonoBehaviour:
     linkText: 
     url: 
     openMenuName: Add Example Scenes To Build Settings
-    openMenuNameId: Window/Moralis/Web3 Unity SDK/Samples/Sim City Web3/Add Example Scenes To Build Settings
+    openMenuNameId: Tools/Moralis Web3 Unity SDK/Samples/Sim City Web3/Add Example Scenes To Build Settings
   - heading: 
     subheading: 5. Update Unity Layout & Aspect Ratio
     text: Use our default layout or choose your own
     linkText: 
     url: 
     openMenuName: Load Example Layout (16x10)
-    openMenuNameId: Window/Moralis/Web3 Unity SDK/Samples/Sim City Web3/Load Example Layout (16x10)
+    openMenuNameId: Tools/Moralis Web3 Unity SDK/Samples/Sim City Web3/Load Example Layout (16x10)
   - heading: 
     subheading: 6. Set Up Web3 Contract(s)
     text: Follow additional instructions
