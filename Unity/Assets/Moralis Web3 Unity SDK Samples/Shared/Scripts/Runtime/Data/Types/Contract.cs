@@ -1,6 +1,8 @@
 using System;
 using System.Text;
 using Cysharp.Threading.Tasks;
+using MoralisUnity.Sdk.Exceptions;
+using MoralisUnity.Sdk.Interfaces;
 using Nethereum.Hex.HexTypes;
 using UnityEngine;
 using WalletConnectSharp.Unity;
@@ -10,27 +12,25 @@ namespace MoralisUnity.Samples.Shared.Data.Types
 	/// <summary>
 	/// Wrapper class for a Web3API Eth Contract.
 	/// </summary>
-	public class Contract
+	public class Contract 
 	{
-
 		// Properties -------------------------------------
-		public string Address
-		{
-			get { return _address; }
-		}
+		public string Address { get { return _address; } }
+		public string Abi { get { return _abi; } }
 
-		public string Abi
-		{
-			get { return _abi; }
-		}
-
-
+		
 		// Fields -----------------------------------------
-		private readonly string _address;
-		private readonly string _abi;
+		protected string _address;
+		protected string _abi;
 
-
+		
 		// Initialization Methods -------------------------
+		public Contract()
+		{
+			
+		}
+		
+		
 		public Contract(string address, string abi)
 		{
 			_address = address;
@@ -41,6 +41,7 @@ namespace MoralisUnity.Samples.Shared.Data.Types
 		// General Methods --------------------------------
 		protected async UniTask<string> ExecuteContractFunctionAsync(string functionName, object[] args, bool isLogging)
 		{
+			
 			if (WalletConnect.Instance == null)
 			{
 				throw new Exception(
@@ -85,6 +86,8 @@ namespace MoralisUnity.Samples.Shared.Data.Types
 
 			return result;
 		}
+
+
 	}
 
 }
