@@ -10,10 +10,9 @@ CHECKLIST - DEVELOPMENT
 - [ X ] Add class comments
 - [ X ] Remove unneeded /3rdParty/ contents
 - [ X ] Validate uncompressed file of repo, direct after download. Ideally < 100MB
-- [ X ] Update/Test ReadMe.asset
-- [ X ] Update/Test README.md
-- [ X ] Update/Test SimCityWeb3Configuration.asset
-
+- [   ] Update/Test ReadMe.asset
+- [   ] Update/Test README.md
+- [   ] Update/Test SimCityWeb3Configuration.asset
 
 
 CHECKLIST - RELEASE 
@@ -23,6 +22,12 @@ CHECKLIST - RELEASE
 - [   ] Release repo as public
 - [   ] Shoot video
 - [   ] Release video as unlisted
+
+
+CHECKLIST - OTHER 
+- [   ] 
+- [   ] 
+- [   ] 
 
 
 PRESENTATION

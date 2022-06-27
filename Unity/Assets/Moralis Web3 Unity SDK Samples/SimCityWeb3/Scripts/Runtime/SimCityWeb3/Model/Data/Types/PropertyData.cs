@@ -1,4 +1,5 @@
 using System;
+using MoralisUnity.Samples.Shared.Utilities;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -12,47 +13,61 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 	{
 		// Properties -------------------------------------
 		public string OwnerAddress { get { return _ownerAddress;}}
-		public string TokenAddress { get { return _tokenAddress;}}
+		public int TokenId { get { return _tokenId;}}
 		public double Latitude { get { return _latitude;} set { _latitude = value;}}
 		public double Longitude { get { return _longitude;} set { _longitude = value;}}
 		
+
 		// Fields -----------------------------------------
 		[SerializeField]
 		private string _ownerAddress;
 		
 		[SerializeField]
-		private string _tokenAddress;
+		private int _tokenId;
 		
 		[SerializeField]
 		private double _latitude = 0;
 		
 		[SerializeField]
 		private double _longitude = 0;
+
+		public const int NullTokenAddress = -1;
 		
 		// Initialization Methods -------------------------
 		
 		/// <summary>
 		/// Created from view by user gesture
 		/// </summary>
-		[JsonConstructor]
 		public PropertyData(string ownerAddress, double latitude, double longitude)
 		{
-			_ownerAddress = ownerAddress;
-			_latitude = latitude;
-			_longitude = longitude;
+			Initialize(ownerAddress, NullTokenAddress, latitude, longitude);
 		}
 		
 		/// <summary>
 		/// Created from service by loading data
 		/// </summary>
-		public PropertyData(string ownerAddress, string tokenAddress, double latitude, double longitude)
+		[JsonConstructor]
+		public PropertyData(string ownerAddress, int tokenId, double latitude, double longitude)
+		{
+			Initialize(ownerAddress, tokenId, latitude, longitude);
+		}
+		
+		private void Initialize (string ownerAddress, int tokenId, double latitude, double longitude)
 		{
 			_ownerAddress = ownerAddress;
-			_tokenAddress = tokenAddress;
+			_tokenId = tokenId;
 			_latitude = latitude;
 			_longitude = longitude;
+			
+			if (_latitude == 0 || _longitude == 0)
+			{
+				Debug.Log($"PropertyData.Initialize() failed. " +
+				          "latitude = {latitude}, longitude = {longitude}");
+				throw new Exception();
+			}
+			
+			Debug.Log($"PropertyData.Initialize() tokenId = {tokenId}");
 		}
-
 		
 		// General Methods --------------------------------
 		public string GetMetadata()
@@ -60,19 +75,19 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 			return $"{Latitude}|{Longitude}";
 		}
 
-		public static PropertyData CreateNewPropertyDataFromMetadata(string ownerAddress, string tokenAddress, string metadata)
+		public static PropertyData CreateNewPropertyDataFromMetadata(string ownerAddress, string newTokenIdString, string metadata)
 		{
 			string[] metadataTokens = metadata.Split("|");
 			double latitude = double.Parse(metadataTokens[0]);
 			double longitude = double.Parse(metadataTokens[1]);
+			int tokenId = NullTokenAddress;
 			
-			if (latitude == 0 || longitude == 0)
+			if (!string.IsNullOrEmpty(newTokenIdString) && !SharedValidators.IsValidWeb3TokenAddressFormat(newTokenIdString) )
 			{
-				Debug.Log("CreateNewPropertyDataFromMetadata() failed. " +
-				          "latitude = {latitude}, longitude = {longitude}");
+				tokenId = int.Parse(newTokenIdString);
 			}
-			
-			return new PropertyData(ownerAddress, tokenAddress, latitude, longitude);
+				
+			return new PropertyData(ownerAddress, tokenId, latitude, longitude);
 		}
 		
 		// Event Handlers ---------------------------------

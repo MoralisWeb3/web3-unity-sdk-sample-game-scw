@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using MoralisUnity.Samples.Shared.Components;
 using MoralisUnity.Samples.Shared.Data.Types;
 using MoralisUnity.Samples.SimCityWeb3.Model;
 using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
@@ -35,7 +36,12 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 			_simCityWeb3Model = simCityWeb3Model;
 			_simCityWeb3View = simCityWeb3View;
 			_simCityWeb3Service = simCityWeb3Service;
+			
+			_simCityWeb3View.SceneManagerComponent.OnSceneLoadingEvent.AddListener(SceneManagerComponent_OnSceneLoadingEvent);
+			_simCityWeb3View.SceneManagerComponent.OnSceneLoadedEvent.AddListener(SceneManagerComponent_OnSceneLoadedEvent);
 		}
+
+
 
 
 		// General Methods --------------------------------
@@ -157,5 +163,20 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 
 
 		// Event Handlers ---------------------------------
+		private void SceneManagerComponent_OnSceneLoadingEvent(SceneManagerComponent sceneManagerComponent)
+		{
+			if (_simCityWeb3View.ScreenCoverUI.IsVisible)
+			{
+				_simCityWeb3View.ScreenCoverUI.IsVisible = false;
+			}
+		
+		}
+		
+		private void SceneManagerComponent_OnSceneLoadedEvent(SceneManagerComponent sceneManagerComponent)
+		{
+			// Do anything?
+		}
+
+
 	}
 }

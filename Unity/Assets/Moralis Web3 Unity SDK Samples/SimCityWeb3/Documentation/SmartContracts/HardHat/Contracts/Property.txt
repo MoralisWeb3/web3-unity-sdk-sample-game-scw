@@ -13,7 +13,7 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 //      Each ERC721 instance here represents a globally unique 
 //      Real-estate property for the "Sim City Web3" game
 // Class Deployment
-//      0xA551c1a00e2f8Ae61D9c7081763dD7C9CB7e10c7 TODO: REMOVE THIS
+//      0x9079e5219d17B04a0d17Df57eD7b1E6696406393 TODO: REMOVE THIS
 contract Property is ERC721URIStorage 
 {
     // Auto generates tokenIds
@@ -31,7 +31,7 @@ contract Property is ERC721URIStorage
     } 
 
     // Called from the game to mint a new property
-    // The tokenURI string contains property metadata (latitude, longitude)
+    // The tokenURI contains property metadata (latitude, longitude)
     function mintPropertyNft(string memory tokenURI) public returns (uint256)
     {
         // DISCLAIMER -- NOT A PRODUCTION READY CONTRACT
@@ -47,14 +47,26 @@ contract Property is ERC721URIStorage
         _tokenIds.increment();
         return newItemId;
     }
-    
+
     // Called from the game to delete ("burn") an existing property
-    function burnPropertyNft(uint256 tokenId) public returns (string) 
+    function burnPropertyNft(uint256 tokenId) public returns (string memory) 
     {
         // DISCLAIMER -- NOT A PRODUCTION READY CONTRACT
         // require(msg.sender == owner);
-        
+
         _burn(tokenId);
+        return "Success!";
+    }
+
+    // Called from the game to delete ("burn") an existing ARRAY OF properties
+    function burnPropertyNfts(uint256[] calldata tokenIds) public returns (string memory) 
+    {
+        // DISCLAIMER -- NOT A PRODUCTION READY CONTRACT
+        // require(msg.sender == owner);
+
+        for (uint i=0; i<tokenIds.length; i++) {
+            burnPropertyNft (tokenIds[i]);
+        }
         
         return "Success!";
     }

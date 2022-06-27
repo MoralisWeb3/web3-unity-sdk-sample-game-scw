@@ -42,16 +42,17 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 			
 			List<PropertyData> propertyDatas = new List<PropertyData>();
 			
-			NftOwnerCollection nftOwnerCollection2 = await Moralis.Web3Api.Token.GetNFTOwners(
+			NftOwnerCollection nftOwnerCollection = await Moralis.Web3Api.Token.GetNFTOwners(
 				_propertyContract.Address,
 				ChainList.mumbai);
 			
-			foreach (NftOwner nftOwner in nftOwnerCollection2.Result)
+			foreach (NftOwner nftOwner in nftOwnerCollection.Result)
 			{
 				string ownerAddress = nftOwner.OwnerOf;
-				string tokenAddress = nftOwner.TokenAddress;
+				string tokenIdString = nftOwner.TokenId;
 				string metadata = nftOwner.TokenUri;
-				propertyDatas.Add(PropertyData.CreateNewPropertyDataFromMetadata(ownerAddress, tokenAddress, metadata));
+				Debug.Log($"nftOwner ownerAddress={ownerAddress} tokenIdString={tokenIdString} metadata={metadata}");
+				propertyDatas.Add(PropertyData.CreateNewPropertyDataFromMetadata(ownerAddress, tokenIdString, metadata));
 			}
 			
 		
@@ -60,16 +61,11 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 
 		public async UniTask<PropertyData> SavePropertyDataAsync(PropertyData propertyData)
 		{
-			string newTokenAddress = await _propertyContract.MintPropertyNftAsync(propertyData);
+			string newTokenIdString = await _propertyContract.MintPropertyNftAsync(propertyData);
+			
+			Debug.Log("newTokenIdString=" + newTokenIdString);
 
-			if (SharedValidators.IsValidWeb3TokenAddressFormat(newTokenAddress))
-			{
-				propertyData = PropertyData.CreateNewPropertyDataFromMetadata(propertyData.OwnerAddress, newTokenAddress, propertyData.GetMetadata());
-			}
-			else
-			{
-				Debug.LogError("SavePropertyData() worked, but return value may be malformatted. newTokenAddress = {newTokenAddress}");
-			}
+			propertyData = PropertyData.CreateNewPropertyDataFromMetadata(propertyData.OwnerAddress, newTokenIdString, propertyData.GetMetadata());
 
 			return propertyData;
 		}
@@ -82,11 +78,9 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 
 		public async UniTask DeleteAllPropertyDatasAsync(List<PropertyData> propertyDatas)
 		{
-			foreach (PropertyData propertyData in propertyDatas)
-			{
-				string result = await _propertyContract.BurnPropertyNftAsync(propertyData);
-				Debug.Log($"DeleteAllPropertyDatasAsync() result = {result}");
-			}
+			string result = await _propertyContract.BurnPropertyNftsAsync(propertyDatas);
+			Debug.Log($"DeleteAllPropertyDatasAsync() result = {result}");
+	
 		}
 
 

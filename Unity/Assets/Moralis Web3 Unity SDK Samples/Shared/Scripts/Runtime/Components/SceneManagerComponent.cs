@@ -1,8 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 namespace MoralisUnity.Samples.Shared.Components
 {
+	public class SceneManagerComponentUnityEvent : UnityEvent<SceneManagerComponent> {}
+	
 	/// <summary>
 	/// Determines "was the active scene loaded directly?
 	/// * (true) Loaded directly
@@ -10,6 +13,10 @@ namespace MoralisUnity.Samples.Shared.Components
 	/// </summary>
 	public class SceneManagerComponent : MonoBehaviour
 	{
+		// Events -----------------------------------------
+		public SceneManagerComponentUnityEvent OnSceneLoadingEvent = new SceneManagerComponentUnityEvent();
+		public SceneManagerComponentUnityEvent OnSceneLoadedEvent = new SceneManagerComponentUnityEvent();
+		
 		// Properties -------------------------------------
 
 		// Fields -----------------------------------------
@@ -22,6 +29,13 @@ namespace MoralisUnity.Samples.Shared.Components
 			_sceneNameLoadedDirectly = SceneManager.GetActiveScene().name;
 		}
 		
+		protected void Start ()
+		{
+			SceneManager.sceneLoaded += SceneManager_OnSceneLoaded;
+		}
+
+
+
 		// General Methods --------------------------------
 		public bool WasActiveSceneLoadedDirectly()
 		{
@@ -33,8 +47,6 @@ namespace MoralisUnity.Samples.Shared.Components
 			LoadScene(_sceneNamePrevious);
 		}
 		
-		// Event Handlers ---------------------------------
-
 		public void LoadScene(string sceneName)
 		{
 			if (string.IsNullOrEmpty(sceneName))
@@ -44,7 +56,14 @@ namespace MoralisUnity.Samples.Shared.Components
 			}
 			
 			_sceneNamePrevious = SceneManager.GetActiveScene().name;
+			OnSceneLoadingEvent.Invoke(this);
 			SceneManager.LoadScene(sceneName);
+		}
+		
+		// Event Handlers ---------------------------------
+		private void SceneManager_OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+		{
+			OnSceneLoadedEvent.Invoke(this);
 		}
 	}
 }

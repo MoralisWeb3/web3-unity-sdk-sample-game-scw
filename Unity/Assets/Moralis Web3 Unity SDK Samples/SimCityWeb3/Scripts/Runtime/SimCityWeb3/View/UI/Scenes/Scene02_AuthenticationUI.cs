@@ -50,6 +50,8 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		{
 			Moralis.Start();
 			
+			
+			
 			// Move Layout Upwards to allow for custom "Cancel" Button
 			_authenticationKitRectTransform.offsetMin = new Vector2(0, 50);
 			
