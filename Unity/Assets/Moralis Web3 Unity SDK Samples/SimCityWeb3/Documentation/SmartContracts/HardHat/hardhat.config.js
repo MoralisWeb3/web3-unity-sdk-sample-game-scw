@@ -14,9 +14,9 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 ///////////////////////////////////////////////////////////
 // CONFIGURATION
 ///////////////////////////////////////////////////////////
-const PRIVATE_KEY = "2f6009cddf4c79754af198995fd9db86f0c4ced09e5e33b8f0d701362f8231d5";                     // Populate from MetaMask, after sign-in
-const MUMBAI_NETWORK_URL = "https://speedy-nodes-nyc.moralis.io/b7793ecdae1b69241aa47057/polygon/mumbai";   // Populate from admin.moralis.io, after sign-in
-const POLYGONSCAN_API_KEY = "6BR5JYMPZIMCKERGSTTBHJPBUCXETJUT22";                                           // Populate from polygonscan.com, after sign-in
+const PRIVATE_KEY = "";                 // Populate from MetaMask, after sign-in
+const MUMBAI_NETWORK_URL = "";   	// Populate from admin.moralis.io, after sign-in
+const POLYGONSCAN_API_KEY = "";         // Populate from polygonscan.com, after sign-in
 
 ///////////////////////////////////////////////////////////
 // EXPORTS
