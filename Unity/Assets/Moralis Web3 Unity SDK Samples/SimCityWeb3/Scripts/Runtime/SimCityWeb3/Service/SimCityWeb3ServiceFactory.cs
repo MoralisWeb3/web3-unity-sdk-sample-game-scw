@@ -12,13 +12,9 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 	{
 		// Properties -------------------------------------
 		
+		
 		// Fields -----------------------------------------
 		
-		// Initialization Methods -------------------------
-		public SimCityWeb3ServiceFactory()
-		{
-		}
-
 		
 		// General Methods --------------------------------
 		public ISimCityWeb3Service Create (SimCityWeb3ServiceType simCityWeb3ServiceType)
@@ -44,9 +40,5 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 
 		
 		// Event Handlers ---------------------------------
-		public void Target_OnCompleted(string message)
-		{
-
-		}
 	}
 }

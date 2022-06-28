@@ -1,8 +1,6 @@
 using System;
 using System.Text;
 using Cysharp.Threading.Tasks;
-using MoralisUnity.Sdk.Exceptions;
-using MoralisUnity.Sdk.Interfaces;
 using Nethereum.Hex.HexTypes;
 using UnityEngine;
 using WalletConnectSharp.Unity;
@@ -23,7 +21,6 @@ namespace MoralisUnity.Samples.Shared.Data.Types
 		protected string _address;
 		protected string _abi;
 
-		
 		// Initialization Methods -------------------------
 		public Contract()
 		{
@@ -31,13 +28,6 @@ namespace MoralisUnity.Samples.Shared.Data.Types
 		}
 		
 		
-		public Contract(string address, string abi)
-		{
-			_address = address;
-			_abi = abi;
-		}
-
-
 		// General Methods --------------------------------
 		protected async UniTask<string> ExecuteContractFunctionAsync(string functionName, object[] args, bool isLogging)
 		{

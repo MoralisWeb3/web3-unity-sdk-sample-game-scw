@@ -13,7 +13,6 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
     [CreateAssetMenu( menuName = SimCityWeb3Constants.PathCreateAssetMenu + "/" + Title,  fileName = Title)]
     public class SimCityWeb3Configuration : CustomSingletonScriptableObject<SimCityWeb3Configuration>
     {
-		
         // Properties -------------------------------------
         public SimCityWeb3View SimCityWeb3ViewPrefab { get { return _simCityWeb3ViewPrefab; } }
         public MapPropertyUI MapPropertyUIPrefab { get { return _mapPropertyUIPrefab; } }
@@ -57,7 +56,6 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 
         
         // General Methods --------------------------------
-
 
 		
         // Event Handlers ---------------------------------
