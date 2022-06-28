@@ -2,7 +2,7 @@
 
 CHECKLIST - DEVELOPMENT 
 - [ X ] Finish all runtime features
-- [   ] Address all "TODO" comments in code
+- [ X ] Address all "TODO" comments in code
 - [ X ] Remove any unneeded "Log." calls. Ideally all
 - [ X ] Run/Test runtime in Unity Editor
 - [ X ] Build/Test runtime on Standalone Desktop
@@ -11,9 +11,13 @@ CHECKLIST - DEVELOPMENT
 - [ X ] Add class comments
 - [ X ] Remove unneeded /3rdParty/ contents
 - [ X ] Validate uncompressed file of repo, direct after download. Ideally < 100MB
-- [   ] Update/Test ReadMe.asset
-- [   ] Update/Test README.md
-- [   ] Update/Test SimCityWeb3Configuration.asset
+- [ X ] Update/Test ReadMe.asset
+- [ X ] Update/Test README.md
+- [ X ] Update/Test SimCityWeb3Configuration.asset
+
+CHECKLIST - RECORDING VIDEO 
+- [ X ] - Use 16x10 Layout
+- [ X] - Code editor height set to ~25 lines
 
 
 CHECKLIST - RELEASE 
@@ -23,7 +27,6 @@ CHECKLIST - RELEASE
 - [   ] Release repo as public
 - [   ] Shoot video
 - [   ] Release video as unlisted
-
 
 CHECKLIST - OTHER 
 - [   ] 

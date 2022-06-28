@@ -6,7 +6,6 @@ using UnityEngine;
 
 namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 {
-    //TODO Remove CustomSingletonScriptableObject2 or whatever the '2' is called. It exists!
     /// <summary>
     /// Main configuration for the game. Click the instance of this class in the project to view/edit
     /// </summary>

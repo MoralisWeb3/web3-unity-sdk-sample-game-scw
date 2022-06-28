@@ -395,7 +395,6 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 						// Update the data model
 						SimCityWeb3Singleton.Instance.SimCityWeb3Controller.RemovePropertyData(_pendingSellingMapPropertyUI.PropertyData);
 			
-						// TODO: This dissapears (good) but does it instantly (bad). fix it so it animates
 						TweenHelper.GameObjectDespawns(_pendingSellingMapPropertyUI.gameObject, TweenDuration)
 							.OnComplete(
 								() =>

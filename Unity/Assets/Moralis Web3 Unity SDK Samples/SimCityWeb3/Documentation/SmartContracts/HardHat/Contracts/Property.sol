@@ -41,9 +41,6 @@ contract Property is ERC721URIStorage
         _mint(msg.sender, newItemId);
         _setTokenURI(newItemId, tokenURI);
 
-        //TODO: This *may* be needed for "_burn" to work
-        //setApprovalForAll(contractAddress, true);
-
         _tokenIds.increment();
         return newItemId;
     }
