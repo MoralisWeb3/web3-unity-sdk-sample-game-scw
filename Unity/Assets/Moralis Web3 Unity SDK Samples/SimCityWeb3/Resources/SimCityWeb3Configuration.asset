@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 32
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -22,4 +22,4 @@ MonoBehaviour:
     _scene: {fileID: 102900000, guid: 366332204cab6ed448ea3ea0f64f4a6a, type: 3}
   _gameSceneData:
     _scene: {fileID: 102900000, guid: b03088c9c302191468a3741f5521210c, type: 3}
-  _simCityWeb3ServiceType: 2
+  _simCityWeb3ServiceType: 1

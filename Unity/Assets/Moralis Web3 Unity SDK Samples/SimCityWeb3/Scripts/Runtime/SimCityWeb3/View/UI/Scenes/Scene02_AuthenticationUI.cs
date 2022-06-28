@@ -80,7 +80,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 				// Did you open ANOTHER scene in the Unity Editor and Press Play?
 				// If so, this scene is designed to handle Auth more completely...
 				if (_wasLoggedInAtSetupMoralis == false && 
-				    authenticationKitState == AuthenticationKitState.WalletConnected)
+				    authenticationKitState == AuthenticationKitState.MoralisLoggedIn)
 				{
 					// You went from NOT LOGGED to CONNECTED...
 					// Success! So go back to the previous scene
