@@ -2,6 +2,7 @@
 
 CHECKLIST - DEVELOPMENT 
 - [ X ] Finish all runtime features
+- [   ] Address all "TODO" comments in code
 - [ X ] Remove any unneeded "Log." calls. Ideally all
 - [ X ] Run/Test runtime in Unity Editor
 - [ X ] Build/Test runtime on Standalone Desktop

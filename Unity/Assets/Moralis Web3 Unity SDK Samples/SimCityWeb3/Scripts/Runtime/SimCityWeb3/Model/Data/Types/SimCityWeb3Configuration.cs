@@ -1,17 +1,18 @@
-using GD.MinMaxSlider;
+using MoralisUnity.Samples.Shared.Attributes;
 using MoralisUnity.Samples.Shared.Data.Types;
-using MoralisUnity.Samples.Shared.DesignPatterns.Creational.Singleton.SingletonScriptableObject2;
+using MoralisUnity.Samples.Shared.DesignPatterns.Creational.Singleton.CustomSingletonScriptableObject;
 using MoralisUnity.Samples.SimCityWeb3.View.UI;
 using UnityEngine;
 
 namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 {
-    
+    //TODO Remove CustomSingletonScriptableObject2 or whatever the '2' is called. It exists!
     /// <summary>
     /// Main configuration for the game. Click the instance of this class in the project to view/edit
     /// </summary>
+    [ReferenceByGuid (Guid = "259c0de8152c6974e811ad9ec6e1cb58")]
     [CreateAssetMenu( menuName = SimCityWeb3Constants.PathCreateAssetMenu + "/" + Title,  fileName = Title)]
-    public class SimCityWeb3Configuration : SingletonScriptableObject2<SimCityWeb3Configuration>
+    public class SimCityWeb3Configuration : CustomSingletonScriptableObject<SimCityWeb3Configuration>
     {
 		
         // Properties -------------------------------------
@@ -50,17 +51,14 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
         [SerializeField]
         public SimCityWeb3ServiceType _simCityWeb3ServiceType = SimCityWeb3ServiceType.Null;
 
-        private const string Title = SimCityWeb3Constants.ProjectName + " Configuration";
+        public const string Title = SimCityWeb3Constants.ProjectName + " Configuration";
 
         
         // Unity Methods ----------------------------------
 
         
         // General Methods --------------------------------
-        public string SamplePublicMethod(string message)
-        {
-            return message;
-        }
+
 
 		
         // Event Handlers ---------------------------------

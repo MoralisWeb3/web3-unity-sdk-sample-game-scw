@@ -29,7 +29,8 @@ namespace MoralisUnity.Samples.SimCityWeb3.Shared
 			SimCityWeb3Constants.PriorityMoralisWindow_Examples)]
 		public static void AddAllScenesToBuildSettings()
 		{
-			List<SceneAsset> sceneAssets = SimCityWeb3Storage.Instance.SceneAssets;
+			Resources.FindObjectsOfTypeAll<SceneDataStorage>();
+			List<SceneAsset> sceneAssets = SceneDataStorage.Instance.SceneAssets;
 
 			Debug.Log($"AddAllScenesToBuildSettings() sceneAssets.Count = {sceneAssets.Count}");
 			EditorBuildSettingsUtility.AddScenesToBuildSettings(sceneAssets);
