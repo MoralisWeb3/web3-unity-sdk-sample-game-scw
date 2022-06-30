@@ -12,7 +12,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 	/// Handles communication with external sources (e.g. database/servers/contracts)
 	///		* See <see cref="SimCityWeb3Singleton"/> 
 	/// </summary>
-	public class SimCityWeb3ContractService_VideoStart : ISimCityWeb3Service
+	public class SimCityWeb3ContractService : ISimCityWeb3Service
 	{
 		// Properties -------------------------------------
 		public PendingMessage PendingMessageForDeletion { get { return _pendingMessageForDeletion; }}
@@ -26,7 +26,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 
 
 		// Initialization Methods -------------------------
-		public SimCityWeb3ContractService_VideoStart()
+		public SimCityWeb3ContractService()
 		{
 			_propertyContract = new PropertyContract();
 		}
@@ -72,8 +72,8 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 	
 		}
 
-		// Event Handlers ---------------------------------
 
+		// Event Handlers ---------------------------------
 	}
 }
 
