@@ -12,8 +12,8 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 // Class Purpose
 //      Each ERC721 instance here represents a globally unique 
 //      Real-estate property for the "Sim City Web3" game
-// Class Deployment
-//      0x9079e5219d17B04a0d17Df57eD7b1E6696406393 TODO: REMOVE THIS
+// Class Deployment Address
+//      TODO: UPDATE THIS AFTER EACH DEPLOYMENT: 0x9079e5219d17B04a0d17Df57eD7b1E6696406393 
 contract Property is ERC721URIStorage 
 {
     // Auto generates tokenIds
