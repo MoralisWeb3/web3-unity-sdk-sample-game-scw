@@ -38,6 +38,41 @@ See [docs.moralis.io/unity](https://docs.moralis.io/unity) for more info.
 
 ## Media
 
+
+<BR>
+  
+**Video: Unity Web3 Development - Sim City Web3 | Unity Web3 Programming**
+<table>
+  <tr>
+    <th>Thumbnail</th>
+    <th>TimeStamps</th>
+  </tr>
+  <tr>
+    <td style="max-width:50%;" align="center"><a href="[https://www.youtube.com/watch?v=UJ_PiKoMTR4&list=PLFPZ8ai7J-iT8JvlwTCvBrKYqO8qT4DrB&index=4](https://www.youtube.com/watch?v=3jCJ7jCTqXk)"><img src="Documentation/Images/YouTubeThumbnail.png" width = "400"></a></td>
+        <td align="left">
+<ul>          
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=0s">0:00</a> Intro Topic</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=78s">1:18</a> Main Topic</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=172s">2:52</a> Theory - OVERVIEW</li></li>
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=261s">4:21</a> Theory - Polygon Blockchain</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=349s">5:49</a> Theory - NFTs For Gaming</li></li>
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=563s">9:23</a>  Theory - Project Setup</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=783s">13:03</a> Theory - Project Todo List</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=878s">14:38</a> Live Coding - OVERVIEW</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=976s">16:16</a> Live Coding - Hardhat / Solidity</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=1704s">28:24</a> Live Coding - Unity / C#</li>
+<li>▶ 3<a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=2131s">5:31</a> Live Coding - Web3ContractService</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=2809s">46:49</a> Live Coding - Playing The Finished Game</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=3067s">51:07</a> Recap Topic</li>
+</ul>
+    </td>
+  </tr> 
+</table>
+
+
+ 
+<BR>
+
 **Images**
 
 <table>
