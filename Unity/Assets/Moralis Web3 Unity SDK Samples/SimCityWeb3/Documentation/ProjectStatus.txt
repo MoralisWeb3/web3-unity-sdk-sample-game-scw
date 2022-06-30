@@ -15,18 +15,18 @@ CHECKLIST - DEVELOPMENT
 - [ X ] Update/Test README.md
 - [ X ] Update/Test SimCityWeb3Configuration.asset
 
+
 CHECKLIST - RECORDING VIDEO 
 - [ X ] - Use 16x10 Layout
-- [ X] - Code editor height set to ~25 lines
+- [ X ] - Code editor height set to ~25 lines
 
 
 CHECKLIST - RELEASE 
-- [   ] Remove from git: MoralisServerSettings.asset 
-- [   ] Remove from git: SOME values within: MapSessionConfig.txt
-- [   ] Remove from git: SOME values within: PropertyContract.cs
-- [   ] Release repo as public
-- [   ] Shoot video
-- [   ] Release video as unlisted
+- [ X] Remove from git: MoralisServerSettings.asset 
+- [ X ] Keep in git: SOME values within: MapSessionConfig.txt
+- [ X ] Keep in git: ALL values within: PropertyContract.cs
+- [ X ] Release repo as public
+- [ X ] Release video as unlisted
 
 CHECKLIST - OTHER 
 - [   ] 
