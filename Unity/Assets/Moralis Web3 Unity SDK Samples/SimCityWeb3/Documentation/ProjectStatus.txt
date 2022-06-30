@@ -22,8 +22,7 @@ CHECKLIST - RECORDING VIDEO
 
 
 CHECKLIST - RELEASE 
-- [ X] Remove from git: MoralisServerSettings.asset 
-- [ X ] Keep in git: SOME values within: MapSessionConfig.txt
+- [ X ] Keep in git: ALL values within: MapSessionConfig.txt
 - [ X ] Keep in git: ALL values within: PropertyContract.cs
 - [ X ] Release repo as public
 - [ X ] Release video as unlisted
