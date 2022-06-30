@@ -38,6 +38,54 @@ See [docs.moralis.io/unity](https://docs.moralis.io/unity) for more info.
 
 ## Media
 
+
+<BR>
+  
+**Video: Unity Web3 Development - Sim City Web3 | Unity Web3 Programming**
+<table>
+  <tr>
+    <th>Thumbnail</th>
+    <th>TimeStamps</th>
+  </tr>
+  <tr>
+    <td style="max-width:50%;" align="center"><a href="https://www.youtube.com/watch?v=UJ_PiKoMTR4&list=PLFPZ8ai7J-iT8JvlwTCvBrKYqO8qT4DrB&index=4"><img src="https://github.com/MoralisWeb3/web3-unity-sdk-examples/blob/main/Unity/Assets/Moralis%20Web3%20Unity%20SDK%20Examples/Documentation/Images/YouTubeThumbnail.png" width = "400"></a></td>
+        <td align="left">
+<ul>          
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=0s">0:00</a> Intro Topic</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=78s">1:18</a> Main Topic</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=172s">2:52</a> Theory - OVERVIEW</li></li>
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=261s">4:21</a> Theory - Polygon Blockchain</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=349s">5:49</a> Theory - NFTs For Gaming</li></li>
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=563s">9:23</a>  Theory - Project Setup</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=783s">13:03</a> Theory - Project Todo List</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=878s">14:38</a> Live Coding - OVERVIEW</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=976s">16:16</a> Live Coding - Hardhat / Solidity</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=1704s">28:24</a> Live Coding - Unity / C#</li>
+<li>▶ 3<a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=2131s">5:31</a> Live Coding - Web3ContractService</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=2809s">46:49</a> Live Coding - Playing The Finished Game</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=3067s">51:07</a> Recap Topic</li>
+
+
+<li>▶ <a href="https://www.youtube.com/watch?v=UJ_PiKoMTR4&list=PLFPZ8ai7J-iT8JvlwTCvBrKYqO8qT4DrB&index=4&t=0s">0:00</a> Intro Topic</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=UJ_PiKoMTR4&list=PLFPZ8ai7J-iT8JvlwTCvBrKYqO8qT4DrB&index=4&t=88s">1:28</a> Main Topic</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=UJ_PiKoMTR4&list=PLFPZ8ai7J-iT8JvlwTCvBrKYqO8qT4DrB&index=4&t=222s">3:42</a> Live Coding - Overview</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=UJ_PiKoMTR4&list=PLFPZ8ai7J-iT8JvlwTCvBrKYqO8qT4DrB&index=4&t=342s">5:42</a> Live Coding - Moralis </li>
+<li>▶ <a href="https://www.youtube.com/watch?v=UJ_PiKoMTR4&list=PLFPZ8ai7J-iT8JvlwTCvBrKYqO8qT4DrB&index=4&t=883s">14:43</a> Live Coding - Moralis Client</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=UJ_PiKoMTR4&list=PLFPZ8ai7J-iT8JvlwTCvBrKYqO8qT4DrB&index=4&t=979s">16:19</a> Live Coding - Moralis Cloud</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=UJ_PiKoMTR4&list=PLFPZ8ai7J-iT8JvlwTCvBrKYqO8qT4DrB&index=4&t=1172s">19:32</a> Live Coding - Moralis User</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=UJ_PiKoMTR4&list=PLFPZ8ai7J-iT8JvlwTCvBrKYqO8qT4DrB&index=4&t=1264s">21:04</a> Live Coding - Solana API</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=UJ_PiKoMTR4&list=PLFPZ8ai7J-iT8JvlwTCvBrKYqO8qT4DrB&index=4&t=1437s">23:57</a> Live Coding - Web3 API</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=UJ_PiKoMTR4&list=PLFPZ8ai7J-iT8JvlwTCvBrKYqO8qT4DrB&index=4&t=2154s">35:54</a> Live Coding - Web3 Client</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=UJ_PiKoMTR4&list=PLFPZ8ai7J-iT8JvlwTCvBrKYqO8qT4DrB&index=4&t=2308s">38:28</a> Recap Topic</li>
+</ul>
+    </td>
+  </tr> 
+</table>
+
+
+ 
+<BR>
+
 **Images**
 
 <table>
