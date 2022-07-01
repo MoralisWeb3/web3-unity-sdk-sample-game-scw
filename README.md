@@ -61,8 +61,8 @@ See [docs.moralis.io/unity](https://docs.moralis.io/unity) for more info.
 <li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=878s">14:38</a> Live Coding - OVERVIEW</li>
 <li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=976s">16:16</a> Live Coding - Hardhat / Solidity</li>
 <li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=1704s">28:24</a> Live Coding - Unity / C#</li>
-<li>▶ 3<a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=2131s">5:31</a> Live Coding - Web3ContractService</li>
-<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=2809s">46:49</a> Live Coding - Playing The Finished Game</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=2131s">35:31</a> Live Coding - Web3ContractService</li>
+<li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=2809s">46:49</a> Live Coding - Playing Finished Game</li>
 <li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=3067s">51:07</a> Recap Topic</li>
 </ul>
     </td>
