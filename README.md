@@ -41,7 +41,7 @@ See [docs.moralis.io/unity](https://docs.moralis.io/unity) for more info.
 
 <BR>
   
-**Video: Unity Web3 Development - Sim City Web3 | Unity Web3 Programming**
+**Video: Unity Web3 Development - Sim City Web3 Sample Game**
 <table>
   <tr>
     <th>Thumbnail</th>
