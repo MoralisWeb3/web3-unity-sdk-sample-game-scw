@@ -48,7 +48,7 @@ See [docs.moralis.io/unity](https://docs.moralis.io/unity) for more info.
     <th>TimeStamps</th>
   </tr>
   <tr>
-    <td style="max-width:50%;" align="center"><a href="[https://www.youtube.com/watch?v=UJ_PiKoMTR4&list=PLFPZ8ai7J-iT8JvlwTCvBrKYqO8qT4DrB&index=4](https://www.youtube.com/watch?v=3jCJ7jCTqXk)"><img src="Documentation/Images/YouTubeThumbnail.png" width = "400"></a></td>
+    <td style="max-width:50%;" align="center"><a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk"><img src="https://github.com/MoralisWeb3/web3-unity-sdk-sample-game-scw/blob/main/Unity/Assets/Moralis%20Web3%20Unity%20SDK%20Samples/SimCityWeb3/Documentation/Images/YouTubeThumbnail.png" width = "400"></a></td>
         <td align="left">
 <ul>          
 <li>▶ <a href="https://www.youtube.com/watch?v=3jCJ7jCTqXk&t=0s">0:00</a> Intro Topic</li>
@@ -81,8 +81,8 @@ See [docs.moralis.io/unity](https://docs.moralis.io/unity) for more info.
     <th>Image 02</th>
   </tr>
   <tr>
-    <td align="center"><img src="https://github.com/MoralisWeb3/web3-unity-sdk-sample-game-scw/blob/main/Unity/Assets/Moralis%20Web3%20Unity%20SDK%20Samples/SimCityWeb3/Documentation/Images/Screenshot_01.jpg" width = "250"></td>
-    <td align="center"><img src="https://github.com/MoralisWeb3/web3-unity-sdk-sample-game-scw/blob/main/Unity/Assets/Moralis%20Web3%20Unity%20SDK%20Samples/SimCityWeb3/Documentation/Images/Screenshot_02.jpg" width = "250"></td>
+    <td align="center"><img src="https://github.com/MoralisWeb3/web3-unity-sdk-sample-game-scw/blob/main/Unity/Assets/Moralis%20Web3%20Unity%20SDK%20Samples/SimCityWeb3/Documentation/Images/Screenshot_01.png" width = "250"></td>
+    <td align="center"><img src="https://github.com/MoralisWeb3/web3-unity-sdk-sample-game-scw/blob/main/Unity/Assets/Moralis%20Web3%20Unity%20SDK%20Samples/SimCityWeb3/Documentation/Images/Screenshot_02.png" width = "250"></td>
   </tr> 
   <tr>
     <td align="center"><img src="https://github.com/MoralisWeb3/web3-unity-sdk-sample-game-scw/blob/main/Unity/Assets/Moralis%20Web3%20Unity%20SDK%20Samples/SimCityWeb3/Documentation/Images/Screenshot_04.png" width = "250"></td>
