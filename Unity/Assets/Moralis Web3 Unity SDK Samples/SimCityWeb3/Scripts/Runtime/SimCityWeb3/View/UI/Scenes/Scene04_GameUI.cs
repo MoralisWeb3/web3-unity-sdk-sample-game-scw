@@ -218,6 +218,15 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 		
 		public async void RenderPropertyDataAsync(PropertyData propertyData, bool isPendingAndFloating)
 		{
+			//Debug.Log($"RenderPropertyDataAsync() propertyData = {propertyData}");
+			
+			if (propertyData.Latitude.Equals(PropertyData.NullLatitude) ||
+			    propertyData.Longitude.Equals(PropertyData.NullLongitude))
+			{
+				Debug.LogWarning($"RenderPropertyDataAsync() failed. Will not render {propertyData} to the MapUI.");
+				return;
+			}
+			
 			MapPropertyUI mapPropertyUIPrefab = SimCityWeb3Configuration.Instance.MapPropertyUIPrefab;
 			_pendingCreationMapPropertyUI = Instantiate<MapPropertyUI>(mapPropertyUIPrefab);
 			_pendingCreationMapPropertyUI.PropertyData = propertyData;

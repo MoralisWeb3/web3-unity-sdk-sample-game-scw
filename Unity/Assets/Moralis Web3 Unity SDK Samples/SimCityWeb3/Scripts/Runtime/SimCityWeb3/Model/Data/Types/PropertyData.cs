@@ -71,6 +71,11 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 		}
 		
 		// General Methods --------------------------------
+		public override string ToString()
+		{
+			return $"[PropertyData (Latitude = {_latitude}, Longitude = {_longitude})]";
+		}
+
 		public string GetMetadata()
 		{
 			return $"{Latitude}|{Longitude}";
@@ -78,7 +83,16 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 
 		public static PropertyData CreateNewPropertyDataFromMetadata(string ownerAddress, string newTokenIdString, string metadata)
 		{
-			string[] metadataTokens = metadata.Split("|");
+			string[] metadataTokens = Array.Empty<string>();
+
+			try
+			{
+				metadataTokens = metadata.Split("|");
+			}
+			catch 
+			{
+				Debug.LogWarning($"The metadata {metadata} is not properly formatted.");
+			}
 
 			double latitude = PropertyData.NullLatitude;
 			double longitude = PropertyData.NullLongitude;
@@ -92,7 +106,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 				}
 				catch 
 				{
-					Debug.LogWarning($"Latitude of type string of {metadataTokens[0]} cannot not parse to type double. " +
+					Debug.LogWarning($"The metadata {metadata} is not properly formatted. Latitude cannot not parse to type double. " +
 					                 $"So {latitude} will be used instead");
 				}
 			
@@ -103,13 +117,13 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 				}
 				catch
 				{
-					Debug.LogWarning($"Longitude of type string of {metadataTokens[1]} cannot not parse to type double. " +
+					Debug.LogWarning($"The metadata {metadata} is not properly formatted. Longitude cannot not parse to type double. " +
 					                 $"So {longitude} will be used instead");
 				}
 			}
 			else
 			{
-				Debug.LogWarning($"The metadata {metadata} is not properly formatted. Falling back to values of " +
+				Debug.LogWarning($"metadataTokens.Length = {metadataTokens.Length}. The metadata {metadata} is not properly formatted. Falling back to values of " +
 				                 $"latitude = {latitude}, latitude = {latitude}");
 			}
 			
