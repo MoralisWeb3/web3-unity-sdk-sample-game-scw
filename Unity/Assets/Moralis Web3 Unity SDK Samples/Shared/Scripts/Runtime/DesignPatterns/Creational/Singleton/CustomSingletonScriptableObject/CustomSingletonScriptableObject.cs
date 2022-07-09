@@ -1,10 +1,4 @@
-
-
-using System;
-using MoralisUnity.Platform.Utilities;
 using MoralisUnity.Samples.Shared.Attributes;
-using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
-using UnityEditor;
 using UnityEngine;
 
 namespace MoralisUnity.Samples.Shared.DesignPatterns.Creational.Singleton.CustomSingletonScriptableObject
@@ -56,7 +50,6 @@ namespace MoralisUnity.Samples.Shared.DesignPatterns.Creational.Singleton.Custom
         
         protected static T Instantiate()
         {
-            
             System.Attribute[] attrs = System.Attribute.GetCustomAttributes(typeof(T));
             string guid = string.Empty;
             for (int i = 0; i < attrs.Length; i++)
@@ -72,10 +65,10 @@ namespace MoralisUnity.Samples.Shared.DesignPatterns.Creational.Singleton.Custom
             {
                 Debug.LogError("Add [ReferenceByGuidAttribute] to child object and include accurate Guid value.");
             }
-        
-            var path = AssetDatabase.GUIDToAssetPath(guid);
-            var instance = AssetDatabase.LoadAssetAtPath<T>(path);
-            return instance;
+
+
+            T[] instances = Resources.LoadAll<T>("");
+            return instances[0];
         }
     }
 }

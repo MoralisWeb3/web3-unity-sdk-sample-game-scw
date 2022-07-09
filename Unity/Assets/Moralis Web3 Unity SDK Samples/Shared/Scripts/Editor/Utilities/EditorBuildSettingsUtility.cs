@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using MoralisUnity.Samples.Shared.Data.Types;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 
@@ -14,14 +15,14 @@ namespace MoralisUnity.Samples.Shared.Utilities
         //  Fields ----------------------------------------
         
         //  Methods ---------------------------------------
-        public static void AddScenesToBuildSettings(List<SceneAsset> sceneAssets)
+        public static void AddScenesToBuildSettings(List<SceneData> sceneDatas)
         {
             // Find valid Scene paths and make a list of EditorBuildSettingsScene
             List<EditorBuildSettingsScene> existingScenes = EditorBuildSettings.scenes.ToList();
             
-            foreach (SceneAsset sceneAsset in sceneAssets)
+            foreach (SceneData sceneData in sceneDatas)
             {
-                string scenePath = AssetDatabase.GetAssetPath(sceneAsset);
+                string scenePath = AssetDatabase.GetAssetPath(sceneData.Scene);
                 
                 // Remove if exists (to improve sort)
                 bool alreadyExists = existingScenes.Any(item => item.path == scenePath);

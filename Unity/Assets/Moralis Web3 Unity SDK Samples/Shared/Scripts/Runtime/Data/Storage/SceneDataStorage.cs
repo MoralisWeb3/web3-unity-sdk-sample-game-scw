@@ -1,9 +1,8 @@
-#if UNITY_EDITOR
 using System.Collections.Generic;
 using MoralisUnity.Samples.Shared.Attributes;
+using MoralisUnity.Samples.Shared.Data.Types;
 using MoralisUnity.Samples.Shared.DesignPatterns.Creational.Singleton.CustomSingletonScriptableObject;
 using MoralisUnity.Samples.SimCityWeb3;
-using UnityEditor;
 using UnityEngine;
 
 namespace MoralisUnity.Samples.Shared.Data.Storage
@@ -13,15 +12,14 @@ namespace MoralisUnity.Samples.Shared.Data.Storage
     public class SceneDataStorage: CustomSingletonScriptableObject<SceneDataStorage>
 	{
         //  Properties ------------------------------------
-        public List<SceneAsset> SceneAssets { get { return _sceneAssets; } }
+        public List<SceneData> SceneDatas { get { return _sceneDatas; } }
 
         //  Fields ----------------------------------------
         private const string Title = "SceneDataStorage";
 
         [SerializeField]
-        private List<SceneAsset> _sceneAssets = null;
+        private List<SceneData> _sceneDatas = null;
 
         //  Methods ---------------------------------------
     }
 }
-#endif // UNITY_EDITOR

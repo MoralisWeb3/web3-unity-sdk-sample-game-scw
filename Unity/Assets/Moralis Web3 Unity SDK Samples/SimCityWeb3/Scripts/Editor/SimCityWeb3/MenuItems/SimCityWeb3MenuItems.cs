@@ -5,6 +5,7 @@ using MoralisUnity.Sdk.UI.ReadMe;
 using UnityEngine;
 using MoralisUnity.Samples.Shared.Data.Storage;
 using MoralisUnity.Samples.Shared.Utilities;
+using MoralisUnity.Samples.Shared.Data.Types;
 
 namespace MoralisUnity.Samples.SimCityWeb3.Shared
 {
@@ -30,10 +31,10 @@ namespace MoralisUnity.Samples.SimCityWeb3.Shared
 		public static void AddAllScenesToBuildSettings()
 		{
 			Resources.FindObjectsOfTypeAll<SceneDataStorage>();
-			List<SceneAsset> sceneAssets = SceneDataStorage.Instance.SceneAssets;
+			List<SceneData> sceneDatas = SceneDataStorage.Instance.SceneDatas;
 
-			Debug.Log($"AddAllScenesToBuildSettings() sceneAssets.Count = {sceneAssets.Count}");
-			EditorBuildSettingsUtility.AddScenesToBuildSettings(sceneAssets);
+			Debug.Log($"AddAllScenesToBuildSettings() sceneDatas.Count = {sceneDatas.Count}");
+			EditorBuildSettingsUtility.AddScenesToBuildSettings(sceneDatas);
 		}
 
 

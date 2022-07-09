@@ -94,7 +94,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 		{
 			// Wait, So click sound is audible
 			await UniTask.Delay(100);
-			
+
 			string sceneName = _simCityWeb3View.SimCityWeb3Configuration.SettingsSceneData.SceneName;
 			_simCityWeb3View.SceneManagerComponent.LoadScene(sceneName);
 		}
@@ -136,7 +136,6 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 		{
 			List<PropertyData> propertyDatas = await _simCityWeb3Service.LoadPropertyDatasAsync();
 
-			Debug.Log($"LoadPropertyDatas() Count = {propertyDatas.Count}");
 			_simCityWeb3Model.PropertyDatas = propertyDatas;
 
 			return _simCityWeb3Model.PropertyDatas;
