@@ -16,7 +16,8 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 		public int TokenId { get { return _tokenId;}}
 		public double Latitude { get { return _latitude;} set { _latitude = value;}}
 		public double Longitude { get { return _longitude;} set { _longitude = value;}}
-		
+		public const double NullLatitude = -1;
+		public const double NullLongitude = -1;
 
 		// Fields -----------------------------------------
 		[SerializeField]
@@ -78,8 +79,40 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 		public static PropertyData CreateNewPropertyDataFromMetadata(string ownerAddress, string newTokenIdString, string metadata)
 		{
 			string[] metadataTokens = metadata.Split("|");
-			double latitude = double.Parse(metadataTokens[0]);
-			double longitude = double.Parse(metadataTokens[1]);
+
+			double latitude = PropertyData.NullLatitude;
+			double longitude = PropertyData.NullLongitude;
+			
+			if (metadataTokens.Length == 2)
+			{
+				// Parse latitude
+				try
+				{
+					latitude = double.Parse(metadataTokens[0]);
+				}
+				catch 
+				{
+					Debug.LogWarning($"Latitude of type string of {metadataTokens[0]} cannot not parse to type double. " +
+					                 $"So {latitude} will be used instead");
+				}
+			
+				// Parse longitude
+				try
+				{
+					longitude = double.Parse(metadataTokens[1]);
+				}
+				catch
+				{
+					Debug.LogWarning($"Longitude of type string of {metadataTokens[1]} cannot not parse to type double. " +
+					                 $"So {longitude} will be used instead");
+				}
+			}
+			else
+			{
+				Debug.LogWarning($"The metadata {metadata} is not properly formatted. Falling back to values of " +
+				                 $"latitude = {latitude}, latitude = {latitude}");
+			}
+			
 			int tokenId = NullTokenAddress;
 			
 			if (!string.IsNullOrEmpty(newTokenIdString) && !SharedValidators.IsValidWeb3TokenAddressFormat(newTokenIdString) )
