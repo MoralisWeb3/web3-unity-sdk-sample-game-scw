@@ -9,6 +9,9 @@
 /Unity/[Bb]uilds/
 /Unity/[Ll]ogs/
 /Unity/[Uu]ser[Ss]ettings/
+/Unity/[Aa]ssets/[Ss]treaming[Aa]ssets/
+/Unity/[Aa]ssets/[Ss]treaming[Aa]ssets.meta
+/Unity/Assets/StreamingAssets.meta
 
 # Temporary auto-generated Android Assets
 /Unity/[Aa]ssets/Moralis Web3 Unity SDK/
@@ -82,3 +85,4 @@ crashlytics-build.properties
 # Samples symlink to Samples~
 Samples
 Samples.meta
+
