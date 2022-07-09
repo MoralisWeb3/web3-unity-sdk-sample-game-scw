@@ -16,7 +16,6 @@
     }
   ],
   "dependencies": {
-    "io.moralis.web3-unity-sdk": "1.2.2",
     "com.guciodevs.simple-min-max-slider": "https://github.com/GucioDevs/SimpleMinMaxSlider.git#upm",
     "com.microsoft.maps.unity": "0.11.2",
     "com.unity.2d.sprite": "1.0.0",
@@ -28,6 +27,7 @@
     "com.unity.test-framework": "1.1.31",
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.ugui": "1.0.0",
+    "io.moralis.web3-unity-sdk": "1.2.3",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
