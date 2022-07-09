@@ -177,5 +177,16 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 		}
 
 
+		public void QuitGame()
+		{
+			if (Application.isEditor)
+			{
+				UnityEditor.EditorApplication.isPlaying = false;
+			}
+			else
+			{
+				Application.Quit();
+			}
+		}
 	}
 }

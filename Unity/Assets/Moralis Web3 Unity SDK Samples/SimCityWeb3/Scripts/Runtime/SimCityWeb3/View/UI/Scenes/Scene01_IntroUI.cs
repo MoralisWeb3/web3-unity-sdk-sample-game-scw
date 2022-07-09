@@ -22,6 +22,10 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 
 		[SerializeField] 
 		private Button _viewMapButtonUIText = null;
+
+		[SerializeField] 
+		private Button _hiddenQuitGameButton = null;
+
 		
 		private bool _hasMoralisUserAtMoralisSetup = false;
 		
@@ -41,6 +45,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 			_authenticateButton.onClick.AddListener(AuthenticateButton_OnClicked);
 			_settingsButton.onClick.AddListener(SettingsButton_OnClicked);
 			_viewMapButtonUIText.onClick.AddListener(ViewMapButtonUIText_OnClicked);
+			_hiddenQuitGameButton.onClick.AddListener(HiddenQuitGameButton_OnClicked);
 
 			RefreshUIAsync();
 		}
@@ -90,6 +95,11 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.PlayAudioClipClick();
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadGameSceneAsync();
 		}
+
 		
+		private void HiddenQuitGameButton_OnClicked()
+		{
+			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.QuitGame();
+		}
 	}
 }
