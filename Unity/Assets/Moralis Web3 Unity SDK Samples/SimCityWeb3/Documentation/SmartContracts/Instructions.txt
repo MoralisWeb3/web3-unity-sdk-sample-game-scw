@@ -62,7 +62,9 @@
     const POLYGONSCAN_API_KEY = "";   // Populate from polygonscan.com, after sign-in
     const MUMBAI_NETWORK_URL = "";    // Populate as described below
 
-    UPDATE: Since the creation of this repo and related videos there has been a technical change. Now, populate the MUMBAI_NETWORK_URL from the value you set up on https://moralis.io/largenodes. For more information see https://github.com/MoralisWeb3/changelog/blob/main/2022-07-11-speedy-node-removal.md
+    UPDATE: Since the creation of this repo and related videos there has been a technical change. 
+            Now, populate the MUMBAI_NETWORK_URL from the value you set up on https://moralis.io/largenodes. 
+            For more information, see https://github.com/MoralisWeb3/changelog/blob/main/2022-07-11-speedy-node-removal.md
 
 
 // 12. IN "./hardhat.config.js", MODIFY "module.exports" WITH YOUR NEEDS, LIKE THIS:
