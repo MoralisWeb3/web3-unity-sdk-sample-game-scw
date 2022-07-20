@@ -51,14 +51,15 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 			await Moralis_CreateAsync(propertyData);
 
 			// Return the original, untouched
-			// The method signature is more helpful for the ContractService which adds the token address
+			// The method signature is more helpful for the
+			// ContractService which adds the token address
 			return propertyData;
 		}
 
 		
-		public async UniTask DeletePropertyDataAsync(PropertyData propertyDatas)
+		public async UniTask DeletePropertyDataAsync(PropertyData propertyData)
 		{
-			await Moralis_DeleteOne(propertyDatas);
+			await Moralis_DeleteOne(propertyData);
 		}
 
 		

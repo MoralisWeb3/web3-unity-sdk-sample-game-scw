@@ -30,6 +30,9 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 				case SimCityWeb3ServiceType.Contract:
 					simCityWeb3Service = new SimCityWeb3ContractService();
 					break;
+				case SimCityWeb3ServiceType.LocalDiskStorage:
+					simCityWeb3Service = new SimCityWeb3LocalDiskStorageService();
+					break;
 				default:
 					SwitchDefaultException.Throw(simCityWeb3ServiceType);
 					break;

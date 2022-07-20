@@ -8,7 +8,14 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 	public enum SimCityWeb3ServiceType
 	{
 		Null,
-		Database,
-		Contract // The tutorial is designed for this 
+		
+		// Moralis Database from Web3 Unity SDK v1.x
+		Database,	
+		
+		// Blockchain Smart Contract
+		Contract,		
+		
+		// Custom solution to write local Json
+		LocalDiskStorage	
 	}
 }

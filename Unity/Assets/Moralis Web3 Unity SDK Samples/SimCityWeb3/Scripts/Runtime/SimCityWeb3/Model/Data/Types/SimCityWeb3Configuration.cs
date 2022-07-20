@@ -1,5 +1,6 @@
+using System.Collections.Generic;
 using MoralisUnity.Samples.Shared.Attributes;
-using MoralisUnity.Samples.Shared.Data.Types;
+using MoralisUnity.Samples.Shared.Data.Types.Storage;
 using MoralisUnity.Samples.Shared.DesignPatterns.Creational.Singleton.CustomSingletonScriptableObject;
 using MoralisUnity.Samples.SimCityWeb3.View.UI;
 using UnityEngine;
@@ -22,6 +23,8 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
         public SceneData GameSceneData { get { return _gameSceneData;}}
         public SimCityWeb3ServiceType SimCityWeb3ServiceType { get { return _simCityWeb3ServiceType;}}
 
+        [SerializeField]
+        private List<SceneData> _sceneDatas = null;
 
         // Fields -----------------------------------------
         [Header("References (Project)")]

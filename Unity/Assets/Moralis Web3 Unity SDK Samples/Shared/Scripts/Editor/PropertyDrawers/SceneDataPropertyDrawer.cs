@@ -1,4 +1,4 @@
-using MoralisUnity.Samples.Shared.Data.Types;
+using MoralisUnity.Samples.Shared.Data.Types.Storage;
 using UnityEditor;
 using UnityEngine;
 
@@ -18,35 +18,58 @@ namespace MoralisUnity.Samples.Shared.PropertyDrawers
 		// Properties -------------------------------------
 		private const float LineHeight = 16f;
 		private const float Pad = 4f;
-		private const float LineCount = 2;
 
 		// Fields -----------------------------------------
 
 		// General Methods --------------------------------
 		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
 		{
-			return base.GetPropertyHeight(property, label) + LineHeight + Pad;
+			return base.GetPropertyHeight(property, label) + Pad;
 		}
-
-
+		
 		/// <summary>
 		/// * The _scene provides drag and drop in the editor. But its not available in a Windows build.
 		/// * The _scenePath is available in a windows build
 		/// </summary>
 		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
 		{
+			if (property == null)
+			{
+				return;
+			}
+			
 			// Render object
 			position.height = LineHeight + Pad;
-			EditorGUI.PropertyField(position, property.FindPropertyRelative("_scene"), new GUIContent ("Scene"));
+			SerializedProperty _scene = property.FindPropertyRelative("_scene");
+
+			if (_scene == null)
+			{
+				Debug.LogError("Cant find _sceneName. Fix target class");
+				return;
+			}
+			
+			EditorGUI.PropertyField(position, _scene, new GUIContent (property.displayName));
 			position.y += LineHeight + Pad; 
 
 			// Update string to match object
-			property.FindPropertyRelative("_sceneName").stringValue = property.FindPropertyRelative("_scene").objectReferenceValue.name;
+			SerializedProperty _sceneName = property.FindPropertyRelative("_sceneName");
+			
+			if (_sceneName == null)
+			{
+				Debug.LogError("Cant find _sceneName. Fix target class");
+				return;
+			}
 
-			// Render string as not editable
-			EditorGUI.BeginDisabledGroup(true);
-			EditorGUI.PropertyField(position, property.FindPropertyRelative("_sceneName"), new GUIContent("Name"));
-			EditorGUI.EndDisabledGroup();
+			if (_sceneName.stringValue != _scene.objectReferenceValue.name)
+			{
+				_sceneName.stringValue = _scene.objectReferenceValue.name;
+				property.serializedObject.ApplyModifiedProperties();
+			}
+			
+			// Optional: Enable to debug the values
+			// EditorGUI.BeginDisabledGroup(true);
+			// EditorGUI.PropertyField(position, _sceneName, new GUIContent("Name"));
+			// EditorGUI.EndDisabledGroup();
 		}
 
 		// Event Handlers ---------------------------------
