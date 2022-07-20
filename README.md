@@ -77,18 +77,37 @@ See [docs.moralis.io/unity](https://docs.moralis.io/unity) for more info.
 
 <table>
   <tr>
-    <th>Image 01</th>
-    <th>Image 02</th>
+    <th>Intro Menu</th>
+    <th>Game</th>
   </tr>
-  <tr>
-    <td align="center"><img src="https://github.com/MoralisWeb3/web3-unity-sdk-sample-game-scw/blob/main/Unity/Assets/Moralis%20Web3%20Unity%20SDK%20Samples/SimCityWeb3/Documentation/Images/Screenshot_01.png" width = "250"></td>
-    <td align="center"><img src="https://github.com/MoralisWeb3/web3-unity-sdk-sample-game-scw/blob/main/Unity/Assets/Moralis%20Web3%20Unity%20SDK%20Samples/SimCityWeb3/Documentation/Images/Screenshot_02.png" width = "250"></td>
-  </tr> 
   <tr>
     <td align="center"><img src="https://github.com/MoralisWeb3/web3-unity-sdk-sample-game-scw/blob/main/Unity/Assets/Moralis%20Web3%20Unity%20SDK%20Samples/SimCityWeb3/Documentation/Images/Screenshot_04.png" width = "250"></td>
     <td align="center"><img src="https://github.com/MoralisWeb3/web3-unity-sdk-sample-game-scw/blob/main/Unity/Assets/Moralis%20Web3%20Unity%20SDK%20Samples/SimCityWeb3/Documentation/Images/Screenshot_07.png" width = "250"></td>
   </tr> 
 </table>
+
+<table>
+  <tr>
+    <th>Readme.asset</th>
+    <th>Project Window</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="https://github.com/MoralisWeb3/web3-unity-sdk-sample-game-scw/blob/main/Unity/Assets/Moralis%20Web3%20Unity%20SDK%20Samples/SimCityWeb3/Documentation/Images/Screenshot_01.png" width = "250"></td>
+    <td align="center"><img src="https://github.com/MoralisWeb3/web3-unity-sdk-sample-game-scw/blob/main/Unity/Assets/Moralis%20Web3%20Unity%20SDK%20Samples/SimCityWeb3/Documentation/Images/Screenshot_02.png" width = "250"></td>
+  </tr> 
+</table>
+
+
+
+<table>
+  <tr>
+    <th>Sequence Diagram</th>
+  </tr>
+  <tr>
+    <td align="center"><img src="https://github.com/MoralisWeb3/web3-unity-sdk-sample-game-scw/blob/main/Unity/Assets/Moralis%20Web3%20Unity%20SDK%20Samples/SimCityWeb3/Documentation/Images/SequenceDiagram_01.png" width = "530"></td>
+  </tr> 
+</table>
+
 
 ----
 
