@@ -16,14 +16,14 @@ See [docs.moralis.io/unity](https://docs.moralis.io/unity) for more info.
 
 **Bonus: Service Type**
 
-This game features flexibility on the service layer. Toggle the service type to explore various ways that the game communicates with external services.
+This game features flexibility on the service layer. Toggle the `SimCityWeb3ServiceType` enum to explore various ways that the game communicates with external services.
 
 
 Select The Config Here
 
 <img src="./Unity/Assets/Moralis%20Web3%20Unity%20SDK%20Samples/SimCityWeb3/Documentation/Images/Screenshot_Config_01.png" width = "250">
 
-Select The Service Type Here
+Select The Desired `SimCityWeb3ServiceType` Enum value
 
 <img src="./Unity/Assets/Moralis%20Web3%20Unity%20SDK%20Samples/SimCityWeb3/Documentation/Images/Screenshot_Config_02.png" width = "250">
 
