@@ -39,7 +39,7 @@ Select The Desired `SimCityWeb3ServiceType` Enum value
 * `Unity Target` - [Standalone MAC/PC](https://support.unity.com/hc/en-us/articles/206336795-What-platforms-are-supported-by-Unity-)
 * `Unity Version` - Use this [Version](./Unity/ProjectSettings/ProjectVersion.txt)
 * `Unity Rendering` - [Standard Render Pipeline (SRP)](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@10.2/manual/index.html)
-* `Unity Aspect Ratio` - [Game View 10x16](https://docs.unity3d.com/Manual/GameView.html)
+* `Unity Aspect Ratio` - [Game View 16x10](https://docs.unity3d.com/Manual/GameView.html)
 
 **Structure**
 * `Unity/` - Open this folder in the Unity Editor
