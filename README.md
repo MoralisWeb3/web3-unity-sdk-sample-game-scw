@@ -6,7 +6,7 @@
 
 This is a sample game to demonstrate the 
 
-The "Sim City Web3" Sample Game demonstrates the [Moralis](https://moralis.io/) Web3 Unity SDK, geo mapping, and NFTs.
+The "Sim City Web3" sample game demonstrates the [Moralis](https://moralis.io/) Web3 Unity SDK, geo mapping, and NFTs.
 
 **Getting Started**
 1. Download this repo (*.zip or *.git)
