@@ -67,7 +67,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 			SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadIntroSceneAsync();
 		}
 		
-		private void AuthenticationKit_OnStateChanged(AuthenticationKitState authenticationKitState)
+		private async void AuthenticationKit_OnStateChanged(AuthenticationKitState authenticationKitState)
 		{
 			// Did you open the scene in the Unity Editor and Press Play?
 			// If so, show some helpful state info...
@@ -82,14 +82,21 @@ namespace MoralisUnity.Samples.SimCityWeb3.View.UI
 				if (_wasLoggedInAtSetupMoralis == false && 
 				    authenticationKitState == AuthenticationKitState.MoralisLoggedIn)
 				{
-					// You went from NOT LOGGED to CONNECTED...
+					// Wait for cosmetics
+					await UniTask.Delay(1000);
+					
+					// The user went from LOGGED OUT TO LOGGED IN
 					// Success! So go back to the previous scene
 					SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadIntroSceneAsync();
 				}
 				else if (_wasLoggedInAtSetupMoralis == true &&
-				         authenticationKitState == AuthenticationKitState.Disconnected)
+				         authenticationKitState == AuthenticationKitState.Initialized)
 				{
-					// You went from LOGGED to DISCONNECTED...
+					
+					// Wait for cosmetics
+					await UniTask.Delay(1000);
+					
+					// The user went from LOGGED IN TO LOGGED OUT
 					// Success! So go back to the previous scene
 					SimCityWeb3Singleton.Instance.SimCityWeb3Controller.LoadIntroSceneAsync();
 				}
