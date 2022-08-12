@@ -15,16 +15,5 @@ MonoBehaviour:
   _sceneDatas: []
   _simCityWeb3ViewPrefab: {fileID: 6530535641690032694, guid: 936394f19df929449af0756a3947b22c, type: 3}
   _mapPropertyUIPrefab: {fileID: 1720784973983898717, guid: 65b580b5c5556fd4fa9306f85617e110, type: 3}
-  _introSceneData:
-    _scene: {fileID: 102900000, guid: e86d776073058a543aa040dcc9919139, type: 3}
-    _sceneName: Scene01_Intro
-  _authenticationSceneData:
-    _scene: {fileID: 102900000, guid: bfcf4e4a881d36243a55545c96f338a8, type: 3}
-    _sceneName: Scene02_Authentication
-  _settingsSceneData:
-    _scene: {fileID: 102900000, guid: 366332204cab6ed448ea3ea0f64f4a6a, type: 3}
-    _sceneName: Scene03_Settings
-  _gameSceneData:
-    _scene: {fileID: 102900000, guid: b03088c9c302191468a3741f5521210c, type: 3}
-    _sceneName: Scene04_Game
-  _simCityWeb3ServiceType: 3
+  _sceneDataStorage: {fileID: 11400000, guid: 81d335281c7572a41b9d84c3deede854, type: 2}
+  _simCityWeb3ServiceType: 2
