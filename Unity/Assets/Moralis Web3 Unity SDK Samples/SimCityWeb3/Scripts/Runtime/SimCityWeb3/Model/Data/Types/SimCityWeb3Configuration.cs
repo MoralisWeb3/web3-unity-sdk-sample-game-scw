@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using MoralisUnity.Examples.Sdk.Shared.Data.Types.Storage;
 using MoralisUnity.Samples.Shared.Attributes;
 using MoralisUnity.Samples.Shared.Data.Types.Storage;
 using MoralisUnity.Samples.Shared.DesignPatterns.Creational.Singleton.CustomSingletonScriptableObject;
@@ -17,10 +18,11 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
         // Properties -------------------------------------
         public SimCityWeb3View SimCityWeb3ViewPrefab { get { return _simCityWeb3ViewPrefab; } }
         public MapPropertyUI MapPropertyUIPrefab { get { return _mapPropertyUIPrefab; } }
-        public SceneData IntroSceneData { get { return _introSceneData;}}
-        public SceneData AuthenticationSceneData { get { return _authenticationSceneData;}}
-        public SceneData SettingsSceneData { get { return _settingsSceneData;}}
-        public SceneData GameSceneData { get { return _gameSceneData;}}
+        public SceneDataStorage SceneDataStorage { get { return _sceneDataStorage;}}
+        public SceneData IntroSceneData { get { return SceneDataStorage.SceneDatas[0];}}
+        public SceneData AuthenticationSceneData { get { return SceneDataStorage.SceneDatas[1];}}
+        public SceneData SettingsSceneData { get { return SceneDataStorage.SceneDatas[2];}}
+        public SceneData GameSceneData { get { return SceneDataStorage.SceneDatas[3];}}
         public SimCityWeb3ServiceType SimCityWeb3ServiceType { get { return _simCityWeb3ServiceType;}}
 
         [SerializeField]
@@ -35,16 +37,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
         private MapPropertyUI _mapPropertyUIPrefab = null;
 
         [SerializeField] 
-        private SceneData _introSceneData = null;
-
-        [SerializeField] 
-        private SceneData _authenticationSceneData = null;
-
-        [SerializeField] 
-        private SceneData _settingsSceneData = null;
-
-        [SerializeField] 
-        private SceneData _gameSceneData = null;
+        private SceneDataStorage _sceneDataStorage = null;
 
         [Header("Settings (Edit-Time Only)")]
         
