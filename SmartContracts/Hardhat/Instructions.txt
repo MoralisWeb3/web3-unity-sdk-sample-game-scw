@@ -31,7 +31,7 @@
     npm install --save-dev @nomicfoundation/hardhat-toolbox
 
 
-//XXXXXX 06. (OPTIONAL STEP) INSTALL OPTIONAL DEPENDENCIES via COMMAND LINE (EACH LINE IS A SEPARATE COMMAND)
+// 06. (OPTIONAL STEP) INSTALL OPTIONAL DEPENDENCIES via COMMAND LINE (EACH LINE IS A SEPARATE COMMAND)
 
     npm install --save-dev hardhat-gas-reporter 
 
@@ -42,7 +42,7 @@
     npm install --save-dev @nomiclabs/hardhat-etherscan@^3.1.0 
 
 
-//XXXX 07. READ AND UNDERSTAND THE FILE(S) WITHIN "./SmartContracts/Hardhat/"
+// 07. READ AND UNDERSTAND THE FILE(S) WITHIN "./SmartContracts/Hardhat/"
 
     "./SmartContracts/Hardhat/classes/"      contains class files
     "./SmartContracts/Hardhat/contracts/"    contains contract files
@@ -54,13 +54,7 @@
 // 08. READ AND UNDERSTAND THE FILE "./SmartContracts/Hardhat/hardhat.config.js"
 
 
-//XXXXX 09. CREATE NEW TEXT FILE OF "./SmartContracts/Hardhat/.evn". Add the following contents and replace the ""
-
-    // Populate from MetaMask Chrome Extension, from https://metamask.io, after sign-in. 
-    WEB3_WALLET_PRIVATE_KEY = ""
-    
-    // Populate from https://cronoscan.com/myapikey, after sign-in 
-    CRONOSCAN_TESTNET_API_KEY = "" 
+// 09.  RENAME "./SmartContracts/Hardhat/.env.videostart" to "./SmartContracts/Hardhat/.env" AND POPULATE VALUES WITHIN
 
 
 // 10. VERIFY INSTALL via COMMAND LINE. COMMAND FINISHES WITH NO RED ERRORS = SUCCESS :)
@@ -85,19 +79,35 @@
     npx hardhat test
 
 
-//XXXX 14. DEPLOY SMART CONTRACT via COMMAND LINE
+//14. CHOOSE 14a or 14b DEPENDING ON YOUR TARGET BLOCKCHAIN
 
-    npx hardhat run scripts/deployTheGameContract.js --network cronosTestnet
-        
-        
-//XXXX 15. UPON SUCCESS SEE OUTPUT via COMMAND LINE WHICH RESEMBLES "deployed to: {YourContractAddress}"
 
-    Visit "https://testnet.cronoscan.com/{YourContractAddress}" to see 
-     
+//14a. DEPLOY SMART CONTRACT via COMMAND LINE
 
-//XXXX 16. PASTE {YourContractAddress} and the {YourABI} WITHIN
+    npx hardhat run scripts/deployProperty.js --network polygonMumbai
+    
 
-    "./Unity/Assets/Moralis Web3 Unity SDK Samples/Web3MagicTreasureChest/Scripts/Runtime/MVCS/Model/Data/Types/TheGameContract.cs
+//14b. DEPLOY SMART CONTRACT via COMMAND LINE
+
+npx hardhat run scripts/deployProperty.js --network cronosTestnet
+
+
+//15. CHOOSE 15a or 15b DEPENDING ON YOUR TARGET BLOCKCHAIN   
+
+
+//15a. UPON SUCCESS SEE OUTPUT via COMMAND LINE WHICH RESEMBLES "DEPLOYMENT COMPLETE"
+
+    Visit "https://mumbai.polygonscan.com/address/{YourContractAddress}" to see result
+
+
+//15b. UPON SUCCESS SEE OUTPUT via COMMAND LINE WHICH RESEMBLES "DEPLOYMENT COMPLETE"
+
+    Visit "https://testnet.cronoscan.com/{YourContractAddress}" to see result
+   
+
+//16. PASTE {YourContractAddress} and the {YourABI} INTO THIS *.CS FILE ...
+
+    "./Unity/Assets\Moralis Web3 Unity SDK Samples/SimCityWeb3/Scripts/Runtime/SimCityWeb3/Model/Data/Types/PropertyContract.cs
  
 
  // 17. RUN THE RELEVANT SCENE IN UNITY

@@ -13,11 +13,10 @@ import "hardhat/console.sol";
 
 ///////////////////////////////////////////////////////////
 // CLASS
-//      *   Description         :   Each ERC721 instance 
-//                                  here represents a 
-//                                  globally unique 
-//                                  Real-estate property 
-//                                  for "Sim City Web3" 
+//      *   Description:   
+//          Each ERC721 instance here represents a globally 
+//          unique Real-estate property for "Sim City Web3" 
+//
 //      *   Deployment Address  :   
 ///////////////////////////////////////////////////////////
 contract Property is ERC721URIStorage 

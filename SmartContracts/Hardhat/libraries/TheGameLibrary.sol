@@ -8,7 +8,13 @@ pragma solidity ^0.8.9;
 import "@openzeppelin/contracts/utils/Strings.sol";
 
 ///////////////////////////////////////////////////////////
-// LIBRARIES
+// LIBRARY
+//      *   Description:   
+//          This is a demo of a working  library of
+//          reusable functions and constants. It is not 
+//          strictly required for this project.
+//
+//      *   Deployment Address  :   
 ///////////////////////////////////////////////////////////
 library TheGameLibrary 
 {
@@ -24,7 +30,7 @@ library TheGameLibrary
     ///////////////////////////////////////////////////////////
 
     // Optional: Add any common, reusable methods here ...
-    function getSampleConstant() pure public returns (uint)
+    function getSampleConstant() public pure returns (uint)
     {
         return SampleConstant;
     }

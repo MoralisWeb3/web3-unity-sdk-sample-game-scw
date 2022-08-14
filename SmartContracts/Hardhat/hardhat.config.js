@@ -8,7 +8,6 @@ require("hardhat-gas-reporter");
 ///////////////////////////////////////////////////////////
 // EXPORTS
 ///////////////////////////////////////////////////////////
-
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
@@ -16,6 +15,10 @@ module.exports = {
   solidity: "0.8.9",
   networks: {
     hardhat: {},
+    polygonMumbai: {
+      url: process.env.POLYGON_MUMBAI_NETWORK_URL,
+      accounts: [process.env.WEB3_WALLET_PRIVATE_KEY]
+    },
     cronosTestnet: {
       url: "https://evm-t3.cronos.org/",
       chainId: 338,
@@ -25,7 +28,8 @@ module.exports = {
   },
   etherscan: {
     apiKey: {
-      cronosTestnet: process.env.CRONOSCAN_TESTNET_API_KEY
+      polygonMumbai: process.env.POLYGON_MUMBAI_API_KEY,
+      cronosTestnet: process.env.CRONOSCAN_TESTNET_API_KEY,
     },
     customChains: [
       {

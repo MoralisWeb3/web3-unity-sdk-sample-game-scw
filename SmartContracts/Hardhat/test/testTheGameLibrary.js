@@ -44,7 +44,7 @@ describe("TheGameLibrary", function ()
     ///////////////////////////////////////////////////////////
     // TEST
     ///////////////////////////////////////////////////////////
-    it("Deploys with no exceptions", async function ()
+    it("getSampleConstant returns 99", async function ()
     {
         // Arrange
         const { owner, addr1, addr2, theGameLibrary  } = await loadFixture(deployTokenFixture);
@@ -57,6 +57,3 @@ describe("TheGameLibrary", function ()
     })
     
 });
-
-
-
