@@ -1,0 +1,109 @@
+///////////////////////////////////////////////////////////
+// Instructions.txt
+//      *   Follow these complete steps to clean, create, 
+//          and compile the Solidity code
+//      *   Upon completion the Unity project can call the 
+?/          Solidity code
+///////////////////////////////////////////////////////////
+
+// 01. INSTALL THE LATEST VERSION OF NODEJS
+
+    https://nodejs.org/en/download/
+    
+    
+// 02. OPEN FOLDER "./SmartContracts/Hardhat/" IN A TEXT EDITOR (EX. VISUAL STUDIO CODE)
+
+
+// 03. OPEN FOLDER "./SmartContracts/Hardhat/" IN A TERMINAL FOR COMMAND LINE 
+
+
+// 04. INSTALL HARDHAT via COMMAND LINE WITHIN FOLDER OF "./SmartContracts/Hardhat/"
+
+    npm install --save-dev hardhat
+    
+
+// 05. INSTALL DEPENDENCIES via COMMAND LINE (EACH LINE IS A SEPARATE COMMAND)
+
+    npm install dotenv
+
+    npm i -D @openzeppelin/contracts
+
+    npm install --save-dev @nomicfoundation/hardhat-toolbox
+
+
+//XXXXXX 06. (OPTIONAL STEP) INSTALL OPTIONAL DEPENDENCIES via COMMAND LINE (EACH LINE IS A SEPARATE COMMAND)
+
+    npm install --save-dev hardhat-gas-reporter 
+
+    npm install --save-dev solidity-coverage 
+    
+    npm install --save-dev @cronos-labs/hardhat-cronoscan 
+
+    npm install --save-dev @nomiclabs/hardhat-etherscan@^3.1.0 
+
+
+//XXXX 07. READ AND UNDERSTAND THE FILE(S) WITHIN "./SmartContracts/Hardhat/"
+
+    "./SmartContracts/Hardhat/classes/"      contains class files
+    "./SmartContracts/Hardhat/contracts/"    contains contract files
+    "./SmartContracts/Hardhat/libraries/"    contains library files
+    "./SmartContracts/Hardhat/scripts/"      contains script files
+    "./SmartContracts/Hardhat/test/"         contains test files
+
+
+// 08. READ AND UNDERSTAND THE FILE "./SmartContracts/Hardhat/hardhat.config.js"
+
+
+//XXXXX 09. CREATE NEW TEXT FILE OF "./SmartContracts/Hardhat/.evn". Add the following contents and replace the ""
+
+    // Populate from MetaMask Chrome Extension, from https://metamask.io, after sign-in. 
+    WEB3_WALLET_PRIVATE_KEY = ""
+    
+    // Populate from https://cronoscan.com/myapikey, after sign-in 
+    CRONOSCAN_TESTNET_API_KEY = "" 
+
+
+// 10. VERIFY INSTALL via COMMAND LINE. COMMAND FINISHES WITH NO RED ERRORS = SUCCESS :)
+
+    npx hardhat 
+
+
+// 11. CLEAN SMART CONTRACT via COMMAND LINE
+
+    npx hardhat clean
+
+
+// 12. COMPILE SMART CONTRACT via COMMAND LINE
+    
+    npx hardhat compile
+
+
+// 13. (OPTIONAL STEP) TEST SMART CONTRACT via COMMAND LINE
+    
+    npx hardhat coverage
+
+    npx hardhat test
+
+
+//XXXX 14. DEPLOY SMART CONTRACT via COMMAND LINE
+
+    npx hardhat run scripts/deployTheGameContract.js --network cronosTestnet
+        
+        
+//XXXX 15. UPON SUCCESS SEE OUTPUT via COMMAND LINE WHICH RESEMBLES "deployed to: {YourContractAddress}"
+
+    Visit "https://testnet.cronoscan.com/{YourContractAddress}" to see 
+     
+
+//XXXX 16. PASTE {YourContractAddress} and the {YourABI} WITHIN
+
+    "./Unity/Assets/Moralis Web3 Unity SDK Samples/Web3MagicTreasureChest/Scripts/Runtime/MVCS/Model/Data/Types/TheGameContract.cs
+ 
+
+ // 17. RUN THE RELEVANT SCENE IN UNITY
+
+    Congratulations, you are done!
+
+
+///////////////////////////////////////////////////////////
+
