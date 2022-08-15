@@ -5,6 +5,7 @@ using MoralisUnity.Samples.Shared.DesignPatterns.Creational.Singleton.CustomSing
 using MoralisUnity.Samples.SimCityWeb3.View.UI;
 using MoralisUnity.Sdk.Exceptions;
 using MoralisUnity.Web3Api.Models;
+using MyBox;
 using UnityEngine;
 
 #pragma warning disable 
@@ -71,6 +72,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
         [SerializeField]
         private SimCityWeb3ServiceType _simCityWeb3ServiceType = SimCityWeb3ServiceType.Null;
 
+        [ConditionalField(nameof(_simCityWeb3ServiceType), false, SimCityWeb3ServiceType.Contract)] 
         [SerializeField]
         private SimCityWeb3ChainList _simCityWeb3ChainList = SimCityWeb3ChainList.Null;
         

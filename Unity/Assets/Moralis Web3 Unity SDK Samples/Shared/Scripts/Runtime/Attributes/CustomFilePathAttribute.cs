@@ -20,7 +20,6 @@ namespace MoralisUnity.Samples.Shared.Attributes
         StreamingAssetsPath
     }
 
-
     /// <summary>
     /// Used to add relative paths to objects. 
     /// </summary>

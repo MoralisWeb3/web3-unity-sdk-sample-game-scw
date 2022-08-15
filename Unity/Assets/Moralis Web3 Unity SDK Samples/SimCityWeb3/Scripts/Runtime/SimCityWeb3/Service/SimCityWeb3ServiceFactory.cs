@@ -20,7 +20,8 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 		// General Methods --------------------------------
 		public ISimCityWeb3Service Create (SimCityWeb3ServiceType simCityWeb3ServiceType, ChainList chainList)
 		{
-			Debug.Log($"SimCityWeb3ServiceFactory.Create() type = {simCityWeb3ServiceType}, chainList = {chainList}");
+			Debug.Log($"SimCityWeb3ServiceFactory.Create() " +
+			          $"type = {simCityWeb3ServiceType}, chainList = {chainList}");
 			
 			ISimCityWeb3Service simCityWeb3Service = null;
 			switch (simCityWeb3ServiceType)
