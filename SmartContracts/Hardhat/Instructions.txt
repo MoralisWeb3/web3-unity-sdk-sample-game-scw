@@ -57,7 +57,7 @@
 // 09.  RENAME "./SmartContracts/Hardhat/.env.videostart" to "./SmartContracts/Hardhat/.env" AND POPULATE VALUES WITHIN
 
 
-// 10. VERIFY INSTALL via COMMAND LINE. COMMAND FINISHES WITH NO RED ERRORS = SUCCESS :)
+// 10. VERIFY INSTALL via COMMAND LINE. IF COMMAND RUNS WITH NO RED ERROR TEXT, THAT INDICATES SUCCESS :)
 
     npx hardhat 
 
@@ -79,6 +79,7 @@
     npx hardhat test
 
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //14. CHOOSE 14a or 14b DEPENDING ON YOUR TARGET BLOCKCHAIN
 
 
@@ -92,6 +93,7 @@
     npx hardhat run scripts/deployProperty.js --network cronosTestnet
 
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //15. CHOOSE 15a or 15b DEPENDING ON YOUR TARGET BLOCKCHAIN   
 
 
@@ -105,6 +107,7 @@
     Visit "https://testnet.cronoscan.com/{YourContractAddress}" to see result
    
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //16. PASTE {YourContractAddress} and the {YourABI} INTO THIS *.CS FILE ...
 
     "./Unity/Assets\Moralis Web3 Unity SDK Samples/SimCityWeb3/Scripts/Runtime/SimCityWeb3/Model/Data/Types/PropertyContract.cs
