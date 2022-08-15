@@ -1,2 +1,3 @@
+
 For all instructions related to smart contracts, see...
-* {Project Root}\SmartContracts\Instructions.txt
+* {Project Root}/SmartContracts/Hardhat/Instructions.txt

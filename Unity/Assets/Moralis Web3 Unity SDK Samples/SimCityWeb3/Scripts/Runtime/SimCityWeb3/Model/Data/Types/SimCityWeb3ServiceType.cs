@@ -9,13 +9,14 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 	{
 		Null,
 		
-		// Moralis Database from Web3 Unity SDK v1.x
+		// Dev - Moralis Database from Web3 Unity SDK v1.x
 		Database,	
 		
-		// Blockchain Smart Contract
-		Contract,		
+		// Dev - Custom solution to write local Json
+		LocalDiskStorage,	
 		
-		// Custom solution to write local Json
-		LocalDiskStorage	
+		// Dev & Production - Blockchain Smart Contract
+		Contract		
+
 	}
 }

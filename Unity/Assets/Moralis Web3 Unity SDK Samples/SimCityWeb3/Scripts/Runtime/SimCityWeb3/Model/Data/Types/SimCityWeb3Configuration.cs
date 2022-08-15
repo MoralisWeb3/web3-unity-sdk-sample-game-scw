@@ -67,7 +67,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 
         [Header("Settings (Edit-Time Only)")]
         
-        [Tooltip("Use either Moralis Database (dev) or Moralis Web3 (prod)")]
+        [Tooltip("For dev choose `Database` or `LocalDiskStorage`. For dev or production choose `Contract`.")]
         [SerializeField]
         private SimCityWeb3ServiceType _simCityWeb3ServiceType = SimCityWeb3ServiceType.Null;
 

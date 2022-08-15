@@ -71,8 +71,8 @@ MonoBehaviour:
     text: Follow additional instructions
     linkText: 
     url: 
-    pingObjectName: Instructions.txt
-    pingObjectGuid: abd75514b51fcf349b7a396e5ae75a51
+    pingObjectName: SmartContracts.txt
+    pingObjectGuid: a73479c0dfa24704ba788bd00ff7ab02
   - heading: 
     subheading: 7. Open Any Example Scene
     text: Play this scene or choose your own
