@@ -26,8 +26,3 @@ CHECKLIST - RELEASE
 - [ X ] Keep in git: ALL values within: PropertyContract.cs
 - [ X ] Release repo as public
 - [ X ] Release video as unlisted
-
-CHECKLIST - OTHER 
-- [   ] 
-- [   ] 
-- [   ] 
