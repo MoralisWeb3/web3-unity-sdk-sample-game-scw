@@ -9,9 +9,6 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 	{
 		Null,
 		
-		// Dev - Moralis Database from Web3 Unity SDK v1.x
-		Database,	
-		
 		// Dev - Custom solution to write local Json
 		LocalDiskStorage,	
 		

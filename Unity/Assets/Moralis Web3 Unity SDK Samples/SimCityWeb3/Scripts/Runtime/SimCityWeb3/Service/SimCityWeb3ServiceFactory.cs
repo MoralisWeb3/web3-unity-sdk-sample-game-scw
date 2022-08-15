@@ -26,9 +26,6 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 			ISimCityWeb3Service simCityWeb3Service = null;
 			switch (simCityWeb3ServiceType)
 			{
-				case SimCityWeb3ServiceType.Database:
-					simCityWeb3Service = new SimCityWeb3DatabaseService();
-					break;
 				case SimCityWeb3ServiceType.Contract:
 					simCityWeb3Service = new SimCityWeb3ContractService(chainList);
 					break;
