@@ -14,11 +14,6 @@ async function main()
   // DEPLOYMENT
   ///////////////////////////////////////////////////////////
 
-  // TheGameLibrary (Optional)
-  const TheGameLibrary = await ethers.getContractFactory("TheGameLibrary");
-  const theGameLibrary = await TheGameLibrary.deploy();
-  await theGameLibrary.deployed();
-
   // Property
   const Property = await ethers.getContractFactory("Property");
   const property = await Property.deploy();

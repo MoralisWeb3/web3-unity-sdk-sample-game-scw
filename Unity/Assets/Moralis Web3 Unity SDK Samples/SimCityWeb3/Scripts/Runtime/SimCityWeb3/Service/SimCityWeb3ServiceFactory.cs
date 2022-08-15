@@ -1,5 +1,6 @@
 using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
 using MoralisUnity.Sdk.Exceptions;
+using MoralisUnity.Web3Api.Models;
 using UnityEngine;
 
 namespace MoralisUnity.Samples.SimCityWeb3.Service
@@ -17,9 +18,9 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 		
 		
 		// General Methods --------------------------------
-		public ISimCityWeb3Service Create (SimCityWeb3ServiceType simCityWeb3ServiceType)
+		public ISimCityWeb3Service Create (SimCityWeb3ServiceType simCityWeb3ServiceType, ChainList chainList)
 		{
-			Debug.Log($"SimCityWeb3ServiceFactory.Create() type = {simCityWeb3ServiceType}");
+			Debug.Log($"SimCityWeb3ServiceFactory.Create() type = {simCityWeb3ServiceType}, chainList = {chainList}");
 			
 			ISimCityWeb3Service simCityWeb3Service = null;
 			switch (simCityWeb3ServiceType)
@@ -28,7 +29,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 					simCityWeb3Service = new SimCityWeb3DatabaseService();
 					break;
 				case SimCityWeb3ServiceType.Contract:
-					simCityWeb3Service = new SimCityWeb3ContractService();
+					simCityWeb3Service = new SimCityWeb3ContractService(chainList);
 					break;
 				case SimCityWeb3ServiceType.LocalDiskStorage:
 					simCityWeb3Service = new SimCityWeb3LocalDiskStorageService();

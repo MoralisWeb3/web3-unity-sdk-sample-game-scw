@@ -5,7 +5,6 @@ pragma solidity ^0.8.9;
 ///////////////////////////////////////////////////////////
 // IMPORTS
 ///////////////////////////////////////////////////////////
-import { TheGameLibrary } from "libraries/TheGameLibrary.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "hardhat/console.sol";
@@ -52,9 +51,8 @@ contract Property is ERC721URIStorage
         owner = msg.sender;
 
         console.log(
-            "Property.constructor() owner = %s, TheGameLibrary.SampleConstant = %s",
-            owner,
-            TheGameLibrary.SampleConstant
+            "Property.constructor() owner = %s",
+            owner
         );
     } 
 

@@ -19,16 +19,11 @@ describe("Property", function ()
 
         const [owner, addr1, addr2] = await ethers.getSigners();
 
-        // TheGameLibrary
-        const TheGameLibrary = await ethers.getContractFactory("TheGameLibrary");
-        const theGameLibrary = await TheGameLibrary.deploy();
-        await theGameLibrary.deployed();
-
         // TheGameContract
         const Property = await ethers.getContractFactory("Property");
         const property = await Property.deploy();
 
-        return { owner, addr1, addr2, property, theGameLibrary };
+        return { owner, addr1, addr2, property };
     
     }
 
@@ -39,7 +34,7 @@ describe("Property", function ()
     it("Deploys with no exceptions", async function ()
     {
         // Arrange
-        const { owner, addr1, addr2, property, theGameLibrary } = await loadFixture(deployTokenFixture);
+        const { owner, addr1, addr2, property } = await loadFixture(deployTokenFixture);
 
         // Act
 
@@ -54,7 +49,7 @@ describe("Property", function ()
     it("Sets tokenId to 0 when mintPropertyNft", async function ()
     {
         // Arrange
-        const { owner, addr1, addr2, property, theGameLibrary } = await loadFixture(deployTokenFixture);
+        const { owner, addr1, addr2, property } = await loadFixture(deployTokenFixture);
         const tokenUri = "myCustomTokenUri";
 
         // Act
@@ -71,7 +66,7 @@ describe("Property", function ()
     it("Calls with no exception when mintNft, burnNFt", async function ()
     {
         // Arrange
-        const { owner, addr1, addr2, property, theGameLibrary } = await loadFixture(deployTokenFixture);
+        const { owner, addr1, addr2, property } = await loadFixture(deployTokenFixture);
         const tokenUri = "myCustomTokenUri";
         const transaction = await property.connect(addr1).mintPropertyNft(tokenUri);
 
@@ -93,7 +88,7 @@ describe("Property", function ()
     it("Calls with no exception when mintNft, burnNFts", async function ()
     {
         // Arrange
-        const { owner, addr1, addr2, property, theGameLibrary } = await loadFixture(deployTokenFixture);
+        const { owner, addr1, addr2, property } = await loadFixture(deployTokenFixture);
         
         // Mint 1
         const tokenUri1 = "myCustomTokenUri";

@@ -6,6 +6,7 @@ using MoralisUnity.Samples.Shared.Data.Types;
 using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
 using UnityEngine;
 
+#pragma warning disable 1998
 namespace MoralisUnity.Samples.SimCityWeb3.Service
 {
 	[CustomFilePath(LocalDiskStorage.Title + "/SimCityWeb3LocalData.txt", CustomFilePathLocation.StreamingAssetsPath)]

@@ -1,11 +1,13 @@
-using System.Collections.Generic;
 using MoralisUnity.Examples.Sdk.Shared.Data.Types.Storage;
 using MoralisUnity.Samples.Shared.Attributes;
 using MoralisUnity.Samples.Shared.Data.Types.Storage;
 using MoralisUnity.Samples.Shared.DesignPatterns.Creational.Singleton.CustomSingletonScriptableObject;
 using MoralisUnity.Samples.SimCityWeb3.View.UI;
+using MoralisUnity.Sdk.Exceptions;
+using MoralisUnity.Web3Api.Models;
 using UnityEngine;
 
+#pragma warning disable 
 namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 {
     /// <summary>
@@ -25,10 +27,34 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
         public SceneData GameSceneData { get { return SceneDataStorage.SceneDatas[3];}}
         public SimCityWeb3ServiceType SimCityWeb3ServiceType { get { return _simCityWeb3ServiceType;}}
 
-        [SerializeField]
-        private List<SceneData> _sceneDatas = null;
+        /// <summary>
+        /// Convert <see cref="SimCityWeb3ChainList"/> to <see cref="Web3Api.Models.ChainList"/>
+        /// </summary>
+        public ChainList ChainList
+        {
+            get
+            {
+                ChainList chainList = ChainList.mumbai; //Arbitrary default
+                switch (_simCityWeb3ChainList)
+                {
+                    case SimCityWeb3ChainList.PolygonMumbai:
+                        chainList = ChainList.mumbai;
+                        break;
+                    case SimCityWeb3ChainList.CronosTestnet:
+                        chainList = ChainList.cronos_testnet;
+                        break;
+                    default:
+                        SwitchDefaultException.Throw(_simCityWeb3ChainList);
+                        break;
+                }
 
+                return chainList;
+            }
+        }
+        
         // Fields -----------------------------------------
+        public const string Title = SimCityWeb3Constants.ProjectName + " Configuration";
+
         [Header("References (Project)")]
         [SerializeField]
         private SimCityWeb3View _simCityWeb3ViewPrefab = null;
@@ -43,10 +69,11 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
         
         [Tooltip("Use either Moralis Database (dev) or Moralis Web3 (prod)")]
         [SerializeField]
-        public SimCityWeb3ServiceType _simCityWeb3ServiceType = SimCityWeb3ServiceType.Null;
+        private SimCityWeb3ServiceType _simCityWeb3ServiceType = SimCityWeb3ServiceType.Null;
 
-        public const string Title = SimCityWeb3Constants.ProjectName + " Configuration";
-
+        [SerializeField]
+        private SimCityWeb3ChainList _simCityWeb3ChainList = SimCityWeb3ChainList.Null;
+        
         
         // Unity Methods ----------------------------------
 

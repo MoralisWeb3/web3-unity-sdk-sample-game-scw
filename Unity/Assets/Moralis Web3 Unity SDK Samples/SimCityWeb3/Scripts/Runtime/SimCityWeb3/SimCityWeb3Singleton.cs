@@ -5,6 +5,8 @@ using MoralisUnity.Samples.SimCityWeb3.Model;
 using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
 using MoralisUnity.Samples.SimCityWeb3.Service;
 using MoralisUnity.Sdk.DesignPatterns.Creational.Singleton.SingletonMonobehaviour;
+using MoralisUnity.Sdk.Exceptions;
+using MoralisUnity.Web3Api.Models;
 
 namespace MoralisUnity.Samples.SimCityWeb3
 {
@@ -49,9 +51,11 @@ namespace MoralisUnity.Samples.SimCityWeb3
 			// Service
 			SimCityWeb3ServiceType simCityWeb3ServiceType = 
 				SimCityWeb3Configuration.Instance.SimCityWeb3ServiceType;
-			
+
+			ChainList chainList = SimCityWeb3Configuration.Instance.ChainList;
+
 			_simCityWeb3Service = new SimCityWeb3ServiceFactory().
-				Create(simCityWeb3ServiceType);
+				Create(simCityWeb3ServiceType, chainList);
 
 			// Controller
 			_simCityWeb3Controller = new SimCityWeb3Controller(

@@ -89,7 +89,7 @@
 
 //14b. DEPLOY SMART CONTRACT via COMMAND LINE
 
-npx hardhat run scripts/deployProperty.js --network cronosTestnet
+    npx hardhat run scripts/deployProperty.js --network cronosTestnet
 
 
 //15. CHOOSE 15a or 15b DEPENDING ON YOUR TARGET BLOCKCHAIN   

@@ -1,6 +1,7 @@
 using System;
 using System.Text;
 using Cysharp.Threading.Tasks;
+using MoralisUnity.Web3Api.Models;
 using Nethereum.Hex.HexTypes;
 using UnityEngine;
 using WalletConnectSharp.Unity;
@@ -15,16 +16,17 @@ namespace MoralisUnity.Samples.Shared.Data.Types
 		// Properties -------------------------------------
 		public string Address { get { return _address; } }
 		public string Abi { get { return _abi; } }
-
+		public ChainList ChainList { get { return _chainList; } }
 		
 		// Fields -----------------------------------------
 		protected string _address;
 		protected string _abi;
+		protected ChainList _chainList;
 
 		// Initialization Methods -------------------------
-		public Contract()
+		public Contract(ChainList chainList)
 		{
-			
+			_chainList = chainList;
 		}
 		
 		
