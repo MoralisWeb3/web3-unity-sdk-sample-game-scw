@@ -180,7 +180,7 @@
       }
     },
     "io.moralis.web3-unity-sdk": {
-      "version": "1.2.6",
+      "version": "1.2.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {
