@@ -16,4 +16,4 @@ MonoBehaviour:
   _mapPropertyUIPrefab: {fileID: 1720784973983898717, guid: 65b580b5c5556fd4fa9306f85617e110, type: 3}
   _sceneDataStorage: {fileID: 11400000, guid: 81d335281c7572a41b9d84c3deede854, type: 2}
   _simCityWeb3ServiceType: 3
-  _simCityWeb3ChainList: 80001
+  _simCityWeb3ChainList: 338

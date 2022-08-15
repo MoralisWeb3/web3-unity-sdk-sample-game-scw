@@ -1,8 +1,9 @@
-using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using Cysharp.Threading.Tasks;
 using MoralisUnity.Samples.Shared.Data.Types;
 using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
+using MoralisUnity.Sdk.Utilities;
 using MoralisUnity.Web3Api.Models;
 using UnityEngine;
 
@@ -24,7 +25,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 		private readonly PendingMessage _pendingMessageForSave = new PendingMessage("Please confirm transaction in your wallet", 0);
 		private readonly PropertyContract _propertyContract = null;
 
-		private bool _isAvailableGetNFTOwners = true;
+		private bool _hasLoggedOnce = false;
 		
 		// Initialization Methods -------------------------
 		public SimCityWeb3ContractService(ChainList chainList)
@@ -39,53 +40,38 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 			// Create Method Return Value
 			List<PropertyData> propertyDatas = new List<PropertyData>();
 
-			if (_isAvailableGetNFTOwners)
+			// Check System Status
+			bool hasMoralisUser = await SimCityWeb3Singleton.Instance.HasMoralisUserAsync();
+			if (!hasMoralisUser)
 			{
-				// Check System Status
-				bool hasMoralisUser = await SimCityWeb3Singleton.Instance.HasMoralisUserAsync();
-				if (!hasMoralisUser)
-				{
-					Debug.LogError(SimCityWeb3Constants.ErrorMoralisUserRequired);
-					return null;
-				}
-
-				// Get NFT Info
-				NftOwnerCollection nftOwnerCollection = null;
-				try
-				{
-					nftOwnerCollection = await Moralis.Web3Api.Token.GetNFTOwners(
-						_propertyContract.Address,
-						ChainList.mumbai);
-				}
-				catch (Exception e)
-				{
-					if (e.Message.ToLower().Contains("deprecated"))
-					{
-						_isAvailableGetNFTOwners = false;
-					}
-
-					Debug.LogWarning("CLIENT SIDE: " + e.Message);
-				}
-
-
-				// Create Method Return Value
-				if (nftOwnerCollection != null)
-				{
-					foreach (NftOwner nftOwner in nftOwnerCollection.Result)
-					{
-						string ownerAddress = nftOwner.OwnerOf;
-						string tokenIdString = nftOwner.TokenId;
-						string metadata = nftOwner.TokenUri;
-						//Debug.Log($"nftOwner ownerAddress={ownerAddress} tokenIdString={tokenIdString} metadata={metadata}");
-						propertyDatas.Add(
-							PropertyData.CreateNewPropertyDataFromMetadata(ownerAddress, tokenIdString, metadata));
-					}
-				}
-
+				Debug.LogError(SimCityWeb3Constants.ErrorMoralisUserRequired);
+				return null;
 			}
-			else
+
+			if (!_hasLoggedOnce)
 			{
-				//Debug.LogWarning($"GetNFTOwners() failed. isAvailableGetNFTOwners={_isAvailableGetNFTOwners}. Try again next SDK version.");
+				_hasLoggedOnce = true;
+				string address = Formatters.GetWeb3AddressShortFormat(_propertyContract.Address);
+				Debug.Log($"GetNFTOwners() Address = {address}, " +
+				          $"ChainList = {_propertyContract.ChainList}");
+			}
+		
+			// Get NFT Info
+			NftOwnerCollection  nftOwnerCollection = 
+				await Moralis.Web3Api.Token.GetNFTOwners(
+					_propertyContract.Address,
+					_propertyContract.ChainList);
+
+			// Create Method Return Value
+			foreach (NftOwner nftOwner in nftOwnerCollection.Result)
+			{
+				string ownerAddress = nftOwner.OwnerOf;
+				string tokenIdString = nftOwner.TokenId;
+				string metadata = nftOwner.TokenUri;
+				
+				//Debug.Log($"nftOwner ownerAddress={ownerAddress} tokenIdString={tokenIdString} metadata={metadata}");
+				propertyDatas.Add(
+					PropertyData.CreateNewPropertyDataFromMetadata(ownerAddress, tokenIdString, metadata));
 			}
 
 			// Finalize Method Return Value

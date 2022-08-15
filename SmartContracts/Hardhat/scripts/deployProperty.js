@@ -28,11 +28,8 @@ async function main()
   console.log("\n");
   console.log("DEPLOYMENT COMPLETE: COPY TO UNITY...");
   console.log("\n");
-  console.log("       protected override void SetContractDetails()");
-  console.log("       {\n");
   console.log("         _address  = \"%s\";", property.address);
   console.log("         _abi      = \"%s\";\n", abi);
-  console.log("       }\n");
   console.log("\n");
 
 
