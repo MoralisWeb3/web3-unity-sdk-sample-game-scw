@@ -1,7 +1,9 @@
+import Link from 'next/link'
+
 export default function BottomNav({ children }) {
   return (
     <>
-      <p>BottomNav</p>
+      <Link href="/"><a>Home</a></Link>
     </>
   )
 }

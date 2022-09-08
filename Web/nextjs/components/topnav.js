@@ -1,7 +1,8 @@
 export default function TopNav({ children }) {
   return (
     <>
-      <p>TopNav</p>
+      <h1>Sim City Web3 - Web Companion</h1>
+      <p>This is the blah...</p>
     </>
   )
 }

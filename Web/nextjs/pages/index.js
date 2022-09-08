@@ -1,14 +1,14 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 function HomePage() {
     return  <div>
-                <h1>Sim City Web3 - Web Companion</h1>
                 <ol>
-                    <li>Visit the <a href="./signin">Sign In</a></li>
-                    <li>See your <a href="./user">User</a> data</li>
-                    <li>See all <a href="./native">Native</a> Nft property data</li>
+                    <li>Visit the<Link href="/signin"><a>Sign In</a></Link>!</li> 
+                    <li>See you <Link href="/user"><a>User</a></Link>!</li> 
+                    <li>See all <Link href="/native"><a>Nft Property</a></Link> Info</li> 
                 </ol>
-                <p> /native and /user</p>
+                <p> /native and /user</p>   
                 <Image  
                     src="/Screenshot_07.png"
                     width={200}
