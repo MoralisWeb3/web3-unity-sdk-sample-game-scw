@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using MoralisUnity.Examples.Sdk.Shared.Data.Types.Storage;
 using MoralisUnity.Samples.Shared.Data.Types.Storage;
-using UnityEditor;
+using MoralisUnity.Samples.Shared.Utilities;
 using MoralisUnity.Sdk.Constants;
 using MoralisUnity.Sdk.UI.ReadMe;
+using UnityEditor;
 using UnityEngine;
-using MoralisUnity.Samples.Shared.Utilities;
 
 namespace MoralisUnity.Samples.SimCityWeb3.Shared
 {
@@ -15,7 +15,6 @@ namespace MoralisUnity.Samples.SimCityWeb3.Shared
 	/// </summary>
 	public static class SimCityWeb3MenuItems
 	{
-		
 		[MenuItem(MoralisConstants.PathMoralisSamplesWindowMenu + "/" +
 			SimCityWeb3Constants.ProjectName + "/" + SimCityWeb3Constants.OpenReadMe, false,
 			SimCityWeb3Constants.PriorityMoralisWindow_Examples)]

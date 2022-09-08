@@ -1,8 +1,12 @@
 {
-    "name": "Moralis.Shared.Editor",
+    "name": "Moralis.SimCityWeb3.Editor",
     "rootNamespace": "",
     "references": [
-        "GUID:608582e519fa34947a479003f6c91ed4"
+        "GUID:16d753ebfd66aa84bb4b6247ef57c514",
+        "GUID:b7ec6c9c8dcdf484991e160de7fb2b02",
+        "GUID:f0539f03af27ce64ab85271316a8531f",
+        "GUID:608582e519fa34947a479003f6c91ed4",
+        "GUID:b882fdc595d4d054f86d5a54a91c66c8"
     ],
     "includePlatforms": [
         "Editor"
@@ -11,7 +15,7 @@
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
-    "autoReferenced": false,
+    "autoReferenced": true,
     "defineConstraints": [],
     "versionDefines": [],
     "noEngineReferences": false
