@@ -136,9 +136,9 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 		{
 			List<PropertyData> propertyDatas = await _simCityWeb3Service.LoadPropertyDatasAsync();
 
-			_simCityWeb3Model.PropertyDatas = propertyDatas;
+			_simCityWeb3Model.SetPropertyDatas(propertyDatas);
 
-			return _simCityWeb3Model.PropertyDatas;
+			return _simCityWeb3Model.GetPropertyDatas();
 		}
 
 		
@@ -156,7 +156,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Controller
 		
 		public async UniTask DeleteAllPropertyDatasAsync()
 		{
-			List<PropertyData> propertyDatas = _simCityWeb3Model.PropertyDatas;
+			List<PropertyData> propertyDatas = _simCityWeb3Model.GetPropertyDatas();
 			await _simCityWeb3Service.DeleteAllPropertyDatasAsync(propertyDatas);
 		}
 

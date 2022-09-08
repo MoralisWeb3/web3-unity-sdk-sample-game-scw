@@ -1,0 +1,18 @@
+{
+    "name": "Moralis.Shared.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:608582e519fa34947a479003f6c91ed4"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

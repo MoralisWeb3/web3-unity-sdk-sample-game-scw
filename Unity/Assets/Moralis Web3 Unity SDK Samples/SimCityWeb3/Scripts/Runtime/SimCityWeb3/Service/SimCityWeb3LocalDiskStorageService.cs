@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using MoralisUnity.Examples.Sdk.Shared.Data.Types.Storage;
@@ -88,24 +89,22 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 		{
 			SimCityWeb3LocalData simCityWeb3LocalData = LoadSimCityWeb3LocalData();
 
-			int foundIndex = simCityWeb3LocalData.PropertyDatas.FindIndex( propertyData1 => AreSamePropertyData(propertyData1, propertyData));
+			int foundIndex = simCityWeb3LocalData.PropertyDatas.FindIndex( nextPropertyData => nextPropertyData.Equals(propertyData));
 
-			if (foundIndex == -1)
+			if (foundIndex != -1)
 			{
-				///////////////////////////////////////////
-				// Execute: Add
-				///////////////////////////////////////////
-				simCityWeb3LocalData.PropertyDatas.Add(propertyData);
+				throw new Exception($"PropertyData MUST NOT exist before adding");
+			}
+			
+			///////////////////////////////////////////
+			// Execute: Add
+			///////////////////////////////////////////
+			simCityWeb3LocalData.PropertyDatas.Add(propertyData);
 				
-				///////////////////////////////////////////
-				// Execute: Save
-				///////////////////////////////////////////
-				SaveSimCityWeb3LocalData(simCityWeb3LocalData);
-			}
-			else
-			{
-				Debug.LogError("This already exists. Data is corrupt?");
-			}
+			///////////////////////////////////////////
+			// Execute: Save
+			///////////////////////////////////////////
+			SaveSimCityWeb3LocalData(simCityWeb3LocalData);
 			
 			// Return the original, untouched
 			// The method signature is more helpful for the
@@ -118,24 +117,22 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 		{
 			SimCityWeb3LocalData simCityWeb3LocalData = LoadSimCityWeb3LocalData();
 
-			int foundIndex = simCityWeb3LocalData.PropertyDatas.FindIndex( propertyData1 => AreSamePropertyData(propertyData1, propertyData));
+			int foundIndex = simCityWeb3LocalData.PropertyDatas.FindIndex( nextPropertyData => nextPropertyData.Equals(propertyData));
 			
-			if (foundIndex != -1)
+			if (foundIndex == -1)
 			{
-				///////////////////////////////////////////
-				// Execute: Remove
-				///////////////////////////////////////////
-				simCityWeb3LocalData.PropertyDatas.RemoveAt(foundIndex);
+				throw new Exception($"PropertyData MUST exist before deletion");
+			}
+			
+			///////////////////////////////////////////
+			// Execute: Remove
+			///////////////////////////////////////////
+			simCityWeb3LocalData.PropertyDatas.RemoveAt(foundIndex);
 				
-				///////////////////////////////////////////
-				// Execute: Save
-				///////////////////////////////////////////
-				SaveSimCityWeb3LocalData(simCityWeb3LocalData);
-			}
-			else
-			{
-				Debug.LogError("Was not found. Choose new C# to find this.");
-			}
+			///////////////////////////////////////////
+			// Execute: Save
+			///////////////////////////////////////////
+			SaveSimCityWeb3LocalData(simCityWeb3LocalData);
 		}
 
 		
@@ -153,20 +150,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 			///////////////////////////////////////////
 			SaveSimCityWeb3LocalData(simCityWeb3LocalData);
 		}
-		
-		
-		private bool AreSamePropertyData(PropertyData a, PropertyData b)
-		{
-			if (a.Latitude.Equals(b.Latitude) &&
-			    a.Longitude.Equals(b.Longitude) &&
-			    a.OwnerAddress.Equals(b.OwnerAddress) 
-			   )
-			{
-				return true;
-			}
 
-			return false;
-		}
 
 		
 		// Event Handlers ---------------------------------

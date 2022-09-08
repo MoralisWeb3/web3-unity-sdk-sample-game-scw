@@ -1,0 +1,23 @@
+{
+    "name": "Moralis.SimCityWeb3.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:608582e519fa34947a479003f6c91ed4",
+        "GUID:b7ec6c9c8dcdf484991e160de7fb2b02",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:f6f27f7d2a9f2cb4e96fd48310b6f2ca",
+        "GUID:d0477071c0c070841967c534fdf2c768",
+        "GUID:1876bcd3a63763342bd2845880db51aa",
+        "GUID:9bc2dd7065a133440b7701747a3d95f6"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

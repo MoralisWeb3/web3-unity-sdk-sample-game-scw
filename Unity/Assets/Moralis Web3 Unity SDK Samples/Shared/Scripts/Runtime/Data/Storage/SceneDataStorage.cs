@@ -2,14 +2,13 @@ using System.Collections.Generic;
 using MoralisUnity.Samples.Shared.Attributes;
 using MoralisUnity.Samples.Shared.Data.Types.Storage;
 using MoralisUnity.Samples.Shared.DesignPatterns.Creational.Singleton.CustomSingletonScriptableObject;
-using MoralisUnity.Samples.SimCityWeb3;
 using UnityEngine;
 
 #pragma warning disable CS0414
 namespace MoralisUnity.Examples.Sdk.Shared.Data.Types.Storage
 {
     [ReferenceByGuid (Guid = "81d335281c7572a41b9d84c3deede854")]
-    [CreateAssetMenu( menuName = SimCityWeb3Constants.PathCreateAssetMenu + "/" + Title,  fileName = Title)]
+    [CreateAssetMenu( menuName = "Moralis/Web3 Unity SDK" + Title,  fileName = Title)]
     public class SceneDataStorage: CustomSingletonScriptableObject<SceneDataStorage>
     {
         //  Properties ------------------------------------

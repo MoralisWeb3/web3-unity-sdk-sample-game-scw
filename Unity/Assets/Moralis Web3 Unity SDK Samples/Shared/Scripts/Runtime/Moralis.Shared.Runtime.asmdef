@@ -1,0 +1,21 @@
+{
+    "name": "Moralis.Shared.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b7ec6c9c8dcdf484991e160de7fb2b02",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:d0477071c0c070841967c534fdf2c768",
+        "GUID:570b4cb8b98b2944c9f69c1e96380338",
+        "GUID:029c1c1b674aaae47a6841a0b89ad80e",
+        "GUID:5214b3cf25b72d940b5c7aff5748634d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

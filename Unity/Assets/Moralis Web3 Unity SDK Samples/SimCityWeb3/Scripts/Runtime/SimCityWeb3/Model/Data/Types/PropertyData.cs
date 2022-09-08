@@ -76,6 +76,30 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model.Data.Types
 			return $"[PropertyData (Latitude = {_latitude}, Longitude = {_longitude})]";
 		}
 
+		public override bool Equals(object obj)
+		{
+			PropertyData other = (PropertyData)obj;
+			if (other == null)
+			{
+				return false;
+			}
+			
+			if (Latitude.Equals(other.Latitude) &&
+			    Longitude.Equals(other.Longitude) &&
+			    OwnerAddress.Equals(other.OwnerAddress) 
+			   )
+			{
+				return true;
+			}
+
+			return false;
+		}
+
+		public override int GetHashCode()
+		{
+			return HashCode.Combine(Latitude, Longitude, OwnerAddress);
+		}
+
 		public string GetMetadata()
 		{
 			return $"{Latitude}|{Longitude}";

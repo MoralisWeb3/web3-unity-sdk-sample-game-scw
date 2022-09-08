@@ -108,11 +108,13 @@ namespace MyBox.Internal
 			MyBoxSettings settingsInstance;
 			try
 			{
-				settingsInstance = (MyBoxSettings) UnityEditorInternal.InternalEditorUtility.LoadSerializedFileAndForget(Path)[0];
+				var x= UnityEditorInternal.InternalEditorUtility.LoadSerializedFileAndForget(Path)[0];
+				settingsInstance = (MyBoxSettings)x;
 			}
-			catch (Exception ex)
+			catch
 			{
-				Debug.LogError("Unable to read MyBoxSettings, set to defaults" + ex);
+				//After putting MyBox classes into a ASMDEF, this error happens. For my uses, I can ignore - srivello
+				//Debug.LogError("Unable to read MyBoxSettings, set to defaults" + ex);
 				settingsInstance = null;
 			}
 

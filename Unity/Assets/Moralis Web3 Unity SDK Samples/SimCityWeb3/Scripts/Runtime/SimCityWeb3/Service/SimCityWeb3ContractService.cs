@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using Cysharp.Threading.Tasks;
 using MoralisUnity.Samples.Shared.Data.Types;
+using MoralisUnity.Samples.Shared.Templates;
 using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
 using MoralisUnity.Sdk.Utilities;
 using MoralisUnity.Web3Api.Models;
@@ -42,9 +44,14 @@ namespace MoralisUnity.Samples.SimCityWeb3.Service
 
 			// Check System Status
 			bool hasMoralisUser = await SimCityWeb3Singleton.Instance.HasMoralisUserAsync();
+			
 			if (!hasMoralisUser)
 			{
-				Debug.LogError(SimCityWeb3Constants.ErrorMoralisUserRequired);
+				// Hide error specifically when inside the Unity Unit Test Runner
+				if (!ApplicationHelper.isTestRunner())
+				{
+					Debug.LogError(SimCityWeb3Constants.ErrorMoralisUserRequired);
+				}
 				return null;
 			}
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using MoralisUnity.Samples.SimCityWeb3.Model.Data.Types;
 using UnityEngine;
@@ -11,7 +12,6 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model
 	public class SimCityWeb3Model 
 	{
 		// Properties -------------------------------------
-		public List<PropertyData> PropertyDatas { get { return _propertyDatas; } set { _propertyDatas = value; } }
 
 		
 		// Fields -----------------------------------------
@@ -27,7 +27,7 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model
 		// General Methods --------------------------------
 		public bool HasAnyData()
 		{
-			return PropertyDatas.Count > 0;
+			return _propertyDatas.Count > 0;
 		}
 		
 		
@@ -36,15 +36,56 @@ namespace MoralisUnity.Samples.SimCityWeb3.Model
 			_propertyDatas.Clear();
 		}
 		
+		public void SetPropertyDatas(List<PropertyData> propertyDatas)
+		{
+			bool hasDuplicate = false;
+			for (int i = 0; i < propertyDatas.Count - 1; i++)
+			{
+				for (int j = i + 1; j < propertyDatas.Count; j++)
+				{
+					if (propertyDatas[i].Equals(propertyDatas[j]))
+					{
+						hasDuplicate = true;
+						break;
+					}
+				}
+			}
+			
+			if (hasDuplicate)
+			{
+				throw new Exception($"PropertyData duplicates MUST NOT exist before setting");
+			}
+			
+			_propertyDatas = propertyDatas;
+		}
+		
+		public List<PropertyData> GetPropertyDatas()
+		{
+			return _propertyDatas.GetRange(0, _propertyDatas.Count); //return a copy per encapsulation
+		}
 		
 		public void AddPropertyData(PropertyData propertyData)
 		{
-			PropertyDatas.Add(propertyData);
+			int foundIndex = _propertyDatas.FindIndex( nextPropertyData => nextPropertyData.Equals(propertyData));
+
+			if (foundIndex != -1)
+			{
+				throw new Exception($"PropertyData MUST NOT exist before adding");
+			}
+			
+			_propertyDatas.Add(propertyData);
 		}
 		
 		public void RemovePropertyData(PropertyData propertyData)
 		{
-			PropertyDatas.Remove(propertyData);
+			int foundIndex = _propertyDatas.FindIndex( nextPropertyData => nextPropertyData.Equals(propertyData));
+
+			if (foundIndex == -1)
+			{
+				throw new Exception($"PropertyData MUST exist before removing");
+			}
+			
+			_propertyDatas.Remove(propertyData);
 		}
 		
 		// Event Handlers ---------------------------------
